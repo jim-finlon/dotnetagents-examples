@@ -1,4 +1,4 @@
-name: ci
+name: examples-public-readiness
 
 on:
   push:
@@ -7,11 +7,9 @@ on:
     branches: [ main ]
 
 jobs:
-  skeleton:
+  inventory:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify repository skeleton
-        run: |
-          test -f README.md
-          test -f LICENSE
+      - name: Inventory examples
+        run: find examples -maxdepth 2 -type f | sort

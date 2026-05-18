@@ -1,5 +1,19 @@
 # DotNetAgents Examples
 
-Open-source sample agents and applications that demonstrate the public platform without exposing private or premium implementation.
+Open-source sample agents and applications that demonstrate the public DotNetAgents platform without exposing DNA private factory, premium, test environment, or hosted-service implementation.
 
-This public repository is intentionally born with fresh history from the LAN Forgejo source of truth. Private workspace history and premium/private platform code are not part of this repository.
+This repository is a fresh-history snapshot from the LAN Forgejo source of truth. It intentionally contains public-safe examples only. Private workspace history and premium/private platform code are not part of this repository.
+
+## Included examples
+
+- `hello-agent-cs` - smallest runnable console shape for a DotNetAgents app.
+- `document-extraction` - public document extraction worker demo.
+- `public-entrepreneur-examples` - starter entrepreneur agents.
+- `business-operations` - basic CRM, calendar, communication, and project-management patterns.
+- `education` - tutor/classroom-oriented public examples.
+- `writing-publishing` - public-safe writing assistant patterns.
+- `control-loop-reference-patterns` - generic control-loop examples.
+- `mcp-thin-host-template` - public MCP thin-host starter.
+- `road-access-dotnet-consumer` - public consumer integration sample.
+
+The examples use public package references and avoid platform service service implementations, orchestration service, memory service, credential provider custody internals, evaluation/test environment orchestration, private LAN hosts, proprietary prompts, and commercial media workflow code.
