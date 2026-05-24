@@ -1,0 +1,124 @@
+@page "/boss-office"
+@using System.Globalization
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using SalesArena.Manager.Web.Services.BossOffice
+@attribute [Authorize]
+@implements IDisposable
+@inject IBossOfficeMetricsProvider Metrics
+@inject IOperatorDashboardGate OperatorGate
+@inject NavigationManager Navigation
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<PageTitle>Boss Office</PageTitle>
+
+@if (!_allowed)
+{
+    <div class="sa-boss-office sa-boss-office--denied" data-testid="boss-office-denied">
+        <h1>Operator only</h1>
+        <p>Spectators cannot view the Boss Office. Return to the floor view.</p>
+        <a href="/floor" class="sa-boss-office__link">Go to floor</a>
+    </div>
+}
+else
+{
+    <div class="sa-boss-office" data-testid="boss-office-dashboard">
+        <header class="sa-boss-office__header">
+            <h1 class="sa-boss-office__title">Boss Office</h1>
+            <p class="sa-boss-office__subtitle">Private operator metrics — reps never see this view.</p>
+            <p class="sa-boss-office__as-of" data-testid="boss-office-as-of">
+                Cost catalog as of <strong>@_snapshot.AsOfUtc.ToString("u", CultureInfo.InvariantCulture)</strong>
+                · refreshed <strong>@_snapshot.GeneratedAtUtc.ToString("HH:mm:ss", CultureInfo.InvariantCulture)</strong> UTC
+            </p>
+        </header>
+
+        <div class="sa-boss-office__grid">
+            <article class="sa-boss-office__card" data-testid="widget-contest-roi">
+                <h2>Contest ROI</h2>
+                <p class="sa-boss-office__metric">@FormatCurrency(_snapshot.ContestRoiUsd)</p>
+                <p class="sa-boss-office__hint">Revenue minus modeled touch + tier spend</p>
+            </article>
+
+            <article class="sa-boss-office__card" data-testid="widget-cost-per-touch">
+                <h2>Cost per touch</h2>
+                <p class="sa-boss-office__metric">@FormatCurrency(_snapshot.CostPerTouchUsd)</p>
+                <ul class="sa-boss-office__spark">
+                    @foreach (var point in _snapshot.CostPerTouchTrend)
+                    {
+                        <li title="@point.HourUtc.ToString("u", CultureInfo.InvariantCulture)">
+                            @FormatCurrency(point.CostUsd)
+                        </li>
+                    }
+                </ul>
+            </article>
+
+            <article class="sa-boss-office__card" data-testid="widget-model-tier-spend">
+                <h2>Model-tier spend</h2>
+                <ul class="sa-boss-office__tier-list">
+                    @foreach (var tier in _snapshot.ModelTierSpend)
+                    {
+                        <li>
+                            <span>@tier.TierName</span>
+                            <strong>@FormatCurrency(tier.SpendUsd)</strong>
+                        </li>
+                    }
+                </ul>
+            </article>
+
+            <article class="sa-boss-office__card" data-testid="widget-opportunity-cost">
+                <h2>Opportunity cost / persona</h2>
+                <ul class="sa-boss-office__persona-list">
+                    @foreach (var row in _snapshot.OpportunityCostPerPersona)
+                    {
+                        <li>
+                            <span>@row.DisplayName</span>
+                            <strong>@FormatCurrency(row.CostUsd)</strong>
+                        </li>
+                    }
+                </ul>
+            </article>
+
+            <article class="sa-boss-office__card" data-testid="widget-contest-velocity">
+                <h2>Contest velocity</h2>
+                <p class="sa-boss-office__metric">@_snapshot.ContestVelocityTouchesPerHour.ToString("0.0", CultureInfo.InvariantCulture)</p>
+                <p class="sa-boss-office__hint">Touches per hour (demo)</p>
+            </article>
+
+            <article class="sa-boss-office__card" data-testid="widget-prospect-saturation">
+                <h2>Prospect saturation</h2>
+                <p class="sa-boss-office__metric">@_snapshot.ProspectSaturationPercent.ToString("0.0", CultureInfo.InvariantCulture)%</p>
+                <p class="sa-boss-office__hint">Share of pool worked</p>
+            </article>
+        </div>
+    </div>
+}
+
+@code {
+    private BossOfficeMetricsSnapshot _snapshot = null!;
+    private bool _allowed;
+    private Timer? _uiTimer;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        _allowed = OperatorGate.CanAccess(authState.User);
+        if (!_allowed)
+        {
+            return;
+        }
+
+        _snapshot = Metrics.GetSnapshot();
+        _uiTimer = new Timer(_ => InvokeAsync(() =>
+        {
+            _snapshot = Metrics.GetSnapshot();
+            StateHasChanged();
+            return Task.CompletedTask;
+        }), null, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
+    }
+
+    public void Dispose() => _uiTimer?.Dispose();
+
+    private static string FormatCurrency(decimal value) =>
+        value.ToString("C0", CultureInfo.GetCultureInfo("en-US"));
+}

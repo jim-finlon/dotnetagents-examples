@@ -1,0 +1,143 @@
+@page "/draft/{ContestId}"
+@using SalesArena.Draft
+@using SalesArena.Orchestrator.Ledger
+@inject IArenaLedger Ledger
+
+<PageTitle>Persona draft - Sales Arena</PageTitle>
+
+<PageHeader Title="Persona draft"
+            SubTitle="Snake-draft personas into operator pod slots before the contest starts." />
+
+<section class="draft-shell" data-testid="draft-page">
+    <PanelCard Title="Draft board" SubTitle="@($"Contest {ContestId} · revision {_state.Revision}")">
+        <div class="draft-board" data-testid="draft-order">
+            @foreach (var operatorModel in _state.Operators)
+            {
+                <article class="@($"draft-operator {(operatorModel.OperatorId == _state.CurrentOperatorId ? "draft-operator--active" : "")}")">
+                    <span>@operatorModel.DisplayName</span>
+                    <strong>@FormatElo(operatorModel)</strong>
+                    <ol>
+                        @foreach (var pick in _state.PodAssignments.Where(pick => pick.OperatorId == operatorModel.OperatorId))
+                        {
+                            <li>@PersonaName(pick.PersonaId)</li>
+                        }
+                    </ol>
+                </article>
+            }
+        </div>
+    </PanelCard>
+
+    <PanelCard Title="Free agents" SubTitle="@_status">
+        @if (_state.CurrentOperatorId is null)
+        {
+            <p class="draft-empty" data-testid="draft-complete">Draft complete.</p>
+        }
+        else
+        {
+            <p class="draft-turn" data-testid="draft-current-turn">
+                On the clock: <strong>@OperatorName(_state.CurrentOperatorId)</strong>
+            </p>
+        }
+
+        <div class="draft-free-agents">
+            @foreach (var persona in _state.FreeAgents)
+            {
+                var picked = !_state.AvailablePersonaIds.Contains(persona.PersonaId, StringComparer.OrdinalIgnoreCase);
+                <button type="button"
+                        class="draft-persona"
+                        disabled="@(picked || _state.CurrentOperatorId is null)"
+                        data-testid="@($"draft-pick-{persona.PersonaId}")"
+                        @onclick="() => PickAsync(persona.PersonaId)">
+                    <strong>@persona.DisplayName</strong>
+                    <span>@(persona.IsCommunityUpload ? "Community" : "Canonical")</span>
+                    <small>@(picked ? "Picked" : "Available")</small>
+                </button>
+            }
+        </div>
+    </PanelCard>
+
+    <PanelCard Title="Pick ledger" SubTitle="DraftPickMade events emitted to the Arena ledger.">
+        @if (_events.Count == 0)
+        {
+            <p class="draft-empty" data-testid="draft-ledger-empty">No picks yet.</p>
+        }
+        else
+        {
+            <ol class="draft-ledger" data-testid="draft-ledger">
+                @foreach (var evt in _events)
+                {
+                    var payload = evt.GetPayload<DraftPickMadePayload>()!;
+                    <li>
+                        <span>#{payload.PickNumber}</span>
+                        <strong>@OperatorName(payload.OperatorId)</strong>
+                        <span>@PersonaName(payload.PersonaId)</span>
+                        <small>slot @payload.PodSlot · @evt.Kind</small>
+                    </li>
+                }
+            </ol>
+        }
+    </PanelCard>
+</section>
+
+@code {
+    [Parameter] public string ContestId { get; set; } = "demo-contest";
+
+    private DraftState _state = default!;
+    private readonly List<ArenaEvent> _events = [];
+    private string _status = "Ready to draft.";
+
+    protected override void OnParametersSet()
+    {
+        _state ??= PersonaDraftEngine.Create(
+            ContestId,
+            [
+                new("operator-a", "Avery", 1660),
+                new("operator-b", "Blake", 1595),
+                new("operator-c", "Casey", null),
+            ],
+            [
+                new("roma", "Roma"),
+                new("moss", "Moss"),
+                new("aaronow", "Aaronow"),
+                new("levene", "Levene"),
+                new("williamson", "Williamson"),
+                new("engineer", "Engineer", IsCommunityUpload: true),
+                new("hardballer", "Hardballer", IsCommunityUpload: true),
+                new("influencer", "Influencer", IsCommunityUpload: true),
+                new("the-silent-one", "The Silent One", IsCommunityUpload: true),
+            ],
+            picksPerOperator: 3);
+    }
+
+    private async Task PickAsync(string personaId)
+    {
+        if (_state.CurrentOperatorId is null)
+            return;
+
+        try
+        {
+            var result = PersonaDraftEngine.Pick(
+                _state,
+                _state.CurrentOperatorId,
+                personaId,
+                _state.Revision,
+                DateTimeOffset.UtcNow);
+            _state = result.State;
+            _events.Add(await Ledger.AppendAsync(result.Event).ConfigureAwait(false));
+            _status = $"{PersonaName(personaId)} drafted by {OperatorName(result.Event.GetPayload<DraftPickMadePayload>()!.OperatorId)}.";
+        }
+        catch (InvalidOperationException ex)
+        {
+            _status = ex.Message;
+        }
+    }
+
+    private string OperatorName(string operatorId) =>
+        _state.Operators.FirstOrDefault(op => op.OperatorId == operatorId)?.DisplayName ?? operatorId;
+
+    private string PersonaName(string personaId) =>
+        _state.FreeAgents.FirstOrDefault(persona => persona.PersonaId == personaId)?.DisplayName ?? personaId;
+
+    private static string FormatElo(DraftOperator operatorModel) =>
+        operatorModel.PreviousSeasonElo is null ? "random seed" : $"{operatorModel.PreviousSeasonElo} ELO";
+}

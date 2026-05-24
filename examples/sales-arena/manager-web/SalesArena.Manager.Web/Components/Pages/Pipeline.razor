@@ -1,0 +1,82 @@
+@page "/pipeline"
+@using Microsoft.AspNetCore.Authorization
+@using SalesArena.Manager.Web.Components.Funnel
+@using SalesArena.Manager.Web.Services
+@using SalesArena.Manager.Web.Services.Pipeline
+@attribute [Authorize]
+@implements IAsyncDisposable
+@inject ArenaLiveFeed LiveFeed
+@inject PipelineFunnelState FunnelState
+
+<PageTitle>Pipeline — Sales Arena</PageTitle>
+
+<PageHeader Title="Pipeline"
+            SubTitle="Live CRM funnel — ledger-driven stage flow and revenue particles" />
+
+<section class="sa-pipeline" data-testid="pipeline-page">
+    <SalesFunnelWidget />
+
+    <div class="sa-pipeline__scoreboard" data-testid="pipeline-scoreboard" aria-live="polite">
+        <span class="sa-pipeline__scoreboard-label">Cumulative revenue</span>
+        <strong class="sa-pipeline__scoreboard-value">$@FunnelState.CumulativeRevenueUsd.ToString("N0")</strong>
+    </div>
+</section>
+
+@code {
+    private PeriodicTimer? _refreshTimer;
+    private CancellationTokenSource? _refreshCts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        FunnelState.StateChanged += OnFunnelStateChanged;
+        _refreshCts = new CancellationTokenSource();
+        _refreshTimer = new PeriodicTimer(TimeSpan.FromMilliseconds(500));
+
+        try
+        {
+            await LiveFeed.EnsureConnectedAsync().ConfigureAwait(false);
+        }
+        catch
+        {
+            // Page still renders with empty funnel when hub is unavailable (bUnit / smoke).
+        }
+
+        FunnelState.WireToFeed(LiveFeed);
+        _ = RunRefreshLoopAsync(_refreshCts.Token);
+    }
+
+    private void OnFunnelStateChanged() => _ = InvokeAsync(StateHasChanged);
+
+    private async Task RunRefreshLoopAsync(CancellationToken cancellationToken)
+    {
+        if (_refreshTimer is null)
+        {
+            return;
+        }
+
+        try
+        {
+            while (await _refreshTimer.WaitForNextTickAsync(cancellationToken).ConfigureAwait(false))
+            {
+                await InvokeAsync(StateHasChanged).ConfigureAwait(false);
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            // expected on dispose
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        FunnelState.StateChanged -= OnFunnelStateChanged;
+        FunnelState.UnwireFromFeed(LiveFeed);
+        if (_refreshCts is not null)
+        {
+            await _refreshCts.CancelAsync().ConfigureAwait(false);
+            _refreshCts.Dispose();
+        }
+
+        _refreshTimer?.Dispose();
+    }
+}

@@ -1,0 +1,247 @@
+@page "/gallery"
+@using Microsoft.AspNetCore.Authorization
+@using SalesArena.Manager.Web.Services.Gallery
+@attribute [Authorize]
+@inject ICommunityPersonaGalleryCatalog Catalog
+@inject GalleryFavoritesStore Favorites
+@inject NavigationManager Navigation
+
+<PageTitle>Persona gallery</PageTitle>
+
+<PageHeader Title="Gallery"
+            SubTitle="Community persona packs — challenge a head-to-head from the manager console" />
+
+<section class="sa-gallery" data-testid="gallery-page">
+    @if (_isLoading)
+    {
+        <p data-testid="gallery-loading">Loading persona packs…</p>
+    }
+    else if (_loadError is not null)
+    {
+        <p class="text-danger" data-testid="gallery-error">@_loadError</p>
+    }
+    else
+    {
+        <div class="sa-gallery__toolbar" role="toolbar" aria-label="Gallery filters">
+            <div class="sa-gallery__chips" data-testid="gallery-tag-filters">
+                <button type="button"
+                        class="sa-gallery__chip @(_activeTag is null ? "is-active" : null)"
+                        @onclick="() => SetTag(null)">
+                    All tags
+                </button>
+                @foreach (var tag in _allTags)
+                {
+                    <button type="button"
+                            class="sa-gallery__chip @(string.Equals(_activeTag, tag, StringComparison.OrdinalIgnoreCase) ? "is-active" : null)"
+                            data-testid="gallery-tag-chip"
+                            @onclick="() => SetTag(tag)">
+                        @tag
+                    </button>
+                }
+            </div>
+            <div class="sa-gallery__chips" data-testid="gallery-signed-filters">
+                @foreach (var filter in Enum.GetValues<GallerySignedFilter>())
+                {
+                    <button type="button"
+                            class="sa-gallery__chip @(_signedFilter == filter ? "is-active" : null)"
+                            @onclick="() => SetSignedFilter(filter)">
+                        @SignedLabel(filter)
+                    </button>
+                }
+            </div>
+            <div class="sa-gallery__chips" data-testid="gallery-elo-filters">
+                @foreach (var bracket in Enum.GetValues<GalleryEloBracket>())
+                {
+                    <button type="button"
+                            class="sa-gallery__chip @(_eloBracket == bracket ? "is-active" : null)"
+                            @onclick="() => SetEloBracket(bracket)">
+                        @EloLabel(bracket)
+                    </button>
+                }
+            </div>
+        </div>
+
+        @if (!string.IsNullOrEmpty(_challengeNotice))
+        {
+            <p class="sa-gallery__notice" data-testid="challenge-notice">@_challengeNotice</p>
+        }
+
+        @if (_visibleCards.Count == 0)
+        {
+            <p class="text-muted" data-testid="gallery-empty">No personas match these filters.</p>
+        }
+        else
+        {
+            <div class="sa-gallery__grid" data-testid="gallery-grid">
+                @foreach (var card in _visibleCards)
+                {
+                    <article class="sa-gallery__card" data-testid="gallery-card">
+                        <button type="button"
+                                class="sa-gallery__card-body"
+                                @onclick="() => OpenDetail(card.Slug)">
+                            <img class="sa-gallery__avatar"
+                                 src="@card.AvatarUrl"
+                                 alt=""
+                                 width="48"
+                                 height="48" />
+                            <div class="sa-gallery__card-title-row">
+                                <h2 class="sa-gallery__name">@GalleryTextSanitizer.Escape(card.DisplayName)</h2>
+                                <CoachOverlayBadge Persona="@card.Slug" />
+                            </div>
+                            <p class="sa-gallery__author">by @GalleryTextSanitizer.Escape(card.Author)</p>
+                            <p class="sa-gallery__bio">@GalleryTextSanitizer.Escape(card.BioExcerpt)</p>
+                            <ul class="sa-gallery__stats">
+                                <li>ELO <strong>@card.Elo</strong></li>
+                                <li>Contests <strong>@card.ContestsRun</strong></li>
+                                <li>Wins <strong>@card.Wins</strong></li>
+                                <li>Deals <strong>@card.DealsClosed</strong></li>
+                                <li>Conv <strong>@card.AvgConversionPercent.ToString("F1")%</strong></li>
+                            </ul>
+                            <ul class="sa-gallery__tags">
+                                @foreach (var tag in card.Tags.Take(4))
+                                {
+                                    <li>@GalleryTextSanitizer.Escape(tag)</li>
+                                }
+                            </ul>
+                        </button>
+                        <div class="sa-gallery__actions">
+                            <button type="button"
+                                    class="sa-gallery__favorite @(Favorites.IsFavorite(card.Slug) ? "is-on" : null)"
+                                    data-testid="favorite-toggle"
+                                    aria-pressed="@Favorites.IsFavorite(card.Slug)"
+                                    @onclick="() => ToggleFavorite(card.Slug)"
+                                    @onclick:stopPropagation="true">
+                                @(Favorites.IsFavorite(card.Slug) ? "★ Favorited" : "☆ Favorite")
+                            </button>
+                            <a class="sa-gallery__coach-link"
+                               href="/coach/@card.Slug"
+                               data-testid="coach-link"
+                               @onclick:stopPropagation="true">Coach</a>
+                            <button type="button"
+                                    class="sa-gallery__challenge"
+                                    data-testid="challenge-button"
+                                    @onclick="() => Challenge(card.Slug)"
+                                    @onclick:stopPropagation="true">
+                                Challenge
+                            </button>
+                        </div>
+                    </article>
+                }
+            </div>
+        }
+    }
+</section>
+
+@code {
+    private bool _isLoading = true;
+    private string? _loadError;
+    private IReadOnlyList<CommunityPersonaCard> _allCards = [];
+    private IReadOnlyList<CommunityPersonaCard> _visibleCards = [];
+    private IReadOnlyList<string> _allTags = [];
+    private string? _activeTag;
+    private GallerySignedFilter _signedFilter = GallerySignedFilter.All;
+    private GalleryEloBracket _eloBracket = GalleryEloBracket.All;
+    private string? _challengeNotice;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var index = await Catalog.LoadIndexAsync().ConfigureAwait(false);
+            _allCards = index.Cards;
+            _allTags = index.AllTags;
+            ApplyFilters();
+        }
+        catch (Exception ex)
+        {
+            _loadError = ex.Message;
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private void SetTag(string? tag)
+    {
+        _activeTag = tag;
+        ApplyFilters();
+    }
+
+    private void SetSignedFilter(GallerySignedFilter filter)
+    {
+        _signedFilter = filter;
+        ApplyFilters();
+    }
+
+    private void SetEloBracket(GalleryEloBracket bracket)
+    {
+        _eloBracket = bracket;
+        ApplyFilters();
+    }
+
+    private void ApplyFilters()
+    {
+        IEnumerable<CommunityPersonaCard> query = _allCards;
+
+        if (!string.IsNullOrWhiteSpace(_activeTag))
+        {
+            query = query.Where(c => c.Tags.Any(t =>
+                string.Equals(t, _activeTag, StringComparison.OrdinalIgnoreCase)));
+        }
+
+        query = _signedFilter switch
+        {
+            GallerySignedFilter.Signed => query.Where(c => c.IsSigned),
+            GallerySignedFilter.Unsigned => query.Where(c => !c.IsSigned),
+            _ => query,
+        };
+
+        query = _eloBracket switch
+        {
+            GalleryEloBracket.Bronze => query.Where(c => c.Elo < 1200),
+            GalleryEloBracket.Silver => query.Where(c => c.Elo is >= 1200 and < 1400),
+            GalleryEloBracket.Gold => query.Where(c => c.Elo >= 1400),
+            _ => query,
+        };
+
+        if (Favorites.Favorites.Count > 0)
+        {
+            query = query.OrderByDescending(c => Favorites.IsFavorite(c.Slug))
+                .ThenByDescending(c => c.Elo);
+        }
+
+        _visibleCards = query.ToList();
+    }
+
+    private void OpenDetail(string slug) => Navigation.NavigateTo($"/gallery/{Uri.EscapeDataString(slug)}");
+
+    private void ToggleFavorite(string slug)
+    {
+        Favorites.Toggle(slug);
+        ApplyFilters();
+    }
+
+    private void Challenge(string slug)
+    {
+        var queued = Catalog.QueueChallenge(slug);
+        _challengeNotice = queued is null
+            ? "Could not queue challenge."
+            : $"Challenge queued for {GalleryTextSanitizer.Escape(queued)} (head-to-head scheduler stub).";
+    }
+
+    private static string SignedLabel(GallerySignedFilter filter) => filter switch
+    {
+        GallerySignedFilter.Signed => "Signed authors",
+        GallerySignedFilter.Unsigned => "Unsigned",
+        _ => "All authors",
+    };
+
+    private static string EloLabel(GalleryEloBracket bracket) => bracket switch
+    {
+        GalleryEloBracket.Bronze => "ELO under 1200",
+        GalleryEloBracket.Silver => "ELO 1200–1399",
+        GalleryEloBracket.Gold => "ELO 1400+",
+        _ => "All ELO",
+    };
+}

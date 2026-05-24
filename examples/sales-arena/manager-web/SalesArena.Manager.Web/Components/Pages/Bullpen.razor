@@ -1,0 +1,86 @@
+@page "/bullpen"
+@page "/bell/bullpen"
+@using Microsoft.AspNetCore.Authorization
+@using SalesArena.Manager.Web.Components.Bullpen
+@using SalesArena.Manager.Web.Services
+@using SalesArena.Manager.Web.Services.Bullpen
+@attribute [AllowAnonymous]
+@implements IAsyncDisposable
+@inject ArenaLiveFeed LiveFeed
+@inject BullpenCamState BullpenState
+
+<PageTitle>Bullpen — Sales Arena</PageTitle>
+
+<PageHeader Title="Bullpen cam"
+            SubTitle="Live per-persona activity and sanitized thought bubbles (public-safe)" />
+
+<section class="sa-bullpen" data-testid="bullpen-page" aria-live="polite">
+    <p class="sa-bullpen__notice">
+        Spectator-safe feed — no prospect names or exact deal values. Share
+        <code>/bell/bullpen</code> on the bell stream.
+    </p>
+    <div class="sa-bullpen__grid" data-testid="bullpen-grid">
+        @foreach (var tile in BullpenState.Tiles)
+        {
+            <BullpenPersonaTile Tile="tile" />
+        }
+    </div>
+</section>
+
+@code {
+    private PeriodicTimer? _refreshTimer;
+    private CancellationTokenSource? _refreshCts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        BullpenState.StateChanged += OnBullpenStateChanged;
+        _refreshCts = new CancellationTokenSource();
+        _refreshTimer = new PeriodicTimer(TimeSpan.FromMilliseconds(500));
+
+        try
+        {
+            await LiveFeed.EnsureConnectedAsync().ConfigureAwait(false);
+        }
+        catch
+        {
+            // Hub optional for bUnit / offline smoke.
+        }
+
+        BullpenState.WireToFeed(LiveFeed);
+        _ = RunRefreshLoopAsync(_refreshCts.Token);
+    }
+
+    private void OnBullpenStateChanged() => _ = InvokeAsync(StateHasChanged);
+
+    private async Task RunRefreshLoopAsync(CancellationToken cancellationToken)
+    {
+        if (_refreshTimer is null)
+        {
+            return;
+        }
+
+        try
+        {
+            while (await _refreshTimer.WaitForNextTickAsync(cancellationToken).ConfigureAwait(false))
+            {
+                await InvokeAsync(StateHasChanged).ConfigureAwait(false);
+            }
+        }
+        catch (OperationCanceledException)
+        {
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        BullpenState.StateChanged -= OnBullpenStateChanged;
+        BullpenState.UnwireFromFeed(LiveFeed);
+        if (_refreshCts is not null)
+        {
+            await _refreshCts.CancelAsync().ConfigureAwait(false);
+            _refreshCts.Dispose();
+        }
+
+        _refreshTimer?.Dispose();
+    }
+}

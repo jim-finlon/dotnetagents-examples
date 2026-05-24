@@ -1,0 +1,46 @@
+@page "/floor"
+@page "/"
+@implements IAsyncDisposable
+@inject ArenaLiveFeed LiveFeed
+@inject FloorViewState FloorState
+
+<PageTitle>Floor — Sales Arena</PageTitle>
+
+<PageHeader Title="The Floor"
+            SubTitle="Live persona pods — ledger-driven via ArenaHub" />
+
+<section class="floor-grid" aria-label="Persona floor grid">
+    @foreach (var persona in FloorState.Personas)
+    {
+        <PersonaFloorCard Model="persona" />
+    }
+</section>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        FloorState.EnsureDefaultPods();
+        FloorState.StateChanged += OnFloorStateChanged;
+        FloorState.WireToFeed(LiveFeed);
+
+        try
+        {
+            await LiveFeed.EnsureConnectedAsync();
+        }
+        catch
+        {
+            // Floor still renders default pods when hub is unavailable (smoke tests).
+        }
+
+        FloorState.ApplyNewEvents(LiveFeed.RecentEvents);
+    }
+
+    private void OnFloorStateChanged() => _ = InvokeAsync(StateHasChanged);
+
+    public ValueTask DisposeAsync()
+    {
+        FloorState.StateChanged -= OnFloorStateChanged;
+        FloorState.UnwireFromFeed(LiveFeed);
+        return ValueTask.CompletedTask;
+    }
+}

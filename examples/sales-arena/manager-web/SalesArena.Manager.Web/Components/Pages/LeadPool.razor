@@ -1,0 +1,211 @@
+@page "/leads"
+@page "/lead-pool"
+@using SalesArena.Manager.Web.Services.LeadPool
+@inject ILeadPoolSnapshotProvider LeadPoolProvider
+
+<PageTitle>Lead Pool — Sales Arena</PageTitle>
+
+<PageHeader Title="Lead Pool"
+            SubTitle="Filter warm / stuck / nurture leads; drill into activity and replay." />
+
+<PanelCard Title="Pool" SubTitle="@($"{_visibleLeads.Count} of {_allLeads.Count} leads")">
+    <div class="sa-lead-pool__toolbar" role="toolbar" aria-label="Lead pool filters">
+        @foreach (var chip in _filterChips)
+        {
+            <button type="button"
+                    class="sa-lead-pool__chip @(chip == _activeFilter ? "is-active" : null)"
+                    @onclick="() => SetFilter(chip)">
+                @ChipLabel(chip)
+            </button>
+        }
+    </div>
+
+    <div class="sa-lead-pool__sort" role="group" aria-label="Sort columns">
+        <span class="text-muted me-2">Sort</span>
+        @foreach (var key in _sortKeys)
+        {
+            <button type="button"
+                    class="sa-lead-pool__sort-btn @(_sortKey == key ? "is-active" : null)"
+                    @onclick="() => ToggleSort(key)">
+                @SortLabel(key)@SortIndicator(key)
+            </button>
+        }
+    </div>
+
+    @if (_isLoading)
+    {
+        <p class="text-muted mb-0">Loading lead pool…</p>
+    }
+    else if (_loadError is not null)
+    {
+        <p class="text-danger mb-0">@_loadError</p>
+    }
+    else if (_visibleLeads.Count == 0)
+    {
+        <p class="text-muted mb-0">No leads match this filter.</p>
+    }
+    else
+    {
+        <div class="sa-lead-pool__grid-wrap">
+            <table class="sa-lead-pool__table">
+                <thead>
+                    <tr>
+                        <th>Lead</th>
+                        <th class="is-numeric">Score</th>
+                        <th>Last touch</th>
+                        <th>Persona</th>
+                        <th>Stage</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var lead in _visibleLeads)
+                    {
+                        <tr class="sa-lead-pool__row @(_selectedLead?.LeadId == lead.LeadId ? "is-selected" : null)">
+                            <td>
+                                <button type="button"
+                                        class="sa-lead-pool__row-link"
+                                        @onclick="() => SelectLead(lead)">
+                                    @lead.Company
+                                </button>
+                            </td>
+                            <td class="is-numeric">@lead.LeadScore</td>
+                            <td>@FormatTouch(lead.LastTouchUtc)</td>
+                            <td>@lead.Persona</td>
+                            <td>@lead.Stage</td>
+                            <td><span class="sa-lead-pool__badge sa-lead-pool__badge--@ChipCss(lead.ResolveFilterChip(_nowUtc))">@ChipLabel(lead.ResolveFilterChip(_nowUtc))</span></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</PanelCard>
+
+@if (_selectedLead is not null)
+{
+    <PanelCard Title="@($"Activity — {_selectedLead.Company}")" SubTitle="@_selectedLead.LeadId">
+        <p class="mb-2">
+            <a class="sa-lead-pool__replay-link" href="@ReplayHref(_selectedLead.LeadId)">Open in Replay</a>
+        </p>
+        <ul class="sa-lead-pool__activity">
+            @foreach (var entry in _selectedLead.ActivityLog)
+            {
+                <li>
+                    <span class="sa-lead-pool__activity-time">@FormatTouch(entry.OccurredAtUtc)</span>
+                    <span>@entry.Summary</span>
+                </li>
+            }
+        </ul>
+    </PanelCard>
+}
+
+@code {
+    private static readonly LeadPoolFilterChip[] _filterChips =
+    [
+        LeadPoolFilterChip.Hot,
+        LeadPoolFilterChip.Warm,
+        LeadPoolFilterChip.Stuck,
+        LeadPoolFilterChip.Nurture,
+        LeadPoolFilterChip.Won,
+        LeadPoolFilterChip.Lost,
+    ];
+
+    private static readonly LeadPoolSortKey[] _sortKeys =
+    [
+        LeadPoolSortKey.LeadScore,
+        LeadPoolSortKey.LastTouch,
+        LeadPoolSortKey.Persona,
+        LeadPoolSortKey.Stage,
+    ];
+
+    private IReadOnlyList<LeadPoolLead> _allLeads = [];
+    private List<LeadPoolLead> _visibleLeads = [];
+    private LeadPoolFilterChip _activeFilter = LeadPoolFilterChip.Hot;
+    private LeadPoolSortKey _sortKey = LeadPoolSortKey.LeadScore;
+    private bool _sortDescending = true;
+    private LeadPoolLead? _selectedLead;
+    private bool _isLoading = true;
+    private string? _loadError;
+    private DateTimeOffset _nowUtc = DateTimeOffset.UtcNow;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _allLeads = await LeadPoolProvider.GetLeadsAsync();
+            RefreshVisible();
+        }
+        catch (Exception ex)
+        {
+            _loadError = ex.Message;
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private void SetFilter(LeadPoolFilterChip filter)
+    {
+        _activeFilter = filter;
+        _selectedLead = null;
+        RefreshVisible();
+    }
+
+    private void ToggleSort(LeadPoolSortKey key)
+    {
+        if (_sortKey == key)
+        {
+            _sortDescending = !_sortDescending;
+        }
+        else
+        {
+            _sortKey = key;
+            _sortDescending = key is LeadPoolSortKey.LeadScore or LeadPoolSortKey.LastTouch;
+        }
+
+        RefreshVisible();
+    }
+
+    private void SelectLead(LeadPoolLead lead) => _selectedLead = lead;
+
+    private void RefreshVisible()
+    {
+        _nowUtc = DateTimeOffset.UtcNow;
+        var filtered = LeadPoolQuery.ApplyFilter(_allLeads, _activeFilter, _nowUtc);
+        _visibleLeads = LeadPoolQuery.ApplySort(filtered, _sortKey, _sortDescending).ToList();
+    }
+
+    private static string ChipLabel(LeadPoolFilterChip chip) => chip switch
+    {
+        LeadPoolFilterChip.Hot => "Hot",
+        LeadPoolFilterChip.Warm => "Warm",
+        LeadPoolFilterChip.Stuck => "Stuck",
+        LeadPoolFilterChip.Nurture => "Nurture",
+        LeadPoolFilterChip.Won => "Won",
+        LeadPoolFilterChip.Lost => "Lost",
+        _ => "All",
+    };
+
+    private static string SortLabel(LeadPoolSortKey key) => key switch
+    {
+        LeadPoolSortKey.LeadScore => "Lead Score",
+        LeadPoolSortKey.LastTouch => "Last Touch",
+        LeadPoolSortKey.Persona => "Persona",
+        LeadPoolSortKey.Stage => "Stage",
+        _ => key.ToString(),
+    };
+
+    private string SortIndicator(LeadPoolSortKey key)
+        => _sortKey != key ? string.Empty : _sortDescending ? " ↓" : " ↑";
+
+    private static string ChipCss(LeadPoolFilterChip chip) =>
+        chip.ToString().ToLowerInvariant();
+
+    private static string FormatTouch(DateTimeOffset utc)
+        => utc.ToLocalTime().ToString("g");
+
+    private static string ReplayHref(string leadId)
+        => $"/replay?contestId=demo-contest&leadId={Uri.EscapeDataString(leadId)}";
+}

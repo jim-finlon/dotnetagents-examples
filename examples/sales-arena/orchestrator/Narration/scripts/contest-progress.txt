@@ -1,0 +1,5 @@
+# Ambient contest-progress cues. DNA-original.
+# Tokens: {elapsed_minutes}, {front_runner}, {closes}, {runner_up}
+{elapsed_minutes} minutes in. {front_runner} is up {closes} closes. {runner_up} is still warming up.
+Halftime check: {front_runner} on top with {closes}. The floor's been live for {elapsed_minutes} minutes.
+Status: {elapsed_minutes} minutes elapsed. Lead board: {front_runner} at {closes}. Watch the gap.

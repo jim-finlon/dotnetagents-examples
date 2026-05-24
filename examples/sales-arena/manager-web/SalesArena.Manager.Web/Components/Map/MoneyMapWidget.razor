@@ -1,0 +1,79 @@
+@using SalesArena.Manager.Web.Services.MoneyMap
+
+<section class="sa-money-map" data-testid="money-map-widget">
+    <p class="sa-money-map__disclaimer" data-testid="money-map-disclaimer">
+        Regional pins are approximate (region-level only). Not precise geolocation.
+    </p>
+
+    <div class="sa-money-map__layout">
+        <div class="sa-money-map__panel sa-money-map__panel--us">
+            <h3 class="sa-money-map__panel-title">United States</h3>
+            <svg class="sa-money-map__svg"
+                 viewBox="0 0 960 520"
+                 role="img"
+                 aria-label="United States revenue map"
+                 data-testid="money-map-us-svg">
+                @if (!string.IsNullOrEmpty(Model.UsMapPath))
+                {
+                    <path class="sa-money-map__land" d="@Model.UsMapPath" />
+                }
+
+                @foreach (var pin in Model.UsPins)
+                {
+                    var radius = MoneyMapState.PinRadius(pin.ValueUsd);
+                    <g class="sa-money-map__pin @(pin.IsNew ? "sa-money-map__pin--new" : null)"
+                       data-testid="money-map-pin"
+                       data-lead-id="@pin.LeadId"
+                       data-region="@pin.RegionCode">
+                        <title>@($"{pin.LeadId} · ${pin.ValueUsd:N0} · {pin.Persona} · {pin.RegionLabel}")</title>
+                        <circle cx="@pin.MapX.ToString("F1")"
+                                cy="@pin.MapY.ToString("F1")"
+                                r="@radius.ToString("F1")"
+                                fill="@pin.PersonaColor"
+                                opacity="0.85"
+                                class="sa-money-map__pin-dot" />
+                    </g>
+                }
+            </svg>
+        </div>
+
+        <div class="sa-money-map__panel sa-money-map__panel--world">
+            <h3 class="sa-money-map__panel-title">World</h3>
+            <svg class="sa-money-map__svg sa-money-map__svg--world"
+                 viewBox="0 0 960 480"
+                 role="img"
+                 aria-label="World revenue map"
+                 data-testid="money-map-world-svg">
+                @if (!string.IsNullOrEmpty(Model.WorldMapPath))
+                {
+                    <path class="sa-money-map__land sa-money-map__land--world" d="@Model.WorldMapPath" />
+                }
+
+                @foreach (var pin in Model.WorldPins)
+                {
+                    var radius = MoneyMapState.PinRadius(pin.ValueUsd);
+                    <g class="sa-money-map__pin @(pin.IsNew ? "sa-money-map__pin--new" : null)"
+                       data-testid="money-map-world-pin"
+                       data-lead-id="@pin.LeadId">
+                        <title>@($"{pin.LeadId} · ${pin.ValueUsd:N0} · {pin.Persona} · {pin.RegionLabel}")</title>
+                        <circle cx="@pin.MapX.ToString("F1")"
+                                cy="@pin.MapY.ToString("F1")"
+                                r="@radius.ToString("F1")"
+                                fill="@pin.PersonaColor"
+                                opacity="0.85" />
+                    </g>
+                }
+            </svg>
+        </div>
+    </div>
+
+    <div class="sa-money-map__totals" data-testid="money-map-totals" aria-live="polite">
+        <span>Total won revenue on map</span>
+        <strong>$@Model.TotalRevenueUsd.ToString("N0")</strong>
+    </div>
+</section>
+
+@code {
+    [Parameter, EditorRequired]
+    public MoneyMapViewModel Model { get; set; } = null!;
+}

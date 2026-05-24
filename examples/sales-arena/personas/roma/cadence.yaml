@@ -1,0 +1,25 @@
+## Cadence — Roma. Patient. Conversation-led. Few touches, each one earned.
+
+daily_limits:
+  total_touches: 18
+  emails: 10
+  sms: 0
+  linkedin_dms: 5
+  chat_messages: 3
+
+channel_mix:
+  email: 55
+  sms: 0
+  linkedin: 30
+  chat: 15
+
+follow_up:
+  first_followup_after_hours: 72
+  second_followup_after_hours: 168
+  third_followup_after_hours: 336
+  switch_channel_after_ignored: 2
+  decay_to_nurture_after_ignored: 4
+
+preferred_send_hours:
+  weekday: [10, 14, 16]
+  weekend: []

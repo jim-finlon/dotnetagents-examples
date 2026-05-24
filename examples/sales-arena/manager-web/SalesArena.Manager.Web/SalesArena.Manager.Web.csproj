@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>SalesArena.Manager.Web</RootNamespace>
+    <AssemblyName>SalesArena.Manager.Web</AssemblyName>
+    <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="10.0.0" />
+    <ProjectReference Include="..\..\..\..\DotNetAgents\src\DotNetAgents.Ui.Blazor\DotNetAgents.Ui.Blazor.csproj" Condition="Exists('..\..\..\..\DotNetAgents\src\DotNetAgents.Ui.Blazor\DotNetAgents.Ui.Blazor.csproj')" />
+    <PackageReference Include="DotNetAgents.Ui.Blazor" Version="1.0.0" Condition="!Exists('..\..\..\..\DotNetAgents\src\DotNetAgents.Ui.Blazor\DotNetAgents.Ui.Blazor.csproj')" />
+    <ProjectReference Include="..\..\..\..\DotNetAgents\src\DotNetAgents.Ui.Core\DotNetAgents.Ui.Core.csproj" Condition="Exists('..\..\..\..\DotNetAgents\src\DotNetAgents.Ui.Core\DotNetAgents.Ui.Core.csproj')" />
+    <PackageReference Include="DotNetAgents.Ui.Core" Version="1.0.0" Condition="!Exists('..\..\..\..\DotNetAgents\src\DotNetAgents.Ui.Core\DotNetAgents.Ui.Core.csproj')" />
+    <ProjectReference Include="../../scenarios/Draft/SalesArena.Draft.csproj" />
+    <ProjectReference Include="../../orchestrator/SalesArena.Orchestrator.csproj" />
+    <ProjectReference Include="../../replay/SalesArena.Replay.csproj" />
+  </ItemGroup>
+
+</Project>

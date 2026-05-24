@@ -1,0 +1,28 @@
+## Cadence — Mitch & Murray. No outbound. Narrator only.
+## The orchestrator triggers this persona on contest events, not on a daily cadence.
+
+daily_limits:
+  total_touches: 0
+  emails: 0
+  sms: 0
+  linkedin_dms: 0
+  chat_messages: 0
+  phone_calls: 0
+
+channel_mix: {}
+
+follow_up:
+  first_followup_after_hours: 0
+  second_followup_after_hours: 0
+  third_followup_after_hours: 0
+  switch_channel_after_ignored: 0
+  decay_to_nurture_after_ignored: 0
+
+preferred_send_hours:
+  weekday: []
+  weekend: []
+
+## Narrator-only flag — the orchestrator (SA-02) uses this to skip Mitch & Murray
+## in the touch-distribution loop and instead invoke this persona on bell events
+## and contest-wrap events only.
+narrator_only: true

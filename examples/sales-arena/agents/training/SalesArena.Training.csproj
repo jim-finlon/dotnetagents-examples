@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>SalesArena.Training</RootNamespace>
+    <AssemblyName>SalesArena.Training</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../orchestrator/SalesArena.Orchestrator.csproj" />
+  </ItemGroup>
+</Project>

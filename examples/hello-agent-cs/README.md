@@ -1,7 +1,7 @@
 # Hello DNA Agent C# Sample
 
 This is the first-run sample for the engineering distribution pack. It is
-deliberately offline: no Tyr, platform service, live credentials, or deployment target is
+deliberately offline: no Tyr, Core 4, live credentials, or deployment target is
 required.
 
 ## Run

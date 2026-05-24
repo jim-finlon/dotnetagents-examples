@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>SalesArena.Communications.Inbound</RootNamespace>
+    <AssemblyName>SalesArena.Communications.Inbound</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\DotNetAgents\src\DotNetAgents.Agents.IntentProjector\DotNetAgents.Agents.IntentProjector.csproj" Condition="Exists('..\..\..\..\..\DotNetAgents\src\DotNetAgents.Agents.IntentProjector\DotNetAgents.Agents.IntentProjector.csproj')" />
+    <PackageReference Include="DotNetAgents.Agents.IntentProjector" Version="1.0.0" Condition="!Exists('..\..\..\..\..\DotNetAgents\src\DotNetAgents.Agents.IntentProjector\DotNetAgents.Agents.IntentProjector.csproj')" />
+    <ProjectReference Include="../../crm/SalesArena.Crm.Agent.csproj" />
+  </ItemGroup>
+</Project>

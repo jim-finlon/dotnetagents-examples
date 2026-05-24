@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "dna://sales-arena/lead-pack.v1",
+  "title": "DNA Sales Arena Lead Pack v1",
+  "description": "Synthetic B2B prospect data for the DNA Sales Arena. All entries must be fictional — names, companies, domains, contact details. The Arena refuses to load packs that look like live PII unless the operator attests they followed docs/public/SALES-ARENA-REAL-DATA.md.",
+  "type": "object",
+  "required": ["version", "name", "description", "synthetic", "leads"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "v1",
+      "description": "Lead-pack schema version. v1 ships in SA-05-02; v2 extends with renewal fields in SA-06-03."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Pack identifier (e.g. 'glengarry-v1', 'saas-renewal-v1')."
+    },
+    "description": {
+      "type": "string",
+      "description": "Operator-facing description shown in the Gallery + Manager UI."
+    },
+    "synthetic": {
+      "type": "boolean",
+      "const": true,
+      "description": "Hard-coded marker. Real-data packs (SA-06-06) use a different schema id."
+    },
+    "createdAtUtc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "leads": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10000,
+      "items": { "$ref": "#/definitions/lead" }
+    }
+  },
+  "definitions": {
+    "lead": {
+      "type": "object",
+      "required": ["id", "tier", "company"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^L-[0-9]{4,}$",
+          "description": "Stable lead id within the pack (e.g. L-0001). Use the prefix L- to keep the schema obvious."
+        },
+        "tier": {
+          "enum": ["glengarry", "cold"],
+          "description": "glengarry = premium lead with full intel (the Cadillac drip); cold = sparse-intel prospect."
+        },
+        "company": { "$ref": "#/definitions/company" },
+        "contact": { "$ref": "#/definitions/contact" },
+        "signals": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/signal" },
+          "description": "Intent + intel signals. Glengarry leads carry 2+ signals; cold leads often carry zero."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Free-text operator notes."
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "tier": { "const": "glengarry" } } },
+          "then": { "required": ["contact", "signals"] }
+        }
+      ]
+    },
+    "company": {
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Fictional company name."
+        },
+        "industry": {
+          "enum": [
+            "pharma",
+            "fintech",
+            "manufacturing",
+            "healthcare",
+            "ecommerce",
+            "education",
+            "hospitality",
+            "agritech",
+            "saas",
+            "logistics",
+            "media",
+            "construction",
+            "energy",
+            "nonprofit",
+            "other"
+          ]
+        },
+        "size": {
+          "enum": ["smb", "mid-market", "enterprise"]
+        },
+        "region": {
+          "type": "string",
+          "description": "Free-form region label, e.g. 'us-northeast', 'emea', 'apac-southeast'."
+        },
+        "domain": {
+          "type": "string",
+          "pattern": "^[a-z0-9.-]+\\.(example|test|invalid)$",
+          "description": "Must use RFC-reserved TLDs (.example, .test, .invalid) to guarantee non-collision with real domains."
+        },
+        "headcount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" },
+        "role": { "type": "string" },
+        "email": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.(example|test|invalid)$",
+          "description": "Email must use an RFC-reserved TLD for the same non-collision reason as the domain."
+        },
+        "phone": {
+          "type": "string",
+          "pattern": "^555-[0-9]{4}$",
+          "description": "Phone numbers MUST use the 555 prefix (North-American fictional reservation) followed by 4 digits."
+        }
+      }
+    },
+    "signal": {
+      "type": "object",
+      "required": ["kind", "summary"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "news",
+            "hiring",
+            "content_engagement",
+            "mutual_connection",
+            "press_release",
+            "leadership_change",
+            "funding",
+            "product_launch",
+            "expansion",
+            "compliance_event"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "timestampUtc": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

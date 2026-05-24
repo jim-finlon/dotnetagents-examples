@@ -94,14 +94,14 @@ internal static class HelloAgent
     public static HelloAgentCard AgentCard { get; } = new(
         AgentId: "hello-agent-cs",
         DisplayName: "Hello DNA Agent C#",
-        Purpose: "Offline engineering-distribution sample that maps one tiny tool to A2A, MCP, and memory-capture concepts.",
+        Purpose: "Offline engineering-distribution sample that maps one tiny tool to A2A, MCP, and lesson-recording concepts.",
         A2ARegistrationRoute: "/.well-known/agent.json",
         McpTools: ["hello", "card"],
         LessonEventShape: "lesson.event.v1");
 
     public static HelloResponse HandleHello(string name) =>
         new(
-            Message: $"Hello, {name}. This sample is intentionally offline: no platform service, Tyr, credentials, or live services required.",
+            Message: $"Hello, {name}. This sample is intentionally offline: no Core 4, Tyr, credentials, or live services required.",
             McpToolName: "hello",
             A2AIntent: "agent.sample.hello",
             NextStep: "Open README.md, change the greeting, then rerun --smoke.");

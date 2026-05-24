@@ -1,0 +1,15 @@
+touches_per_day: 6
+channel_mix:
+  email: 0.55
+  technical_doc_share: 0.20
+  github_comment: 0.10
+  scheduled_call: 0.10
+  slack_thread: 0.05
+followup_rules:
+  - after_first_touch_wait_hours: 72
+  - after_second_touch_wait_hours: 120
+  - max_touches_per_lead: 5
+  - bail_after_silence_days: 21
+prefers_warm_introduction: false
+will_pick_up_phone: true
+escalate_to_phone_after_touches: 3

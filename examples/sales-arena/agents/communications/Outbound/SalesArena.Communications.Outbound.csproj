@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>SalesArena.Communications.Outbound</RootNamespace>
+    <AssemblyName>SalesArena.Communications.Outbound</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../../personas/SalesArena.OutreachTemplates/SalesArena.OutreachTemplates.csproj" />
+    <ProjectReference Include="..\..\..\..\..\DotNetAgents\src\DotNetAgents.PreviewConfirm\DotNetAgents.PreviewConfirm.csproj" Condition="Exists('..\..\..\..\..\DotNetAgents\src\DotNetAgents.PreviewConfirm\DotNetAgents.PreviewConfirm.csproj')" />
+    <PackageReference Include="DotNetAgents.PreviewConfirm" Version="1.0.0" Condition="!Exists('..\..\..\..\..\DotNetAgents\src\DotNetAgents.PreviewConfirm\DotNetAgents.PreviewConfirm.csproj')" />
+  </ItemGroup>
+</Project>

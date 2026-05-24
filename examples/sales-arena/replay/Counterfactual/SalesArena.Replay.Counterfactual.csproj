@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>SalesArena.Replay.Counterfactual</RootNamespace>
+    <AssemblyName>SalesArena.Replay.Counterfactual</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="templates/*.md" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

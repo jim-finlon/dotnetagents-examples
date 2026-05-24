@@ -1,0 +1,13 @@
+{
+  "messages": [
+    {
+      "channel": "email",
+      "externalId": "em-001",
+      "body": "Thanks — this looks great. Can we schedule a call today?",
+      "fromName": "Jordan Lee",
+      "fromEmail": "jordan.lee@acmelabs.example",
+      "companyHint": "Acme Labs",
+      "receivedAtUtc": "2026-05-18T10:00:00Z"
+    }
+  ]
+}

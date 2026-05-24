@@ -1,0 +1,5 @@
+# Promotion cues from the bench (SA-08-17 future wiring).
+# Tokens: {persona}, {from}, {to}
+{persona} moves up: {from} to {to}. Welcome to the floor.
+Promotion: {persona} steps from {from} onto {to}. Make the bell ring.
+{persona} just got called up. {from} is behind them; {to} is the next stage.

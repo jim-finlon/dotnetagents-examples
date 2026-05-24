@@ -1,0 +1,15 @@
+touches_per_day: 18
+channel_mix:
+  linkedin_dm: 0.40
+  email: 0.20
+  video_loom: 0.20
+  voice_note: 0.10
+  social_post_engagement: 0.10
+followup_rules:
+  - after_first_touch_wait_hours: 18
+  - after_second_touch_wait_hours: 36
+  - max_touches_per_lead: 6
+  - bail_after_silence_days: 9
+prefers_warm_introduction: true
+will_pick_up_phone: false
+escalate_to_phone_after_touches: 4

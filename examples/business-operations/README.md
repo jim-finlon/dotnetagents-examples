@@ -36,9 +36,9 @@ state, no hosted automation surface, and no evaluator or promotion loop.
 
 ## Related public samples
 
-- [`samples/sales-evaluation/`](../sales-evaluation/README.md) — the flagship
-  multi-agent Sales evaluation that exercises 30+ public DNA packages.
-  
+- [`samples/sales-arena/`](../sales-arena/README.md) — the flagship
+  multi-agent Sales Arena that exercises 30+ public DNA packages.
+  Walking tour at [`docs/public/SALES-ARENA-QUICKSTART.md`](../../docs/public/SALES-ARENA-QUICKSTART.md).
 - [`samples/public-entrepreneur-examples/`](../public-entrepreneur-examples/README.md)
   — the nine commodity public-example agents (research assistant,
   meeting summarizer, proposal writer, etc.).

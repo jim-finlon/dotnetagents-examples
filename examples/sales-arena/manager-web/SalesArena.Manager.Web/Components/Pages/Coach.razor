@@ -1,0 +1,189 @@
+@page "/coach/{Persona}"
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using SalesArena.Manager.Web.Auth
+@using SalesArena.Manager.Web.Components.Coach
+@using SalesArena.Manager.Web.Services.BossOffice
+@using SalesArena.Manager.Web.Services.Coach
+@using SalesArena.Manager.Web.Services.Gallery
+@using SalesArena.Orchestrator.Coach
+@attribute [Authorize]
+@implements IDisposable
+@inject ICoachModeService CoachMode
+@inject ICommunityPersonaGalleryCatalog GalleryCatalog
+@inject IOperatorDashboardGate OperatorGate
+@inject AuthenticationStateProvider AuthenticationStateProvider
+<PageTitle>Coach — @Persona</PageTitle>
+
+<section class="sa-coach" data-testid="coach-page">
+    @if (!_allowed)
+    {
+        <div class="sa-coach__denied" data-testid="coach-denied">
+            <h1>Operator only</h1>
+            <p>Coach Mode is restricted to arena managers.</p>
+            <a href="/gallery">Back to gallery</a>
+        </div>
+    }
+    else if (_personaMissing)
+    {
+        <p data-testid="coach-persona-missing">Persona not found.</p>
+        <a href="/gallery">Back to gallery</a>
+    }
+    else
+    {
+        <a href="/gallery/@Persona" class="sa-coach__back" data-testid="coach-back">← @(_displayName ?? Persona)</a>
+        <header class="sa-coach__header">
+            <h1>Halftime speech</h1>
+            <p class="sa-coach__subtitle">
+                Append an operator overlay to <strong>@(_displayName ?? Persona)</strong> for the next 10 touches.
+            </p>
+            <CoachOverlayBadge Persona="@Persona" />
+        </header>
+
+        <label class="sa-coach__label" for="coach-speech">Speech</label>
+        <textarea id="coach-speech"
+                  class="sa-coach__textarea"
+                  data-testid="coach-speech-input"
+                  rows="8"
+                  @bind="_speech"
+                  @bind:event="oninput"
+                  @bind:after="UpdatePreview"></textarea>
+
+        @if (!string.IsNullOrEmpty(_inlineError))
+        {
+            <p class="sa-coach__error" data-testid="coach-inline-error" role="alert">@_inlineError</p>
+        }
+
+        @if (!string.IsNullOrEmpty(_successMessage))
+        {
+            <p class="sa-coach__success" data-testid="coach-success">@_successMessage</p>
+        }
+
+        <article class="sa-coach__preview">
+            <h2>Addendum preview</h2>
+            <pre data-testid="coach-addendum-preview">@(_previewText ?? "Type a speech to preview the sanitized addendum.")</pre>
+        </article>
+
+        <div class="sa-coach__actions">
+            <button type="button"
+                    class="sa-coach__apply"
+                    data-testid="coach-apply"
+                    disabled="@_isApplying"
+                    @onclick="ApplyAsync">
+                Apply overlay
+            </button>
+            <button type="button"
+                    class="sa-coach__clear"
+                    data-testid="coach-clear"
+                    disabled="@(_activeRemaining is null)"
+                    @onclick="Clear">
+                Clear overlay
+            </button>
+        </div>
+    }
+</section>
+
+@code {
+    [Parameter]
+    public string Persona { get; set; } = "";
+
+    private bool _allowed;
+    private bool _personaMissing;
+    private string? _displayName;
+    private string _speech = "";
+    private string? _previewText;
+    private string? _inlineError;
+    private string? _successMessage;
+    private int? _activeRemaining;
+    private bool _isApplying;
+    private string _operatorId = ManagerIdentityDefaults.OperatorId;
+    private string _basePromptStub = "(persona base system prompt)";
+    private Timer? _refreshTimer;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        _allowed = OperatorGate.CanAccess(authState.User);
+        _operatorId = authState.User.FindFirstValue(ClaimTypes.NameIdentifier)
+            ?? ManagerIdentityDefaults.OperatorId;
+
+        if (!_allowed)
+        {
+            return;
+        }
+
+        var detail = await GalleryCatalog.GetDetailAsync(Persona);
+        if (detail is null)
+        {
+            _personaMissing = true;
+            return;
+        }
+
+        _displayName = detail.Card.DisplayName;
+        _basePromptStub = detail.PromptPreview;
+        RefreshActive();
+        UpdatePreview();
+        _refreshTimer = new Timer(_ => InvokeAsync(RefreshActive), null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2));
+    }
+
+    private void UpdatePreview()
+    {
+        _successMessage = null;
+        var result = CoachMode.TryBuildPreview(_speech, _basePromptStub);
+        if (result.Success)
+        {
+            _inlineError = null;
+            _previewText = result.ComposedPromptPreview;
+        }
+        else
+        {
+            _inlineError = FormatCoachError(result.ErrorCode, result.ErrorMessage);
+            _previewText = null;
+        }
+    }
+
+    private async Task ApplyAsync()
+    {
+        _isApplying = true;
+        _successMessage = null;
+        try
+        {
+            var result = CoachMode.Apply(Persona, _operatorId, _speech, expiresAfterTouches: 10);
+            if (result.Success && result.Overlay is not null)
+            {
+                _inlineError = null;
+                _successMessage = $"Overlay applied — {result.Overlay.RemainingTouches} touches remaining.";
+                RefreshActive();
+            }
+            else
+            {
+                _inlineError = FormatCoachError(result.ErrorCode, result.ErrorMessage);
+            }
+        }
+        finally
+        {
+            _isApplying = false;
+        }
+    }
+
+    private void Clear()
+    {
+        CoachMode.ClearOverlay(Persona);
+        _successMessage = "Overlay cleared.";
+        _inlineError = null;
+        RefreshActive();
+    }
+
+    private void RefreshActive()
+    {
+        var overlay = CoachMode.GetActive(Persona);
+        _activeRemaining = overlay?.IsActive == true ? overlay.RemainingTouches : null;
+        StateHasChanged();
+    }
+
+    private static string FormatCoachError(CoachErrorCode? code, string? message) =>
+        code is null ? message ?? "Coach request failed." : $"{code}: {message}";
+
+    public void Dispose() => _refreshTimer?.Dispose();
+}

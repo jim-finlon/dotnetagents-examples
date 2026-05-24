@@ -1,0 +1,17 @@
+---
+touches_per_day: 6
+channel_mix:
+  phone: 0.50
+  email: 0.30
+  linkedin: 0.20
+followup_rules:
+  - after_first_touch_wait_hours: 48
+  - after_second_touch_wait_hours: 96
+  - max_touches_per_lead: 5
+  - bail_after_silence_days: 21
+quiet_hours_local: ["19:00", "08:00"]
+prefers_warm_introduction: true
+will_pick_up_phone: true
+will_leave_voicemail: false
+escalate_to_phone_after_touches: 2
+---
