@@ -7,15 +7,19 @@ Start here:
 
 1. [Example Systems Showcase Roadmap](roadmap/example-systems-showcase.md) -
    see the planned public example portfolio and delivery story ids.
-2. [Choosing An Example](choosing-an-example.md) - pick the example closest to
+2. [Example Catalog](example-catalog.md) - use the machine-readable catalog and
+   understand maturity, commands, dependencies, and boundary notes.
+3. [Example Contract](example-contract.md) - follow the required smoke/live
+   mode and validation contract for every runnable example.
+4. [Choosing An Example](choosing-an-example.md) - pick the example closest to
    your product.
-3. [Running Examples](running-examples.md) - run offline-first examples and
+5. [Running Examples](running-examples.md) - run offline-first examples and
    understand live configuration.
-4. [Extending Examples](extending-examples.md) - turn a sample into your own
+6. [Extending Examples](extending-examples.md) - turn a sample into your own
    agent application.
-5. [Result Envelopes And Arena Compatibility](result-envelopes-and-arena.md) -
+7. [Result Envelopes And Arena Compatibility](result-envelopes-and-arena.md) -
    understand the public result file shape without exposing scoring internals.
-6. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
+8. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
 
 Walkthroughs:
 

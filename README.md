@@ -43,6 +43,8 @@ game-style teaser. See the roadmap for story ids and delivery order.
 The `/docs` tree explains how to use and adapt the examples:
 
 - [Example Systems Showcase Roadmap](docs/roadmap/example-systems-showcase.md)
+- [Example Catalog](docs/example-catalog.md)
+- [Example Contract](docs/example-contract.md)
 - [Choosing An Example](docs/choosing-an-example.md)
 - [Running Examples](docs/running-examples.md)
 - [Extending Examples](docs/extending-examples.md)
@@ -70,6 +72,10 @@ These examples focus on agent systems as durable .NET software:
 
 The examples intentionally avoid private implementation details. They should be
 safe to read, fork, and adapt as public starter code.
+
+The machine-readable catalog lives at
+[`examples/catalog.v1.json`](examples/catalog.v1.json). Future example lanes
+should update that file whenever they add, rename, mature, or retire an example.
 
 ## Quick Start
 

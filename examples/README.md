@@ -62,6 +62,10 @@ The expanded Example Systems Showcase roadmap is tracked in
 Each future example family must include an offline smoke mode, optional live
 mode, expected output evidence, and public/private boundary notes.
 
+The machine-readable catalog for current and planned examples is
+[`catalog.v1.json`](catalog.v1.json). Future example stories should update this
+catalog when they add new folders or change smoke/live commands.
+
 ### 1. [Hello Agent C#](hello-agent-cs/)
 A starter project demonstrating the basic lifecycle of an agent card, tool definition, and simple interactive chat completions in both offline and live modes.
 

@@ -2,6 +2,11 @@
 
 Most examples are designed to run offline first.
 
+The command list in [`../examples/catalog.v1.json`](../examples/catalog.v1.json)
+is the authoritative catalog for smoke and live commands. Individual README
+files may include extra walkthrough commands, but the catalog is what future
+validation scripts should consume.
+
 ## Basic Run
 
 ```bash
@@ -55,3 +60,16 @@ dotnet test
 
 For examples without a test project, run the documented smoke command and keep
 the output deterministic.
+
+## Smoke/Live Contract
+
+Every runnable example should have:
+
+- a smoke command that runs with no credentials, network access, private hosted
+  service, or production data;
+- optional live mode configured through environment variables;
+- structured output or a stable transcript;
+- a README safety note;
+- a catalog entry.
+
+See [Example Contract](example-contract.md) for the full gate.

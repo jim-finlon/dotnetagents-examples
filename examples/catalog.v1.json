@@ -1,0 +1,336 @@
+{
+  "schemaVersion": "dotnetagents.public-examples.catalog.v1",
+  "updatedUtc": "2026-05-25T00:00:00Z",
+  "repository": "dotnetagents-examples",
+  "defaultValidation": {
+    "requiredModes": [
+      "smoke"
+    ],
+    "optionalModes": [
+      "live"
+    ],
+    "requiredEvidence": [
+      "build-result",
+      "smoke-output",
+      "readme",
+      "public-boundary-note"
+    ],
+    "publicSafety": [
+      "no private endpoints",
+      "no committed credentials",
+      "no production data",
+      "no private hosted-service dependency"
+    ]
+  },
+  "examples": [
+    {
+      "id": "hello-agent-cs",
+      "displayName": "Hello Agent C#",
+      "path": "examples/hello-agent-cs",
+      "domain": "foundation",
+      "maturity": "runnable",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [
+        "DotNetAgents.Core"
+      ],
+      "pluginsExercised": [],
+      "capabilities": [
+        "agent card",
+        "tool shape",
+        "result envelope",
+        "offline smoke"
+      ],
+      "smokeCommand": "dotnet run --project examples/hello-agent-cs -- --smoke",
+      "liveCommand": "dotnet run --project examples/hello-agent-cs -- hello \"DNA developer\"",
+      "externalDependencies": [],
+      "optionalEnvironment": [
+        "OPENAI_API_KEY",
+        "ANTHROPIC_API_KEY",
+        "OLLAMA_MODEL",
+        "OLLAMA_HOST"
+      ],
+      "expectedOutput": [
+        "JSON with status=passed",
+        "resultEnvelope.schemaVersion=dna.public-example.result.v1"
+      ],
+      "boundaryNote": "Public offline sample; no private hosted service, production data, or credential custody dependency."
+    },
+    {
+      "id": "document-extraction",
+      "displayName": "Document Extraction",
+      "path": "examples/document-extraction",
+      "domain": "rag-data",
+      "maturity": "runnable",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [
+        "DotNetAgents.Core"
+      ],
+      "pluginsExercised": [],
+      "capabilities": [
+        "document parsing",
+        "chunking",
+        "keyword retrieval",
+        "optional live synthesis",
+        "result envelope"
+      ],
+      "smokeCommand": "dotnet run --project examples/document-extraction -- --smoke",
+      "liveCommand": "dotnet run --project examples/document-extraction -- query \"What is the escalation path for P0 issues?\"",
+      "externalDependencies": [
+        "optional LLM provider for live mode"
+      ],
+      "optionalEnvironment": [
+        "OPENAI_API_KEY",
+        "OPENAI_MODEL",
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_MODEL",
+        "OLLAMA_MODEL",
+        "OLLAMA_HOST"
+      ],
+      "expectedOutput": [
+        "JSON with extracted chunks or query result",
+        "resultEnvelope.schemaVersion=dna.public-example.result.v1"
+      ],
+      "boundaryNote": "Uses local sample documents by default; live provider calls are optional and operator-configured."
+    },
+    {
+      "id": "business-operations",
+      "displayName": "Business Operations",
+      "path": "examples/business-operations",
+      "domain": "business-systems",
+      "maturity": "runnable",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [
+        "DotNetAgents.Core",
+        "DotNetAgents.Abstractions"
+      ],
+      "pluginsExercised": [],
+      "capabilities": [
+        "project planning",
+        "CRM follow-up",
+        "communications triage",
+        "appointment planning",
+        "offline pack smoke"
+      ],
+      "smokeCommand": "dotnet run --project examples/business-operations -- --smoke",
+      "liveCommand": "dotnet run --project examples/business-operations -- run project-planner",
+      "externalDependencies": [
+        "optional LLM provider for live mode"
+      ],
+      "optionalEnvironment": [
+        "OPENAI_API_KEY",
+        "OPENAI_MODEL",
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_MODEL",
+        "OLLAMA_MODEL",
+        "OLLAMA_HOST"
+      ],
+      "expectedOutput": [
+        "JSON with status=passed",
+        "one result envelope per business operation example"
+      ],
+      "boundaryNote": "Uses synthetic business scenarios; no live CRM, calendar, inbox, or customer data is required."
+    },
+    {
+      "id": "education",
+      "displayName": "Education",
+      "path": "examples/education",
+      "domain": "education",
+      "maturity": "runnable",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [
+        "DotNetAgents.Core",
+        "DotNetAgents.Abstractions"
+      ],
+      "pluginsExercised": [],
+      "capabilities": [
+        "tutor response",
+        "study planning",
+        "quiz coaching",
+        "offline pack smoke"
+      ],
+      "smokeCommand": "dotnet run --project examples/education -- --smoke",
+      "liveCommand": "dotnet run --project examples/education -- run educational-tutor",
+      "externalDependencies": [
+        "optional LLM provider for live mode"
+      ],
+      "optionalEnvironment": [
+        "OPENAI_API_KEY",
+        "OPENAI_MODEL",
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_MODEL",
+        "OLLAMA_MODEL",
+        "OLLAMA_HOST"
+      ],
+      "expectedOutput": [
+        "JSON with status=passed",
+        "education result envelopes"
+      ],
+      "boundaryNote": "Uses synthetic educational prompts; no learner records or institutional data are required."
+    },
+    {
+      "id": "writing-publishing",
+      "displayName": "Writing And Publishing",
+      "path": "examples/writing-publishing",
+      "domain": "content-systems",
+      "maturity": "runnable",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [
+        "DotNetAgents.Core",
+        "DotNetAgents.Abstractions"
+      ],
+      "pluginsExercised": [],
+      "capabilities": [
+        "proposal drafting",
+        "content repurposing",
+        "publishing planning",
+        "writing critique",
+        "offline pack smoke"
+      ],
+      "smokeCommand": "dotnet run --project examples/writing-publishing -- --smoke",
+      "liveCommand": "dotnet run --project examples/writing-publishing -- run proposal-writer",
+      "externalDependencies": [
+        "optional LLM provider for live mode"
+      ],
+      "optionalEnvironment": [
+        "OPENAI_API_KEY",
+        "OPENAI_MODEL",
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_MODEL",
+        "OLLAMA_MODEL",
+        "OLLAMA_HOST"
+      ],
+      "expectedOutput": [
+        "JSON with status=passed",
+        "writing result envelopes"
+      ],
+      "boundaryNote": "Uses synthetic content briefs; no social-channel credentials or publishing accounts are required."
+    },
+    {
+      "id": "public-entrepreneur-examples",
+      "displayName": "Public Entrepreneur Examples",
+      "path": "examples/public-entrepreneur-examples",
+      "domain": "business-systems",
+      "maturity": "runnable",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [
+        "DotNetAgents.Core"
+      ],
+      "pluginsExercised": [],
+      "capabilities": [
+        "research assistant",
+        "meeting summary",
+        "knowledge-base assistant",
+        "proposal writer",
+        "invoice helper",
+        "support triage",
+        "offline pack smoke"
+      ],
+      "smokeCommand": "dotnet run --project examples/public-entrepreneur-examples -- --smoke",
+      "liveCommand": "dotnet run --project examples/public-entrepreneur-examples -- run research-assistant",
+      "externalDependencies": [],
+      "optionalEnvironment": [],
+      "expectedOutput": [
+        "JSON with status=passed",
+        "exampleCount=9",
+        "one result envelope per example"
+      ],
+      "boundaryNote": "Deterministic local pack; no private factory services, hosted state, evaluator loops, or production data."
+    },
+    {
+      "id": "mcp-thin-host-template",
+      "displayName": "MCP Thin Host Template",
+      "path": "examples/mcp-thin-host-template",
+      "domain": "protocol",
+      "maturity": "template",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [
+        "DotNetAgents.Mcp"
+      ],
+      "pluginsExercised": [],
+      "capabilities": [
+        "MCP host shape",
+        "tool provider scaffold",
+        "configuration template"
+      ],
+      "smokeCommand": null,
+      "liveCommand": null,
+      "externalDependencies": [],
+      "optionalEnvironment": [],
+      "expectedOutput": [
+        "reviewable host template source and sample configuration"
+      ],
+      "boundaryNote": "Template only; must remain local/configurable and avoid private service endpoints."
+    },
+    {
+      "id": "control-loop-reference-patterns",
+      "displayName": "Control Loop Reference Patterns",
+      "path": "examples/control-loop-reference-patterns",
+      "domain": "control-loops",
+      "maturity": "reference-pack",
+      "primaryLanguage": "yaml",
+      "packagesExercised": [],
+      "pluginsExercised": [],
+      "capabilities": [
+        "durable workflow reference",
+        "reactive policy reference",
+        "guarded control-plane reference",
+        "evolutionary-service reference"
+      ],
+      "smokeCommand": null,
+      "liveCommand": null,
+      "externalDependencies": [],
+      "optionalEnvironment": [],
+      "expectedOutput": [
+        "reviewable YAML reference files"
+      ],
+      "boundaryNote": "Reference patterns only; implementation stories must keep private operating mechanics out of public examples."
+    },
+    {
+      "id": "road-access-dotnet-consumer",
+      "displayName": "Road Access .NET Consumer",
+      "path": "examples/road-access-dotnet-consumer",
+      "domain": "integration",
+      "maturity": "template",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [],
+      "pluginsExercised": [],
+      "capabilities": [
+        "consumer configuration pattern",
+        "integration shape"
+      ],
+      "smokeCommand": null,
+      "liveCommand": null,
+      "externalDependencies": [
+        "sample endpoint configuration"
+      ],
+      "optionalEnvironment": [],
+      "expectedOutput": [
+        "configuration review"
+      ],
+      "boundaryNote": "Template must be sanitized before broad public use; do not add real private endpoints."
+    },
+    {
+      "id": "sales-arena",
+      "displayName": "Sales Arena",
+      "path": "examples/sales-arena",
+      "domain": "game-style-teaser",
+      "maturity": "scaffold",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [],
+      "pluginsExercised": [],
+      "capabilities": [
+        "synthetic personas",
+        "contest-style replay",
+        "result summaries"
+      ],
+      "smokeCommand": null,
+      "liveCommand": null,
+      "externalDependencies": [],
+      "optionalEnvironment": [],
+      "expectedOutput": [
+        "public-safe scaffold and docs"
+      ],
+      "boundaryNote": "Public game-style teaser only; no private scoring internals or premium simulator mechanics."
+    }
+  ]
+}

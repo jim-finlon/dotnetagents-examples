@@ -2,6 +2,10 @@
 
 Choose the smallest example that teaches the thing you need.
 
+For a machine-readable view of every example, including smoke commands,
+maturity, dependencies, and boundary notes, use
+[`../examples/catalog.v1.json`](../examples/catalog.v1.json).
+
 | Example | Start Here When |
 | --- | --- |
 | `hello-agent-cs` | you want the smallest runnable shape |

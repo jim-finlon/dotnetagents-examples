@@ -43,6 +43,21 @@ Use plugins when the example needs a real integration:
 Do not add a plugin just because it exists. Each integration should have a
 reason and a testable failure mode.
 
+## Update The Catalog
+
+When you add or materially change an example, update
+[`../examples/catalog.v1.json`](../examples/catalog.v1.json). Treat the catalog
+as part of the example contract:
+
+- add the smoke command;
+- document optional live configuration;
+- list public packages and plugin families exercised;
+- include any external dependencies;
+- add a public/private boundary note.
+
+If the example exposes awkward core or plugin ergonomics, record the friction in
+the delivery story and route a follow-up instead of hiding the workaround.
+
 ## Move From Example To Product
 
 Before treating an example fork as production code, add:
