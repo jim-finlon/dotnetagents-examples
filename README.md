@@ -37,6 +37,16 @@ separate public writing, review, or security hardening.
 - `dotnetagents-plugins` contains optional integration adapters.
 - `dotnetagents-examples` shows the public packages in runnable applications.
 
+## Documentation
+
+The `/docs` tree explains how to use and adapt the examples:
+
+- [Choosing An Example](docs/choosing-an-example.md)
+- [Running Examples](docs/running-examples.md)
+- [Extending Examples](docs/extending-examples.md)
+- [Result Envelopes And Arena Compatibility](docs/result-envelopes-and-arena.md)
+- [Troubleshooting](docs/troubleshooting.md)
+
 Main platform repository:
 
 https://github.com/jim-finlon/dotnetagents
