@@ -45,6 +45,7 @@ The `/docs` tree explains how to use and adapt the examples:
 - [Example Systems Showcase Roadmap](docs/roadmap/example-systems-showcase.md)
 - [Example Catalog](docs/example-catalog.md)
 - [Example Contract](docs/example-contract.md)
+- [Example Quality Gates](docs/example-quality-gates.md)
 - [Choosing An Example](docs/choosing-an-example.md)
 - [Running Examples](docs/running-examples.md)
 - [Extending Examples](docs/extending-examples.md)

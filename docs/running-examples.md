@@ -73,3 +73,9 @@ Every runnable example should have:
 - a catalog entry.
 
 See [Example Contract](example-contract.md) for the full gate.
+
+For the automated local gate, run:
+
+```bash
+scripts/verify-example-quality.sh
+```

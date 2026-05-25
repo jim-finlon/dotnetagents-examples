@@ -72,3 +72,9 @@ An implementation story should close with:
 - output fixture or transcript path when applicable;
 - public content scan result;
 - follow-up story ids for core/plugin friction.
+
+Run [Example Quality Gates](example-quality-gates.md) before closeout:
+
+```bash
+scripts/verify-example-quality.sh --scan-path <changed-example-or-doc-path>
+```

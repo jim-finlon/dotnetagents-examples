@@ -11,15 +11,17 @@ Start here:
    understand maturity, commands, dependencies, and boundary notes.
 3. [Example Contract](example-contract.md) - follow the required smoke/live
    mode and validation contract for every runnable example.
-4. [Choosing An Example](choosing-an-example.md) - pick the example closest to
+4. [Example Quality Gates](example-quality-gates.md) - run local build, smoke,
+   catalog, and public-content checks before publishing an example.
+5. [Choosing An Example](choosing-an-example.md) - pick the example closest to
    your product.
-5. [Running Examples](running-examples.md) - run offline-first examples and
+6. [Running Examples](running-examples.md) - run offline-first examples and
    understand live configuration.
-6. [Extending Examples](extending-examples.md) - turn a sample into your own
+7. [Extending Examples](extending-examples.md) - turn a sample into your own
    agent application.
-7. [Result Envelopes And Arena Compatibility](result-envelopes-and-arena.md) -
+8. [Result Envelopes And Arena Compatibility](result-envelopes-and-arena.md) -
    understand the public result file shape without exposing scoring internals.
-8. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
+9. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
 
 Walkthroughs:
 
