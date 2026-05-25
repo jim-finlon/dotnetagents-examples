@@ -1,0 +1,13 @@
+{
+  "messages": [
+    {
+      "channel": "sms",
+      "externalId": "sms-001",
+      "body": "ASAP — pricing objection on the enterprise tier.",
+      "fromName": "Sam Ortiz",
+      "fromEmail": null,
+      "companyHint": "Northwind Pharma",
+      "receivedAtUtc": "2026-05-18T10:05:00Z"
+    }
+  ]
+}

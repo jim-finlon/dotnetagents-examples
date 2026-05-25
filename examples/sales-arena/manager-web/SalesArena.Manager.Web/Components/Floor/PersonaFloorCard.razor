@@ -1,0 +1,63 @@
+@using SalesArena.Manager.Web.Models
+
+<article class="floor-persona @TierClass(Model.Tier) @(Model.PulseDealClosed ? "floor-persona--pulse" : null)"
+         aria-label="@Model.DisplayName on the floor">
+    <header class="floor-persona__header">
+        <span class="floor-persona__avatar" aria-hidden="true">@Model.AvatarGlyph</span>
+        <div>
+            <h2 class="floor-persona__name h6 mb-0">@Model.DisplayName</h2>
+            <p class="floor-persona__activity mb-0">@ActivityLabel(Model.Activity)</p>
+        </div>
+        <span class="floor-persona__tier-badge">@TierLabel(Model.Tier)</span>
+    </header>
+
+    <dl class="floor-persona__stats">
+        <div><dt>Touches</dt><dd>@Model.TouchesToday</dd></div>
+        <div><dt>Replies</dt><dd>@Model.RepliesToday</dd></div>
+        <div><dt>Meetings</dt><dd>@Model.MeetingsToday</dd></div>
+        <div><dt>Deals</dt><dd class="floor-persona__stat-deals">@Model.DealsToday</dd></div>
+    </dl>
+
+    <ul class="floor-persona__ticker" aria-label="Recent activity for @Model.DisplayName">
+        @if (Model.TickerLines.Count == 0)
+        {
+            <li class="text-muted">Waiting for ledger events...</li>
+        }
+        else
+        {
+            @foreach (var line in Model.TickerLines)
+            {
+                <li>@line</li>
+            }
+        }
+    </ul>
+</article>
+
+@code {
+    [Parameter, EditorRequired]
+    public PersonaFloorCardModel Model { get; set; } = default!;
+
+    private static string TierClass(FloorTier tier) => tier switch
+    {
+        FloorTier.Cadillac => "floor-persona--cadillac",
+        FloorTier.YouAreFired => "floor-persona--fired",
+        _ => "floor-persona--steak",
+    };
+
+    private static string TierLabel(FloorTier tier) => tier switch
+    {
+        FloorTier.Cadillac => "Cadillac",
+        FloorTier.YouAreFired => "You're Fired",
+        _ => "Steak Knives",
+    };
+
+    private static string ActivityLabel(FloorActivity activity) => activity switch
+    {
+        FloorActivity.Researching => "Researching",
+        FloorActivity.Drafting => "Drafting",
+        FloorActivity.Sending => "Sending",
+        FloorActivity.Waiting => "Waiting",
+        FloorActivity.InMeeting => "In meeting",
+        _ => "Idle",
+    };
+}

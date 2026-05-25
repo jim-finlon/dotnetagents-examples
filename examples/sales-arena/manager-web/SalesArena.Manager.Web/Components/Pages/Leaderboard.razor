@@ -1,0 +1,261 @@
+@page "/leaderboard"
+@implements IDisposable
+@inject ILeaderboardEngine LeaderboardEngine
+@using SalesArena.Orchestrator.Leaderboard
+
+<PageTitle>Leaderboard — Sales Arena</PageTitle>
+
+<PageHeader Title="Leaderboard" SubTitle="Live ranking by revenue, deals, conversion, or AEQ." />
+
+<div class="leaderboard-toolbar" data-testid="leaderboard-toolbar">
+    <label class="leaderboard-control">
+        <span>Metric</span>
+        <select id="leaderboard-metric"
+                class="form-select"
+                value="@_selectedScoringId"
+                @onchange="OnMetricChangedAsync">
+            @foreach (var config in _scoringConfigs)
+            {
+                <option value="@config.Id">@config.Name</option>
+            }
+        </select>
+    </label>
+
+    <label class="leaderboard-control">
+        <span>Refresh</span>
+        <input id="leaderboard-refresh"
+               class="form-control"
+               type="number"
+               min="1"
+               max="30"
+               value="@_refreshIntervalSeconds"
+               @onchange="OnRefreshIntervalChanged" />
+    </label>
+
+    <button class="btn btn-outline-primary leaderboard-refresh-button"
+            type="button"
+            data-testid="leaderboard-refresh-now"
+            @onclick="RefreshAsync">
+        Refresh now
+    </button>
+</div>
+
+<PanelCard Title="Cadillac board" SubTitle="@_status">
+    @if (_board is null)
+    {
+        <p class="mb-0 text-muted">Loading leaderboard.</p>
+    }
+    else if (_board.Entries.Count == 0)
+    {
+        <p class="mb-0 text-muted">No scored personas yet.</p>
+    }
+    else
+    {
+        <div class="leaderboard-table-wrap">
+            <table class="table table-hover align-middle leaderboard-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Persona</th>
+                        <th scope="col">Tier</th>
+                        <th scope="col" class="text-end">Revenue</th>
+                        <th scope="col" class="text-end">Deals</th>
+                        <th scope="col" class="text-end">Conversion</th>
+                        <th scope="col" class="text-end">AEQ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in _board.Entries)
+                    {
+                        var animation = GetAnimation(row.Persona);
+                        <tr class="@($"leaderboard-row {GetTierClass(row.Tier)} {animation.CssClass}")"
+                            data-persona="@row.Persona"
+                            data-tier="@row.Tier"
+                            data-animation="@animation.Kind">
+                            <td>
+                                <span class="leaderboard-rank">#@row.Position</span>
+                            </td>
+                            <td>
+                                <strong>@FormatPersona(row.Persona)</strong>
+                            </td>
+                            <td>
+                                <span class="@($"leaderboard-tier {GetTierClass(row.Tier)}")">@GetTierLabel(row.Tier)</span>
+                            </td>
+                            <td class="text-end">@row.RevenueUsd.ToString("C0")</td>
+                            <td class="text-end">@row.DealsWon</td>
+                            <td class="text-end">@row.WinRate.ToString("P0")</td>
+                            <td class="text-end">@FormatAeq(row)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</PanelCard>
+
+@code {
+    private const string ContestId = "demo-contest";
+    private static readonly TimeSpan AnimationThrottle = TimeSpan.FromSeconds(2);
+
+    private readonly IReadOnlyList<IScoringConfig> _scoringConfigs =
+    [
+        new RevenueScoring(),
+        new DealCountScoring(),
+        new ConversionScoring(),
+        new AeqScoring(),
+    ];
+
+    private readonly Dictionary<string, LeaderboardRow> _previousRows = new(StringComparer.Ordinal);
+    private readonly Dictionary<string, AnimationMark> _animationMarks = new(StringComparer.Ordinal);
+    private readonly Dictionary<string, DateTimeOffset> _lastAnimationUtc = new(StringComparer.Ordinal);
+    private CancellationTokenSource? _refreshCts;
+    private SalesArena.Orchestrator.Leaderboard.Leaderboard? _board;
+    private string _selectedScoringId = ScoringConfigIds.ByRevenue;
+    private int _refreshIntervalSeconds = 1;
+    private string _status = "Default refresh: 1 second";
+
+    protected override async Task OnInitializedAsync()
+    {
+        _refreshCts = new CancellationTokenSource();
+        await RefreshAsync().ConfigureAwait(false);
+        _ = RunRefreshLoopAsync(_refreshCts.Token);
+    }
+
+    private async Task OnMetricChangedAsync(ChangeEventArgs args)
+    {
+        var selected = args.Value?.ToString();
+        if (!string.IsNullOrWhiteSpace(selected))
+        {
+            _selectedScoringId = selected;
+        }
+
+        await RefreshAsync().ConfigureAwait(false);
+    }
+
+    private void OnRefreshIntervalChanged(ChangeEventArgs args)
+    {
+        if (int.TryParse(args.Value?.ToString(), out var seconds))
+        {
+            _refreshIntervalSeconds = Math.Clamp(seconds, 1, 30);
+            _status = $"Default refresh: {_refreshIntervalSeconds} second{(_refreshIntervalSeconds == 1 ? string.Empty : "s")}";
+        }
+    }
+
+    private async Task RefreshAsync()
+    {
+        var scoring = _scoringConfigs.FirstOrDefault(c => c.Id == _selectedScoringId)
+            ?? _scoringConfigs[0];
+        _selectedScoringId = scoring.Id;
+
+        var next = await LeaderboardEngine.ComputeAsync(
+            ContestId,
+            scoring,
+            DateTimeOffset.UtcNow,
+            _refreshCts?.Token ?? CancellationToken.None).ConfigureAwait(false);
+
+        MarkAnimations(next);
+        _board = next;
+        _status = $"{scoring.Name} updated {next.AsOfUtc:HH:mm:ss} UTC";
+    }
+
+    private async Task RunRefreshLoopAsync(CancellationToken cancellationToken)
+    {
+        while (!cancellationToken.IsCancellationRequested)
+        {
+            try
+            {
+                await Task.Delay(TimeSpan.FromSeconds(_refreshIntervalSeconds), cancellationToken).ConfigureAwait(false);
+                await InvokeAsync(RefreshAsync).ConfigureAwait(false);
+            }
+            catch (OperationCanceledException)
+            {
+                return;
+            }
+        }
+    }
+
+    private void MarkAnimations(SalesArena.Orchestrator.Leaderboard.Leaderboard next)
+    {
+        var now = DateTimeOffset.UtcNow;
+        foreach (var row in next.Entries)
+        {
+            if (!_previousRows.TryGetValue(row.Persona, out var previous)
+                || (previous.Position == row.Position && previous.Tier == row.Tier))
+            {
+                _previousRows[row.Persona] = row;
+                continue;
+            }
+
+            if (_lastAnimationUtc.TryGetValue(row.Persona, out var lastAnimation)
+                && now - lastAnimation < AnimationThrottle)
+            {
+                _previousRows[row.Persona] = row;
+                continue;
+            }
+
+            var kind = IsPromotion(previous, row) ? "promoted" : "demoted";
+            _animationMarks[row.Persona] = new AnimationMark(kind, $"tier-{kind}");
+            _lastAnimationUtc[row.Persona] = now;
+            _previousRows[row.Persona] = row;
+        }
+    }
+
+    private static bool IsPromotion(LeaderboardRow previous, LeaderboardRow row)
+    {
+        if (row.Position < previous.Position)
+        {
+            return true;
+        }
+
+        return TierRank(row.Tier) < TierRank(previous.Tier);
+    }
+
+    private AnimationMark GetAnimation(string persona) =>
+        _animationMarks.GetValueOrDefault(persona, AnimationMark.None);
+
+    private static int TierRank(LeaderboardTier tier) => tier switch
+    {
+        LeaderboardTier.Cadillac => 0,
+        LeaderboardTier.SteakKnives => 1,
+        LeaderboardTier.YouAreFired => 2,
+        _ => 3,
+    };
+
+    private static string GetTierClass(LeaderboardTier tier) => tier switch
+    {
+        LeaderboardTier.Cadillac => "tier-cadillac",
+        LeaderboardTier.SteakKnives => "tier-steak-knives",
+        LeaderboardTier.YouAreFired => "tier-fired",
+        _ => "tier-unknown",
+    };
+
+    private static string GetTierLabel(LeaderboardTier tier) => tier switch
+    {
+        LeaderboardTier.Cadillac => "Cadillac",
+        LeaderboardTier.SteakKnives => "Steak Knives",
+        LeaderboardTier.YouAreFired => "You're Fired",
+        _ => "Unranked",
+    };
+
+    private static string FormatPersona(string persona) =>
+        string.Join(" ", persona.Split('-', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+            .Select(static part => char.ToUpperInvariant(part[0]) + part[1..]));
+
+    private static string FormatAeq(LeaderboardRow row)
+    {
+        var revenueScore = Math.Min((double)row.RevenueUsd / 100_000.0, 1.0);
+        var aeq = (revenueScore * 0.5) + (row.WinRate * 0.3) + (row.DealsWon > 0 ? 0.2 : 0);
+        return aeq.ToString("0.00");
+    }
+
+    public void Dispose()
+    {
+        _refreshCts?.Cancel();
+        _refreshCts?.Dispose();
+    }
+
+    private readonly record struct AnimationMark(string Kind, string CssClass)
+    {
+        public static AnimationMark None { get; } = new("stable", string.Empty);
+    }
+}

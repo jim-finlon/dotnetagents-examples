@@ -1,0 +1,85 @@
+id: reactive-policy-service
+serviceClass: reactive_policy
+purpose: >
+  React to signals, findings, alerts, or operator events through explicit
+  behavior-tree policy. Use when the service must classify stimuli and choose
+  bounded defensive or diagnostic actions.
+pilotBaseline:
+  service: SecurityScanningAgent
+  storyUse: "Scan-posture state machine and defensive behavior-tree stories"
+layers:
+  chainLogic:
+    owns:
+      - enrich a single stimulus
+      - summarize finding context
+      - propose next safe action
+    mustNotOwn:
+      - behavior-tree branching
+      - authorization scope
+      - direct control-plane mutation
+  workflow:
+    owns:
+      - scheduled polling
+      - stimulus batching
+      - report generation jobs
+      - escalation handoff
+  lifecycleState:
+    states:
+      - idle
+      - observing
+      - reacting
+      - throttled
+      - waiting_for_approval
+      - quarantined
+    transitionRule: "Every non-idle transition records the stimulus id and policy branch."
+  reactivePolicy:
+    role: "Primary"
+    behaviorTree:
+      root: selector
+      branches:
+        - name: new_critical_finding
+          sequence:
+            - classify_finding
+            - verify_owned_asset
+            - preview_control_action
+            - require_confirmation
+        - name: new_medium_finding
+          sequence:
+            - classify_finding
+            - schedule_enrichment
+            - generate_report
+        - name: idle_health
+          sequence:
+            - check_backend_health
+            - record_tick
+  governance:
+    gates:
+      - defensive-only scope
+      - target allowlist
+      - preview/confirm for containment
+      - rate limit and throttle
+    forbiddenActions:
+      - retaliation
+      - third-party targeting
+      - raw secret disclosure
+  observability:
+    requiredDimensions:
+      - dna.actor.id
+      - security.finding_id
+      - security.policy_branch
+      - correlation.runId
+    events:
+      - stimulus.received
+      - behavior_tree.branch.selected
+      - control_action.previewed
+      - control_action.confirmed
+      - reaction.throttled
+safeDefaults:
+  reactionMode: logging
+  requiresAllowlistedTarget: true
+  requiresPreviewConfirm: true
+  storesSecrets: false
+implementationNotes:
+  - "Workers call MCP clients; MCP APIs do not run behavior-tree ticks."
+  - "Behavior-tree action leaves call approved service clients only."
+  - "Use redacted payload refs for evidence instead of raw findings when restricted."

@@ -1,0 +1,7 @@
+# Sales Arena cold-open — DNA-original. No copyrighted dialogue.
+# Tokens available: {contest}
+The bell rang once already. You missed it. Welcome to {contest}.
+Lights up. The floor is open. Every lead in the bin has a name on it tonight.
+This is contest {contest}. The board starts empty. By the end of the hour, it won't.
+Tonight the leads are clean. The board is clean. Only one of those stays that way.
+Phones on, headsets on, agents online. Contest {contest} — go.

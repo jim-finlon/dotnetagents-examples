@@ -1,0 +1,2981 @@
+{
+  "version": "v1",
+  "name": "glengarry-v1",
+  "description": "DNA Sales Arena flagship lead pack. 200 fully-synthetic B2B prospects — 20 hand-curated glengarry-tier premium leads with full intel + 180 deterministically-generated cold leads with sparse intel. Use this pack to boot the first Arena contest.",
+  "synthetic": true,
+  "createdAtUtc": "2026-05-18T00:00:00Z",
+  "tags": [
+    "b2b",
+    "data-analytics-saas",
+    "flagship",
+    "fictional"
+  ],
+  "leads": [
+    {
+      "id": "L-0001",
+      "tier": "glengarry",
+      "company": {
+        "name": "Yatzee Pharmaceutical",
+        "industry": "pharma",
+        "size": "enterprise",
+        "region": "us-northeast",
+        "domain": "yatzee-pharma.example",
+        "headcount": 4200
+      },
+      "contact": {
+        "firstName": "Olivia",
+        "lastName": "Pendergast",
+        "role": "VP Clinical Analytics",
+        "email": "o.pendergast@yatzee-pharma.example",
+        "phone": "555-0142"
+      },
+      "signals": [
+        {
+          "kind": "leadership_change",
+          "summary": "New CFO appointed last quarter; analytics modernization listed in their first earnings call.",
+          "timestampUtc": "2026-04-12T00:00:00Z"
+        },
+        {
+          "kind": "content_engagement",
+          "summary": "Three downloads of clinical-trial-analytics whitepaper in the last 14 days.",
+          "timestampUtc": "2026-05-09T00:00:00Z"
+        },
+        {
+          "kind": "hiring",
+          "summary": "Posted 4 data-platform engineer roles on their careers page.",
+          "timestampUtc": "2026-05-02T00:00:00Z"
+        }
+      ],
+      "notes": "The Cadillac lead. Every persona wants this one."
+    },
+    {
+      "id": "L-0002",
+      "tier": "glengarry",
+      "company": {
+        "name": "Bluebottle Distribution",
+        "industry": "logistics",
+        "size": "mid-market",
+        "region": "us-midwest",
+        "domain": "bluebottle-dist.example",
+        "headcount": 880
+      },
+      "contact": {
+        "firstName": "Marcus",
+        "lastName": "Vance",
+        "role": "Director of Operations Analytics",
+        "email": "m.vance@bluebottle-dist.example",
+        "phone": "555-0234"
+      },
+      "signals": [
+        {
+          "kind": "expansion",
+          "summary": "Opened third regional distribution center in March.",
+          "timestampUtc": "2026-03-21T00:00:00Z"
+        },
+        {
+          "kind": "content_engagement",
+          "summary": "Watched the 'route-optimization ROI' webinar in full last Tuesday.",
+          "timestampUtc": "2026-05-13T00:00:00Z"
+        }
+      ],
+      "notes": "Williamson's perfect lead — they need scheduling clarity right now."
+    },
+    {
+      "id": "L-0003",
+      "tier": "glengarry",
+      "company": {
+        "name": "Riverbend Robotics",
+        "industry": "manufacturing",
+        "size": "mid-market",
+        "region": "us-pacific-northwest",
+        "domain": "riverbend-robotics.example",
+        "headcount": 540
+      },
+      "contact": {
+        "firstName": "Pria",
+        "lastName": "Sundaram",
+        "role": "Head of Production Intelligence",
+        "email": "p.sundaram@riverbend-robotics.example",
+        "phone": "555-0317"
+      },
+      "signals": [
+        {
+          "kind": "funding",
+          "summary": "Closed $40M Series C, named 'predictive maintenance' as a top spending category.",
+          "timestampUtc": "2026-04-28T00:00:00Z"
+        },
+        {
+          "kind": "press_release",
+          "summary": "Announced partnership with a national auto-OEM (no name disclosed).",
+          "timestampUtc": "2026-05-05T00:00:00Z"
+        },
+        {
+          "kind": "mutual_connection",
+          "summary": "Connected to Yatzee Pharmaceutical's CFO via a Q1 industry panel.",
+          "timestampUtc": "2026-02-18T00:00:00Z"
+        }
+      ],
+      "notes": "Moss bait: they'll have technical objections about edge-deployment, and Moss has the counter."
+    },
+    {
+      "id": "L-0004",
+      "tier": "glengarry",
+      "company": {
+        "name": "Northpoint Hospitality Group",
+        "industry": "hospitality",
+        "size": "enterprise",
+        "region": "us-northeast",
+        "domain": "northpoint-hospitality.example",
+        "headcount": 3100
+      },
+      "contact": {
+        "firstName": "Henrik",
+        "lastName": "Olafsson",
+        "role": "SVP Guest Experience Data",
+        "email": "h.olafsson@northpoint-hospitality.example",
+        "phone": "555-0418"
+      },
+      "signals": [
+        {
+          "kind": "news",
+          "summary": "Featured in a Hospitality Tech feature on 'next-gen loyalty programs.'",
+          "timestampUtc": "2026-04-30T00:00:00Z"
+        },
+        {
+          "kind": "content_engagement",
+          "summary": "Six page views on the 'customer-lifetime-value' case study in one week.",
+          "timestampUtc": "2026-05-11T00:00:00Z"
+        }
+      ],
+      "notes": "Aaronow lead — patient, relationship-first close."
+    },
+    {
+      "id": "L-0005",
+      "tier": "glengarry",
+      "company": {
+        "name": "Saltmarsh Financial Services",
+        "industry": "fintech",
+        "size": "mid-market",
+        "region": "us-southeast",
+        "domain": "saltmarsh-fin.example",
+        "headcount": 1200
+      },
+      "contact": {
+        "firstName": "Jacinta",
+        "lastName": "Reyes-Bell",
+        "role": "Director of Risk Analytics",
+        "email": "j.reyes-bell@saltmarsh-fin.example",
+        "phone": "555-0509"
+      },
+      "signals": [
+        {
+          "kind": "compliance_event",
+          "summary": "Recently completed a SOC 2 audit; mentioned analytics-tooling-gaps in the public summary.",
+          "timestampUtc": "2026-04-08T00:00:00Z"
+        },
+        {
+          "kind": "hiring",
+          "summary": "Two posted roles for senior risk-analytics modelers.",
+          "timestampUtc": "2026-05-14T00:00:00Z"
+        },
+        {
+          "kind": "mutual_connection",
+          "summary": "Board member overlaps with Bluebottle Distribution.",
+          "timestampUtc": "2026-01-15T00:00:00Z"
+        }
+      ],
+      "notes": "Compliance angle is the hook. Roma will lead with the audit story."
+    },
+    {
+      "id": "L-0006",
+      "tier": "glengarry",
+      "company": {
+        "name": "Cinderpath Education Networks",
+        "industry": "education",
+        "size": "mid-market",
+        "region": "us-southwest",
+        "domain": "cinderpath-edu.example",
+        "headcount": 640
+      },
+      "contact": {
+        "firstName": "Tomas",
+        "lastName": "Whitaker",
+        "role": "VP Institutional Analytics",
+        "email": "t.whitaker@cinderpath-edu.example",
+        "phone": "555-0612"
+      },
+      "signals": [
+        {
+          "kind": "expansion",
+          "summary": "Acquired a smaller online-education provider in February.",
+          "timestampUtc": "2026-02-22T00:00:00Z"
+        },
+        {
+          "kind": "content_engagement",
+          "summary": "Downloaded the 'student-outcome predictive modeling' ebook twice.",
+          "timestampUtc": "2026-05-08T00:00:00Z"
+        }
+      ],
+      "notes": "Post-acquisition data-consolidation pain. Levene angle: speed-to-quick-win."
+    },
+    {
+      "id": "L-0007",
+      "tier": "glengarry",
+      "company": {
+        "name": "Quillstone Publishing",
+        "industry": "media",
+        "size": "smb",
+        "region": "us-northeast",
+        "domain": "quillstone-pub.example",
+        "headcount": 180
+      },
+      "contact": {
+        "firstName": "Beatrice",
+        "lastName": "Marwick",
+        "role": "Chief Revenue Officer",
+        "email": "b.marwick@quillstone-pub.example",
+        "phone": "555-0714"
+      },
+      "signals": [
+        {
+          "kind": "leadership_change",
+          "summary": "Beatrice was promoted from VP to CRO in March; first 90-day plan emphasized 'data-driven subscriber growth.'",
+          "timestampUtc": "2026-03-04T00:00:00Z"
+        },
+        {
+          "kind": "press_release",
+          "summary": "Launched a new digital-subscription tier last week.",
+          "timestampUtc": "2026-05-12T00:00:00Z"
+        }
+      ],
+      "notes": "CRO with a public 90-day mandate. The fastest close on the board if you reach her in week 4."
+    },
+    {
+      "id": "L-0008",
+      "tier": "glengarry",
+      "company": {
+        "name": "Mossberg Agritech",
+        "industry": "agritech",
+        "size": "mid-market",
+        "region": "us-midwest",
+        "domain": "mossberg-agri.example",
+        "headcount": 920
+      },
+      "contact": {
+        "firstName": "Dane",
+        "lastName": "Korhonen",
+        "role": "Head of Field Operations Data",
+        "email": "d.korhonen@mossberg-agri.example",
+        "phone": "555-0823"
+      },
+      "signals": [
+        {
+          "kind": "product_launch",
+          "summary": "Released a new IoT-soil-sensor platform in April.",
+          "timestampUtc": "2026-04-17T00:00:00Z"
+        },
+        {
+          "kind": "hiring",
+          "summary": "Posted a 'sensor-data ML engineer' role last week.",
+          "timestampUtc": "2026-05-10T00:00:00Z"
+        }
+      ],
+      "notes": "Edge-compute story. Moss closes this one in his sleep if he can get on a call."
+    },
+    {
+      "id": "L-0009",
+      "tier": "glengarry",
+      "company": {
+        "name": "Halberd & Lark Construction",
+        "industry": "construction",
+        "size": "mid-market",
+        "region": "us-mountain",
+        "domain": "halberd-lark.example",
+        "headcount": 760
+      },
+      "contact": {
+        "firstName": "Imogen",
+        "lastName": "Tachibana",
+        "role": "Director of Project Analytics",
+        "email": "i.tachibana@halberd-lark.example",
+        "phone": "555-0915"
+      },
+      "signals": [
+        {
+          "kind": "news",
+          "summary": "Won a major regional infrastructure contract; ribbon-cutting next month.",
+          "timestampUtc": "2026-05-01T00:00:00Z"
+        },
+        {
+          "kind": "expansion",
+          "summary": "Hiring across 4 new project offices in adjacent states.",
+          "timestampUtc": "2026-04-25T00:00:00Z"
+        },
+        {
+          "kind": "content_engagement",
+          "summary": "Engaged on the 'construction-cost-overrun reduction' LinkedIn post.",
+          "timestampUtc": "2026-05-06T00:00:00Z"
+        }
+      ],
+      "notes": "Roma's signature lead — multiple signals, complex stakeholder map, long sales cycle, beautiful close."
+    },
+    {
+      "id": "L-0010",
+      "tier": "glengarry",
+      "company": {
+        "name": "Brimworth Energy",
+        "industry": "energy",
+        "size": "enterprise",
+        "region": "us-southcentral",
+        "domain": "brimworth-energy.example",
+        "headcount": 5400
+      },
+      "contact": {
+        "firstName": "Solange",
+        "lastName": "Akintola",
+        "role": "VP Grid Intelligence",
+        "email": "s.akintola@brimworth-energy.example",
+        "phone": "555-1018"
+      },
+      "signals": [
+        {
+          "kind": "compliance_event",
+          "summary": "Pending regulatory grid-reliability filing in Q3.",
+          "timestampUtc": "2026-04-19T00:00:00Z"
+        },
+        {
+          "kind": "content_engagement",
+          "summary": "Two engagements on the 'predictive-outage analytics' content piece.",
+          "timestampUtc": "2026-05-13T00:00:00Z"
+        }
+      ],
+      "notes": "Enterprise, multi-quarter cycle. Aaronow's marathon. Pays huge."
+    },
+    {
+      "id": "L-0011",
+      "tier": "glengarry",
+      "company": {
+        "name": "Carbide Healthcare Networks",
+        "industry": "healthcare",
+        "size": "enterprise",
+        "region": "us-mid-atlantic",
+        "domain": "carbide-health.example",
+        "headcount": 8900
+      },
+      "contact": {
+        "firstName": "Renée",
+        "lastName": "DuBoulay",
+        "role": "Chief Data Officer",
+        "email": "r.duboulay@carbide-health.example",
+        "phone": "555-1124"
+      },
+      "signals": [
+        {
+          "kind": "leadership_change",
+          "summary": "Renée joined 90 days ago from a peer health system.",
+          "timestampUtc": "2026-02-17T00:00:00Z"
+        },
+        {
+          "kind": "press_release",
+          "summary": "Announced a value-based-care initiative spanning 12 hospitals.",
+          "timestampUtc": "2026-04-30T00:00:00Z"
+        },
+        {
+          "kind": "hiring",
+          "summary": "5 senior data-engineering roles posted in the last 30 days.",
+          "timestampUtc": "2026-05-09T00:00:00Z"
+        }
+      ],
+      "notes": "New CDO + public mandate + hiring spree. Whoever closes this gets the Cadillac."
+    },
+    {
+      "id": "L-0012",
+      "tier": "glengarry",
+      "company": {
+        "name": "Foxglove eCommerce Holdings",
+        "industry": "ecommerce",
+        "size": "mid-market",
+        "region": "us-pacific-coast",
+        "domain": "foxglove-ec.example",
+        "headcount": 1100
+      },
+      "contact": {
+        "firstName": "Sven",
+        "lastName": "Magnusson",
+        "role": "Director of Customer Intelligence",
+        "email": "s.magnusson@foxglove-ec.example",
+        "phone": "555-1209"
+      },
+      "signals": [
+        {
+          "kind": "content_engagement",
+          "summary": "Watched 3 of our 5-part 'merch-margin analytics' video series.",
+          "timestampUtc": "2026-05-07T00:00:00Z"
+        },
+        {
+          "kind": "mutual_connection",
+          "summary": "Sven and Marcus from Bluebottle Distribution presented at the same regional logistics summit.",
+          "timestampUtc": "2026-03-09T00:00:00Z"
+        }
+      ],
+      "notes": "Williamson lead — Sven is a meeting-taker by reputation."
+    },
+    {
+      "id": "L-0013",
+      "tier": "glengarry",
+      "company": {
+        "name": "Greyfield SaaS Holdings",
+        "industry": "saas",
+        "size": "smb",
+        "region": "us-southeast",
+        "domain": "greyfield-saas.example",
+        "headcount": 240
+      },
+      "contact": {
+        "firstName": "Kalindi",
+        "lastName": "Patel-Rourke",
+        "role": "Co-founder & COO",
+        "email": "k.patel-rourke@greyfield-saas.example",
+        "phone": "555-1311"
+      },
+      "signals": [
+        {
+          "kind": "funding",
+          "summary": "Closed $12M Series A six weeks ago.",
+          "timestampUtc": "2026-04-04T00:00:00Z"
+        },
+        {
+          "kind": "hiring",
+          "summary": "Hiring a head of growth + 3 SDRs simultaneously.",
+          "timestampUtc": "2026-05-11T00:00:00Z"
+        },
+        {
+          "kind": "content_engagement",
+          "summary": "Re-shared our 'go-to-market analytics' post on LinkedIn.",
+          "timestampUtc": "2026-05-14T00:00:00Z"
+        }
+      ],
+      "notes": "Founder-led, fast cycle. Levene loves these — speed wins."
+    },
+    {
+      "id": "L-0014",
+      "tier": "glengarry",
+      "company": {
+        "name": "Pinewell Nonprofit Alliance",
+        "industry": "nonprofit",
+        "size": "mid-market",
+        "region": "us-northeast",
+        "domain": "pinewell-np.example",
+        "headcount": 410
+      },
+      "contact": {
+        "firstName": "Aaron",
+        "lastName": "Yiannopoulos",
+        "role": "Director of Donor Analytics",
+        "email": "a.yiannopoulos@pinewell-np.example",
+        "phone": "555-1407"
+      },
+      "signals": [
+        {
+          "kind": "news",
+          "summary": "Featured in a national philanthropy publication for innovative donor-retention work.",
+          "timestampUtc": "2026-04-22T00:00:00Z"
+        },
+        {
+          "kind": "press_release",
+          "summary": "Announced a $50M endowment matching campaign.",
+          "timestampUtc": "2026-05-02T00:00:00Z"
+        }
+      ],
+      "notes": "Roma's heart-warmer. Mission-aligned narrative closes it."
+    },
+    {
+      "id": "L-0015",
+      "tier": "glengarry",
+      "company": {
+        "name": "Tideglass Marketing Group",
+        "industry": "media",
+        "size": "smb",
+        "region": "us-pacific-coast",
+        "domain": "tideglass-mkt.example",
+        "headcount": 95
+      },
+      "contact": {
+        "firstName": "Lavinia",
+        "lastName": "Beaumont",
+        "role": "Head of Client Insights",
+        "email": "l.beaumont@tideglass-mkt.example",
+        "phone": "555-1502"
+      },
+      "signals": [
+        {
+          "kind": "expansion",
+          "summary": "Recently won a Fortune 500 retail account.",
+          "timestampUtc": "2026-04-10T00:00:00Z"
+        },
+        {
+          "kind": "hiring",
+          "summary": "Posted for a 'data scientist + creative strategist hybrid' role — unusual signal.",
+          "timestampUtc": "2026-05-08T00:00:00Z"
+        }
+      ],
+      "notes": "Williamson + Moss combo — book the meeting, then defuse the agency-data skepticism."
+    },
+    {
+      "id": "L-0016",
+      "tier": "glengarry",
+      "company": {
+        "name": "Hollowhill Manufacturing",
+        "industry": "manufacturing",
+        "size": "enterprise",
+        "region": "us-midwest",
+        "domain": "hollowhill-mfg.example",
+        "headcount": 6800
+      },
+      "contact": {
+        "firstName": "Bartholomew",
+        "lastName": "Crewe",
+        "role": "VP Operations Excellence",
+        "email": "b.crewe@hollowhill-mfg.example",
+        "phone": "555-1613"
+      },
+      "signals": [
+        {
+          "kind": "press_release",
+          "summary": "Announced a $200M plant-modernization program in March.",
+          "timestampUtc": "2026-03-08T00:00:00Z"
+        },
+        {
+          "kind": "content_engagement",
+          "summary": "Engaged with the 'OEE benchmarking' content twice this month.",
+          "timestampUtc": "2026-05-10T00:00:00Z"
+        },
+        {
+          "kind": "hiring",
+          "summary": "Hiring a director of 'industrial-AI strategy' — a brand-new role.",
+          "timestampUtc": "2026-04-30T00:00:00Z"
+        }
+      ],
+      "notes": "Massive cycle, massive payday. Aaronow's marathon plus Moss's technical depth."
+    },
+    {
+      "id": "L-0017",
+      "tier": "glengarry",
+      "company": {
+        "name": "Sablefin Logistics Cooperative",
+        "industry": "logistics",
+        "size": "mid-market",
+        "region": "us-pacific-northwest",
+        "domain": "sablefin-logistics.example",
+        "headcount": 720
+      },
+      "contact": {
+        "firstName": "Imani",
+        "lastName": "Okonkwo",
+        "role": "Director of Network Operations",
+        "email": "i.okonkwo@sablefin-logistics.example",
+        "phone": "555-1719"
+      },
+      "signals": [
+        {
+          "kind": "expansion",
+          "summary": "Opening a second hub on the West Coast next quarter.",
+          "timestampUtc": "2026-04-26T00:00:00Z"
+        },
+        {
+          "kind": "compliance_event",
+          "summary": "Recently flagged for a hours-of-service compliance review.",
+          "timestampUtc": "2026-05-05T00:00:00Z"
+        }
+      ],
+      "notes": "Compliance pain + expansion = double-hook. Moss leads with the audit angle."
+    },
+    {
+      "id": "L-0018",
+      "tier": "glengarry",
+      "company": {
+        "name": "Briarstone Construction Partners",
+        "industry": "construction",
+        "size": "smb",
+        "region": "us-southeast",
+        "domain": "briarstone-cp.example",
+        "headcount": 220
+      },
+      "contact": {
+        "firstName": "Cleo",
+        "lastName": "Manfredi",
+        "role": "Operations Director",
+        "email": "c.manfredi@briarstone-cp.example",
+        "phone": "555-1814"
+      },
+      "signals": [
+        {
+          "kind": "news",
+          "summary": "Featured in the regional business press for fastest-growing GC of 2026 Q1.",
+          "timestampUtc": "2026-04-15T00:00:00Z"
+        },
+        {
+          "kind": "content_engagement",
+          "summary": "Watched the 'jobsite-cost-tracking' demo end-to-end.",
+          "timestampUtc": "2026-05-12T00:00:00Z"
+        }
+      ],
+      "notes": "Levene speed-deal. Small but fast. Easy bell-ringer."
+    },
+    {
+      "id": "L-0019",
+      "tier": "glengarry",
+      "company": {
+        "name": "Veldspar Bio Solutions",
+        "industry": "pharma",
+        "size": "mid-market",
+        "region": "us-northeast",
+        "domain": "veldspar-bio.example",
+        "headcount": 480
+      },
+      "contact": {
+        "firstName": "Anders",
+        "lastName": "Lundberg",
+        "role": "Director of Computational Biology",
+        "email": "a.lundberg@veldspar-bio.example",
+        "phone": "555-1916"
+      },
+      "signals": [
+        {
+          "kind": "funding",
+          "summary": "Closed $25M Series B with computational-platform as a stated investment area.",
+          "timestampUtc": "2026-03-29T00:00:00Z"
+        },
+        {
+          "kind": "press_release",
+          "summary": "Announced a research partnership with a top-3 research university.",
+          "timestampUtc": "2026-05-04T00:00:00Z"
+        },
+        {
+          "kind": "mutual_connection",
+          "summary": "Anders co-authored a paper with someone on Carbide Health's data team.",
+          "timestampUtc": "2026-01-20T00:00:00Z"
+        }
+      ],
+      "notes": "Roma's longest-cycle prize. PhD-flavored. Worth a year of nurture if he plays it right."
+    },
+    {
+      "id": "L-0020",
+      "tier": "glengarry",
+      "company": {
+        "name": "Goldenrod Hospitality Ventures",
+        "industry": "hospitality",
+        "size": "mid-market",
+        "region": "us-southwest",
+        "domain": "goldenrod-hosp.example",
+        "headcount": 1340
+      },
+      "contact": {
+        "firstName": "Tessa",
+        "lastName": "Verstraete-Owens",
+        "role": "VP Guest Loyalty Programs",
+        "email": "t.verstraete-owens@goldenrod-hosp.example",
+        "phone": "555-2003"
+      },
+      "signals": [
+        {
+          "kind": "product_launch",
+          "summary": "Launched a refreshed loyalty app in April; early reviews mixed.",
+          "timestampUtc": "2026-04-09T00:00:00Z"
+        },
+        {
+          "kind": "leadership_change",
+          "summary": "New CMO joined in February with a stated 'analytics-first' mandate.",
+          "timestampUtc": "2026-02-12T00:00:00Z"
+        }
+      ],
+      "notes": "Williamson's specialty: get Tessa on a 30-min discovery within 5 business days."
+    },
+    {
+      "id": "L-0021",
+      "tier": "cold",
+      "company": {
+        "name": "Marsh Systems",
+        "industry": "agritech",
+        "size": "enterprise",
+        "region": "us-mid-atlantic"
+      },
+      "contact": {
+        "firstName": "Benedict",
+        "lastName": "Yamashita",
+        "email": "b.yamashita@marsh-co.example"
+      }
+    },
+    {
+      "id": "L-0022",
+      "tier": "cold",
+      "company": {
+        "name": "Harrow Health Services",
+        "industry": "fintech",
+        "size": "mid-market",
+        "region": "canada-east"
+      },
+      "contact": {
+        "firstName": "Saoirse",
+        "lastName": "Hannigan",
+        "email": "s.hannigan@harrow-co.example"
+      }
+    },
+    {
+      "id": "L-0023",
+      "tier": "cold",
+      "company": {
+        "name": "Cinder Health Services",
+        "industry": "manufacturing",
+        "size": "smb",
+        "region": "us-northeast"
+      },
+      "contact": {
+        "firstName": "Faisal",
+        "lastName": "Ito",
+        "role": "Head of Growth",
+        "email": "f.ito@cinder-co.example"
+      }
+    },
+    {
+      "id": "L-0024",
+      "tier": "cold",
+      "company": {
+        "name": "Vale Retail Brands",
+        "industry": "other",
+        "size": "mid-market",
+        "region": "us-southcentral"
+      }
+    },
+    {
+      "id": "L-0025",
+      "tier": "cold",
+      "company": {
+        "name": "Glen Logistics",
+        "industry": "fintech",
+        "size": "enterprise",
+        "region": "us-southwest"
+      },
+      "contact": {
+        "firstName": "Petra",
+        "lastName": "Lindqvist"
+      }
+    },
+    {
+      "id": "L-0026",
+      "tier": "cold",
+      "company": {
+        "name": "Beacon Studios",
+        "industry": "media",
+        "size": "enterprise",
+        "region": "apac-southeast"
+      }
+    },
+    {
+      "id": "L-0027",
+      "tier": "cold",
+      "company": {
+        "name": "Nimbus Pharma",
+        "industry": "energy",
+        "size": "smb",
+        "region": "us-mid-atlantic"
+      }
+    },
+    {
+      "id": "L-0028",
+      "tier": "cold",
+      "company": {
+        "name": "Fenwick Systems",
+        "industry": "other",
+        "size": "mid-market",
+        "region": "emea-fr"
+      },
+      "contact": {
+        "firstName": "Anika",
+        "lastName": "Dahlgren"
+      }
+    },
+    {
+      "id": "L-0029",
+      "tier": "cold",
+      "company": {
+        "name": "Glen Health Services",
+        "industry": "agritech",
+        "size": "mid-market",
+        "region": "us-pacific-northwest"
+      },
+      "contact": {
+        "firstName": "Kofi",
+        "lastName": "Yoshida",
+        "role": "Director of Insights"
+      }
+    },
+    {
+      "id": "L-0030",
+      "tier": "cold",
+      "company": {
+        "name": "Elm Construction",
+        "industry": "agritech",
+        "size": "smb",
+        "region": "us-pacific-coast"
+      }
+    },
+    {
+      "id": "L-0031",
+      "tier": "cold",
+      "company": {
+        "name": "Reed Group",
+        "industry": "saas",
+        "size": "mid-market",
+        "region": "us-pacific-northwest"
+      }
+    },
+    {
+      "id": "L-0032",
+      "tier": "cold",
+      "company": {
+        "name": "Fenwick Group",
+        "industry": "construction",
+        "size": "smb",
+        "region": "us-northeast"
+      }
+    },
+    {
+      "id": "L-0033",
+      "tier": "cold",
+      "company": {
+        "name": "Glen Energy",
+        "industry": "healthcare",
+        "size": "mid-market",
+        "region": "us-southeast"
+      }
+    },
+    {
+      "id": "L-0034",
+      "tier": "cold",
+      "company": {
+        "name": "Acorn Retail Brands",
+        "industry": "logistics",
+        "size": "mid-market",
+        "region": "apac-southeast"
+      }
+    },
+    {
+      "id": "L-0035",
+      "tier": "cold",
+      "company": {
+        "name": "Hazel Cooperative",
+        "industry": "media",
+        "size": "smb",
+        "region": "emea-uk"
+      }
+    },
+    {
+      "id": "L-0036",
+      "tier": "cold",
+      "company": {
+        "name": "Larkspur Cooperative",
+        "industry": "ecommerce",
+        "size": "smb",
+        "region": "apac-southeast"
+      },
+      "contact": {
+        "firstName": "Mateo",
+        "lastName": "Bjornsson",
+        "email": "m.bjornsson@larkspur-co.example"
+      }
+    },
+    {
+      "id": "L-0037",
+      "tier": "cold",
+      "company": {
+        "name": "Drift Logistics",
+        "industry": "manufacturing",
+        "size": "enterprise",
+        "region": "us-mountain"
+      }
+    },
+    {
+      "id": "L-0038",
+      "tier": "cold",
+      "company": {
+        "name": "Nettle Education Group",
+        "industry": "construction",
+        "size": "smb",
+        "region": "us-southcentral"
+      },
+      "contact": {
+        "firstName": "Kofi",
+        "lastName": "Zerbino",
+        "role": "VP Marketing Analytics",
+        "email": "k.zerbino@nettle-co.example"
+      }
+    },
+    {
+      "id": "L-0039",
+      "tier": "cold",
+      "company": {
+        "name": "Pine Analytics",
+        "industry": "pharma",
+        "size": "enterprise",
+        "region": "emea-de"
+      },
+      "contact": {
+        "firstName": "Kestrel",
+        "lastName": "Ito",
+        "email": "k.ito@pine-co.example"
+      }
+    },
+    {
+      "id": "L-0040",
+      "tier": "cold",
+      "company": {
+        "name": "Oat Robotics",
+        "industry": "agritech",
+        "size": "mid-market",
+        "region": "emea-de"
+      },
+      "contact": {
+        "firstName": "Saoirse",
+        "lastName": "Brennan",
+        "email": "s.brennan@oat-co.example"
+      }
+    },
+    {
+      "id": "L-0041",
+      "tier": "cold",
+      "company": {
+        "name": "Beacon Robotics",
+        "industry": "healthcare",
+        "size": "mid-market",
+        "region": "us-southwest"
+      }
+    },
+    {
+      "id": "L-0042",
+      "tier": "cold",
+      "company": {
+        "name": "Iris Energy",
+        "industry": "hospitality",
+        "size": "smb",
+        "region": "us-mountain"
+      }
+    },
+    {
+      "id": "L-0043",
+      "tier": "cold",
+      "company": {
+        "name": "Nettle Holdings",
+        "industry": "ecommerce",
+        "size": "smb",
+        "region": "us-pacific-northwest"
+      },
+      "contact": {
+        "firstName": "Wendell",
+        "lastName": "Lindqvist"
+      }
+    },
+    {
+      "id": "L-0044",
+      "tier": "cold",
+      "company": {
+        "name": "Hazel Trading Co.",
+        "industry": "media",
+        "size": "smb",
+        "region": "us-pacific-coast"
+      }
+    },
+    {
+      "id": "L-0045",
+      "tier": "cold",
+      "company": {
+        "name": "Glen Retail Brands",
+        "industry": "energy",
+        "size": "mid-market",
+        "region": "emea-de"
+      },
+      "contact": {
+        "firstName": "Rashid",
+        "lastName": "Petrov",
+        "email": "r.petrov@glen-co.example"
+      }
+    },
+    {
+      "id": "L-0046",
+      "tier": "cold",
+      "company": {
+        "name": "Drift Labs",
+        "industry": "agritech",
+        "size": "smb",
+        "region": "canada-east"
+      },
+      "contact": {
+        "firstName": "Kofi",
+        "lastName": "Lefebvre"
+      }
+    },
+    {
+      "id": "L-0047",
+      "tier": "cold",
+      "company": {
+        "name": "Yarrow Cooperative",
+        "industry": "saas",
+        "size": "enterprise",
+        "region": "us-southeast"
+      },
+      "contact": {
+        "firstName": "Otto",
+        "lastName": "Nakamura"
+      }
+    },
+    {
+      "id": "L-0048",
+      "tier": "cold",
+      "company": {
+        "name": "Linden Robotics",
+        "industry": "media",
+        "size": "mid-market",
+        "region": "us-mid-atlantic"
+      },
+      "contact": {
+        "firstName": "Iris",
+        "lastName": "Oyelaran",
+        "email": "i.oyelaran@linden-co.example"
+      }
+    },
+    {
+      "id": "L-0049",
+      "tier": "cold",
+      "company": {
+        "name": "Thorn Manufacturing",
+        "industry": "saas",
+        "size": "smb",
+        "region": "us-northeast"
+      }
+    },
+    {
+      "id": "L-0050",
+      "tier": "cold",
+      "company": {
+        "name": "Ridge Ventures",
+        "industry": "other",
+        "size": "smb",
+        "region": "us-pacific-northwest"
+      }
+    },
+    {
+      "id": "L-0051",
+      "tier": "cold",
+      "company": {
+        "name": "Vale Robotics",
+        "industry": "logistics",
+        "size": "enterprise",
+        "region": "emea-fr"
+      },
+      "contact": {
+        "firstName": "Quincy",
+        "lastName": "Oyelaran",
+        "email": "q.oyelaran@vale-co.example"
+      }
+    },
+    {
+      "id": "L-0052",
+      "tier": "cold",
+      "company": {
+        "name": "Iris Logistics",
+        "industry": "saas",
+        "size": "smb",
+        "region": "us-mid-atlantic"
+      },
+      "contact": {
+        "firstName": "Esteban",
+        "lastName": "Joubert",
+        "role": "Director of Analytics"
+      }
+    },
+    {
+      "id": "L-0053",
+      "tier": "cold",
+      "company": {
+        "name": "Sable Studios",
+        "industry": "hospitality",
+        "size": "mid-market",
+        "region": "emea-uk"
+      },
+      "contact": {
+        "firstName": "Gunnar",
+        "lastName": "Ito",
+        "role": "Senior Director of Analytics",
+        "email": "g.ito@sable-co.example"
+      }
+    },
+    {
+      "id": "L-0054",
+      "tier": "cold",
+      "company": {
+        "name": "Wisp Labs",
+        "industry": "other",
+        "size": "smb",
+        "region": "emea-fr"
+      }
+    },
+    {
+      "id": "L-0055",
+      "tier": "cold",
+      "company": {
+        "name": "Glen Ventures",
+        "industry": "hospitality",
+        "size": "enterprise",
+        "region": "emea-uk"
+      }
+    },
+    {
+      "id": "L-0056",
+      "tier": "cold",
+      "company": {
+        "name": "Sable Labs",
+        "industry": "fintech",
+        "size": "mid-market",
+        "region": "us-southwest"
+      },
+      "contact": {
+        "firstName": "Idris",
+        "lastName": "Underhill",
+        "email": "i.underhill@sable-co.example"
+      }
+    },
+    {
+      "id": "L-0057",
+      "tier": "cold",
+      "company": {
+        "name": "Kingsley Cooperative",
+        "industry": "saas",
+        "size": "smb",
+        "region": "apac-au-nz"
+      }
+    },
+    {
+      "id": "L-0058",
+      "tier": "cold",
+      "company": {
+        "name": "Marsh Studios",
+        "industry": "healthcare",
+        "size": "smb",
+        "region": "us-midwest"
+      },
+      "contact": {
+        "firstName": "Esteban",
+        "lastName": "Joubert"
+      }
+    },
+    {
+      "id": "L-0059",
+      "tier": "cold",
+      "company": {
+        "name": "Sable Partners",
+        "industry": "saas",
+        "size": "enterprise",
+        "region": "us-midwest"
+      },
+      "contact": {
+        "firstName": "Viggo",
+        "lastName": "Chen"
+      }
+    },
+    {
+      "id": "L-0060",
+      "tier": "cold",
+      "company": {
+        "name": "Drumlin Distribution",
+        "industry": "fintech",
+        "size": "enterprise",
+        "region": "us-mid-atlantic"
+      },
+      "contact": {
+        "firstName": "Priya",
+        "lastName": "Oduya",
+        "email": "p.oduya@drumlin-co.example"
+      }
+    },
+    {
+      "id": "L-0061",
+      "tier": "cold",
+      "company": {
+        "name": "Juniper Financial",
+        "industry": "saas",
+        "size": "smb",
+        "region": "emea-fr"
+      },
+      "contact": {
+        "firstName": "Hiroshi",
+        "lastName": "Saintclair",
+        "email": "h.saintclair@juniper-co.example"
+      }
+    },
+    {
+      "id": "L-0062",
+      "tier": "cold",
+      "company": {
+        "name": "Jasper Solutions",
+        "industry": "ecommerce",
+        "size": "smb",
+        "region": "us-southcentral"
+      },
+      "contact": {
+        "firstName": "Wendell",
+        "lastName": "Nightingale",
+        "role": "Chief of Staff"
+      }
+    },
+    {
+      "id": "L-0063",
+      "tier": "cold",
+      "company": {
+        "name": "Dell Health Services",
+        "industry": "saas",
+        "size": "mid-market",
+        "region": "emea-de"
+      }
+    },
+    {
+      "id": "L-0064",
+      "tier": "cold",
+      "company": {
+        "name": "Drift Collective",
+        "industry": "logistics",
+        "size": "smb",
+        "region": "apac-au-nz"
+      }
+    },
+    {
+      "id": "L-0065",
+      "tier": "cold",
+      "company": {
+        "name": "Thicket Collective",
+        "industry": "energy",
+        "size": "enterprise",
+        "region": "us-mid-atlantic"
+      },
+      "contact": {
+        "firstName": "Briana",
+        "lastName": "Xiang",
+        "email": "b.xiang@thicket-co.example"
+      }
+    },
+    {
+      "id": "L-0066",
+      "tier": "cold",
+      "company": {
+        "name": "Meadow Construction",
+        "industry": "manufacturing",
+        "size": "mid-market",
+        "region": "us-mid-atlantic"
+      }
+    },
+    {
+      "id": "L-0067",
+      "tier": "cold",
+      "company": {
+        "name": "Knot Analytics",
+        "industry": "healthcare",
+        "size": "mid-market",
+        "region": "apac-au-nz"
+      }
+    },
+    {
+      "id": "L-0068",
+      "tier": "cold",
+      "company": {
+        "name": "Knot Distribution",
+        "industry": "other",
+        "size": "enterprise",
+        "region": "apac-au-nz"
+      }
+    },
+    {
+      "id": "L-0069",
+      "tier": "cold",
+      "company": {
+        "name": "Fenwick Ventures",
+        "industry": "fintech",
+        "size": "smb",
+        "region": "us-pacific-coast"
+      }
+    },
+    {
+      "id": "L-0070",
+      "tier": "cold",
+      "company": {
+        "name": "Fern Analytics",
+        "industry": "healthcare",
+        "size": "mid-market",
+        "region": "apac-southeast"
+      },
+      "contact": {
+        "firstName": "Tariq",
+        "lastName": "Verlander"
+      }
+    },
+    {
+      "id": "L-0071",
+      "tier": "cold",
+      "company": {
+        "name": "Underwood Agritech",
+        "industry": "media",
+        "size": "smb",
+        "region": "emea-de"
+      },
+      "contact": {
+        "firstName": "Petra",
+        "lastName": "Underhill",
+        "role": "COO"
+      }
+    },
+    {
+      "id": "L-0072",
+      "tier": "cold",
+      "company": {
+        "name": "Nettle Analytics",
+        "industry": "other",
+        "size": "smb",
+        "region": "us-southeast"
+      },
+      "contact": {
+        "firstName": "Briana",
+        "lastName": "Ito",
+        "email": "b.ito@nettle-co.example"
+      }
+    },
+    {
+      "id": "L-0073",
+      "tier": "cold",
+      "company": {
+        "name": "Linden Labs",
+        "industry": "other",
+        "size": "smb",
+        "region": "emea-uk"
+      },
+      "contact": {
+        "firstName": "Tariq",
+        "lastName": "Underhill",
+        "email": "t.underhill@linden-co.example"
+      }
+    },
+    {
+      "id": "L-0074",
+      "tier": "cold",
+      "company": {
+        "name": "Zephyr Systems",
+        "industry": "education",
+        "size": "mid-market",
+        "region": "us-pacific-northwest"
+      },
+      "contact": {
+        "firstName": "Junia",
+        "lastName": "Petrov",
+        "email": "j.petrov@zephyr-co.example"
+      }
+    },
+    {
+      "id": "L-0075",
+      "tier": "cold",
+      "company": {
+        "name": "Gable Group",
+        "industry": "manufacturing",
+        "size": "mid-market",
+        "region": "emea-fr"
+      },
+      "contact": {
+        "firstName": "Priya",
+        "lastName": "Chen",
+        "email": "p.chen@gable-co.example"
+      }
+    },
+    {
+      "id": "L-0076",
+      "tier": "cold",
+      "company": {
+        "name": "Thicket Solutions",
+        "industry": "energy",
+        "size": "smb",
+        "region": "us-northeast"
+      }
+    },
+    {
+      "id": "L-0077",
+      "tier": "cold",
+      "company": {
+        "name": "Juniper Energy",
+        "industry": "energy",
+        "size": "smb",
+        "region": "us-pacific-northwest"
+      }
+    },
+    {
+      "id": "L-0078",
+      "tier": "cold",
+      "company": {
+        "name": "Marsh Construction",
+        "industry": "education",
+        "size": "smb",
+        "region": "us-pacific-coast"
+      }
+    },
+    {
+      "id": "L-0079",
+      "tier": "cold",
+      "company": {
+        "name": "Yarrow Pharma",
+        "industry": "education",
+        "size": "mid-market",
+        "region": "us-mid-atlantic"
+      }
+    },
+    {
+      "id": "L-0080",
+      "tier": "cold",
+      "company": {
+        "name": "Harrow Education Group",
+        "industry": "construction",
+        "size": "enterprise",
+        "region": "us-southeast"
+      },
+      "contact": {
+        "firstName": "Una",
+        "lastName": "Mwangi"
+      }
+    },
+    {
+      "id": "L-0081",
+      "tier": "cold",
+      "company": {
+        "name": "Quarry Trading Co.",
+        "industry": "ecommerce",
+        "size": "mid-market",
+        "region": "emea-fr"
+      }
+    },
+    {
+      "id": "L-0082",
+      "tier": "cold",
+      "company": {
+        "name": "Knot Systems",
+        "industry": "manufacturing",
+        "size": "smb",
+        "region": "us-northeast"
+      },
+      "contact": {
+        "firstName": "Una",
+        "lastName": "Abboud",
+        "email": "u.abboud@knot-co.example"
+      }
+    },
+    {
+      "id": "L-0083",
+      "tier": "cold",
+      "company": {
+        "name": "Vesper Robotics",
+        "industry": "fintech",
+        "size": "mid-market",
+        "region": "canada-east"
+      },
+      "contact": {
+        "firstName": "Gemma",
+        "lastName": "Saintclair",
+        "role": "Head of Growth",
+        "email": "g.saintclair@vesper-co.example"
+      }
+    },
+    {
+      "id": "L-0084",
+      "tier": "cold",
+      "company": {
+        "name": "Drift Studios",
+        "industry": "pharma",
+        "size": "mid-market",
+        "region": "us-midwest"
+      },
+      "contact": {
+        "firstName": "Niamh",
+        "lastName": "Eberhardt",
+        "email": "n.eberhardt@drift-co.example"
+      }
+    },
+    {
+      "id": "L-0085",
+      "tier": "cold",
+      "company": {
+        "name": "Willow Agritech",
+        "industry": "education",
+        "size": "mid-market",
+        "region": "emea-fr"
+      }
+    },
+    {
+      "id": "L-0086",
+      "tier": "cold",
+      "company": {
+        "name": "Drumlin Networks",
+        "industry": "healthcare",
+        "size": "enterprise",
+        "region": "us-pacific-northwest"
+      },
+      "contact": {
+        "firstName": "Idris",
+        "lastName": "Winterbourne"
+      }
+    },
+    {
+      "id": "L-0087",
+      "tier": "cold",
+      "company": {
+        "name": "Yew Manufacturing",
+        "industry": "education",
+        "size": "smb",
+        "region": "us-southwest"
+      },
+      "contact": {
+        "firstName": "Priya",
+        "lastName": "Kazemi"
+      }
+    },
+    {
+      "id": "L-0088",
+      "tier": "cold",
+      "company": {
+        "name": "Jasper Labs",
+        "industry": "pharma",
+        "size": "enterprise",
+        "region": "us-pacific-northwest"
+      }
+    },
+    {
+      "id": "L-0089",
+      "tier": "cold",
+      "company": {
+        "name": "Bracken Hospitality",
+        "industry": "education",
+        "size": "smb",
+        "region": "us-midwest"
+      }
+    },
+    {
+      "id": "L-0090",
+      "tier": "cold",
+      "company": {
+        "name": "Quill Retail Brands",
+        "industry": "ecommerce",
+        "size": "enterprise",
+        "region": "us-southeast"
+      },
+      "contact": {
+        "firstName": "Cassia",
+        "lastName": "Quiroga"
+      }
+    },
+    {
+      "id": "L-0091",
+      "tier": "cold",
+      "company": {
+        "name": "Fern Trading Co.",
+        "industry": "manufacturing",
+        "size": "smb",
+        "region": "us-southcentral"
+      },
+      "contact": {
+        "firstName": "Vikram",
+        "lastName": "Ibrahim"
+      }
+    },
+    {
+      "id": "L-0092",
+      "tier": "cold",
+      "company": {
+        "name": "Plume Ventures",
+        "industry": "hospitality",
+        "size": "mid-market",
+        "region": "us-pacific-northwest"
+      },
+      "contact": {
+        "firstName": "Benedict",
+        "lastName": "Brennan",
+        "email": "b.brennan@plume-co.example"
+      }
+    },
+    {
+      "id": "L-0093",
+      "tier": "cold",
+      "company": {
+        "name": "Marsh Group",
+        "industry": "hospitality",
+        "size": "smb",
+        "region": "emea-fr"
+      }
+    },
+    {
+      "id": "L-0094",
+      "tier": "cold",
+      "company": {
+        "name": "Linden Holdings",
+        "industry": "healthcare",
+        "size": "mid-market",
+        "region": "us-southwest"
+      }
+    },
+    {
+      "id": "L-0095",
+      "tier": "cold",
+      "company": {
+        "name": "Reed Systems",
+        "industry": "manufacturing",
+        "size": "smb",
+        "region": "apac-southeast"
+      },
+      "contact": {
+        "firstName": "Quincy",
+        "lastName": "Honoré",
+        "email": "q.honore@reed-co.example"
+      }
+    },
+    {
+      "id": "L-0096",
+      "tier": "cold",
+      "company": {
+        "name": "Yarrow Media",
+        "industry": "construction",
+        "size": "smb",
+        "region": "emea-uk"
+      }
+    },
+    {
+      "id": "L-0097",
+      "tier": "cold",
+      "company": {
+        "name": "Yew Partners",
+        "industry": "agritech",
+        "size": "mid-market",
+        "region": "us-mountain"
+      },
+      "contact": {
+        "firstName": "Hala",
+        "lastName": "Winterbourne",
+        "email": "h.winterbourne@yew-co.example"
+      }
+    },
+    {
+      "id": "L-0098",
+      "tier": "cold",
+      "company": {
+        "name": "Ironwood Ventures",
+        "industry": "logistics",
+        "size": "mid-market",
+        "region": "us-northeast"
+      }
+    },
+    {
+      "id": "L-0099",
+      "tier": "cold",
+      "company": {
+        "name": "Thicket Retail Brands",
+        "industry": "education",
+        "size": "smb",
+        "region": "us-pacific-coast"
+      },
+      "contact": {
+        "firstName": "Fiona",
+        "lastName": "Xiang"
+      }
+    },
+    {
+      "id": "L-0100",
+      "tier": "cold",
+      "company": {
+        "name": "Oxbow Industries",
+        "industry": "energy",
+        "size": "smb",
+        "region": "canada-east"
+      }
+    },
+    {
+      "id": "L-0101",
+      "tier": "cold",
+      "company": {
+        "name": "Nettle Cooperative",
+        "industry": "logistics",
+        "size": "smb",
+        "region": "us-northeast"
+      }
+    },
+    {
+      "id": "L-0102",
+      "tier": "cold",
+      "company": {
+        "name": "Nettle Trading Co.",
+        "industry": "pharma",
+        "size": "enterprise",
+        "region": "emea-uk"
+      },
+      "contact": {
+        "firstName": "Joaquin",
+        "lastName": "Devereux",
+        "email": "j.devereux@nettle-co.example"
+      }
+    },
+    {
+      "id": "L-0103",
+      "tier": "cold",
+      "company": {
+        "name": "Dell Studios",
+        "industry": "media",
+        "size": "smb",
+        "region": "emea-fr"
+      },
+      "contact": {
+        "firstName": "Gemma",
+        "lastName": "Fitzwilliam",
+        "email": "g.fitzwilliam@dell-co.example"
+      }
+    },
+    {
+      "id": "L-0104",
+      "tier": "cold",
+      "company": {
+        "name": "Nimbus Financial",
+        "industry": "logistics",
+        "size": "enterprise",
+        "region": "us-mid-atlantic"
+      },
+      "contact": {
+        "firstName": "Iris",
+        "lastName": "Hannigan"
+      }
+    },
+    {
+      "id": "L-0105",
+      "tier": "cold",
+      "company": {
+        "name": "Yarrow Robotics",
+        "industry": "hospitality",
+        "size": "smb",
+        "region": "us-pacific-coast"
+      }
+    },
+    {
+      "id": "L-0106",
+      "tier": "cold",
+      "company": {
+        "name": "Wisp Logistics",
+        "industry": "media",
+        "size": "enterprise",
+        "region": "emea-uk"
+      },
+      "contact": {
+        "firstName": "Zelda",
+        "lastName": "Zerbino",
+        "email": "z.zerbino@wisp-co.example"
+      }
+    },
+    {
+      "id": "L-0107",
+      "tier": "cold",
+      "company": {
+        "name": "Fenwick Distribution",
+        "industry": "fintech",
+        "size": "smb",
+        "region": "emea-fr"
+      }
+    },
+    {
+      "id": "L-0108",
+      "tier": "cold",
+      "company": {
+        "name": "Thicket Construction",
+        "industry": "fintech",
+        "size": "smb",
+        "region": "apac-au-nz"
+      }
+    },
+    {
+      "id": "L-0109",
+      "tier": "cold",
+      "company": {
+        "name": "Underwood Logistics",
+        "industry": "ecommerce",
+        "size": "enterprise",
+        "region": "us-pacific-coast"
+      },
+      "contact": {
+        "firstName": "Benedict",
+        "lastName": "Abboud",
+        "role": "Director of Field Operations"
+      }
+    },
+    {
+      "id": "L-0110",
+      "tier": "cold",
+      "company": {
+        "name": "Knot Solutions",
+        "industry": "pharma",
+        "size": "smb",
+        "region": "us-pacific-coast"
+      }
+    },
+    {
+      "id": "L-0111",
+      "tier": "cold",
+      "company": {
+        "name": "Drumlin Media",
+        "industry": "manufacturing",
+        "size": "smb",
+        "region": "us-pacific-coast"
+      }
+    },
+    {
+      "id": "L-0112",
+      "tier": "cold",
+      "company": {
+        "name": "Underwood Hospitality",
+        "industry": "education",
+        "size": "mid-market",
+        "region": "us-southwest"
+      },
+      "contact": {
+        "firstName": "Rashid",
+        "lastName": "Yamashita",
+        "email": "r.yamashita@underwood-co.example"
+      }
+    },
+    {
+      "id": "L-0113",
+      "tier": "cold",
+      "company": {
+        "name": "Ironwood Construction",
+        "industry": "fintech",
+        "size": "smb",
+        "region": "emea-uk"
+      },
+      "contact": {
+        "firstName": "Benedict",
+        "lastName": "Eberhardt",
+        "role": "Head of Platform"
+      }
+    },
+    {
+      "id": "L-0114",
+      "tier": "cold",
+      "company": {
+        "name": "Jasper Studios",
+        "industry": "hospitality",
+        "size": "mid-market",
+        "region": "us-pacific-northwest"
+      },
+      "contact": {
+        "firstName": "Nia",
+        "lastName": "Gallego",
+        "email": "n.gallego@jasper-co.example"
+      }
+    },
+    {
+      "id": "L-0115",
+      "tier": "cold",
+      "company": {
+        "name": "Sable Industries",
+        "industry": "education",
+        "size": "smb",
+        "region": "emea-uk"
+      },
+      "contact": {
+        "firstName": "Dimitri",
+        "lastName": "Whitford"
+      }
+    },
+    {
+      "id": "L-0116",
+      "tier": "cold",
+      "company": {
+        "name": "Hazel Studios",
+        "industry": "construction",
+        "size": "smb",
+        "region": "us-pacific-northwest"
+      },
+      "contact": {
+        "firstName": "Dimitri",
+        "lastName": "Esquivel",
+        "email": "d.esquivel@hazel-co.example"
+      }
+    },
+    {
+      "id": "L-0117",
+      "tier": "cold",
+      "company": {
+        "name": "Calder Collective",
+        "industry": "saas",
+        "size": "mid-market",
+        "region": "emea-de"
+      }
+    },
+    {
+      "id": "L-0118",
+      "tier": "cold",
+      "company": {
+        "name": "Underwood Hospitality",
+        "industry": "manufacturing",
+        "size": "mid-market",
+        "region": "us-mid-atlantic"
+      }
+    },
+    {
+      "id": "L-0119",
+      "tier": "cold",
+      "company": {
+        "name": "Harrow Pharma",
+        "industry": "healthcare",
+        "size": "mid-market",
+        "region": "apac-au-nz"
+      },
+      "contact": {
+        "firstName": "Benedict",
+        "lastName": "Klepper",
+        "role": "Director of Procurement",
+        "email": "b.klepper@harrow-co.example"
+      }
+    },
+    {
+      "id": "L-0120",
+      "tier": "cold",
+      "company": {
+        "name": "Kingsley Studios",
+        "industry": "energy",
+        "size": "smb",
+        "region": "emea-de"
+      }
+    },
+    {
+      "id": "L-0121",
+      "tier": "cold",
+      "company": {
+        "name": "Oxbow Labs",
+        "industry": "logistics",
+        "size": "mid-market",
+        "region": "us-southwest"
+      }
+    },
+    {
+      "id": "L-0122",
+      "tier": "cold",
+      "company": {
+        "name": "Nettle Media",
+        "industry": "saas",
+        "size": "mid-market",
+        "region": "emea-de"
+      },
+      "contact": {
+        "firstName": "Yael",
+        "lastName": "Dahlgren",
+        "role": "Head of Growth",
+        "email": "y.dahlgren@nettle-co.example"
+      }
+    },
+    {
+      "id": "L-0123",
+      "tier": "cold",
+      "company": {
+        "name": "Hazel Construction",
+        "industry": "logistics",
+        "size": "smb",
+        "region": "us-southwest"
+      }
+    },
+    {
+      "id": "L-0124",
+      "tier": "cold",
+      "company": {
+        "name": "Pine Hospitality",
+        "industry": "other",
+        "size": "mid-market",
+        "region": "apac-southeast"
+      },
+      "contact": {
+        "firstName": "Samira",
+        "lastName": "Cisneros",
+        "role": "Senior Director of Analytics",
+        "email": "s.cisneros@pine-co.example"
+      }
+    },
+    {
+      "id": "L-0125",
+      "tier": "cold",
+      "company": {
+        "name": "Sage Systems",
+        "industry": "other",
+        "size": "smb",
+        "region": "apac-au-nz"
+      },
+      "contact": {
+        "firstName": "Ursula",
+        "lastName": "Devereux"
+      }
+    },
+    {
+      "id": "L-0126",
+      "tier": "cold",
+      "company": {
+        "name": "Quarry Networks",
+        "industry": "manufacturing",
+        "size": "enterprise",
+        "region": "emea-fr"
+      }
+    },
+    {
+      "id": "L-0127",
+      "tier": "cold",
+      "company": {
+        "name": "Wisp Media",
+        "industry": "agritech",
+        "size": "smb",
+        "region": "us-midwest"
+      }
+    },
+    {
+      "id": "L-0128",
+      "tier": "cold",
+      "company": {
+        "name": "Thorn Media",
+        "industry": "construction",
+        "size": "smb",
+        "region": "apac-au-nz"
+      }
+    },
+    {
+      "id": "L-0129",
+      "tier": "cold",
+      "company": {
+        "name": "Nettle Construction",
+        "industry": "hospitality",
+        "size": "smb",
+        "region": "us-mid-atlantic"
+      }
+    },
+    {
+      "id": "L-0130",
+      "tier": "cold",
+      "company": {
+        "name": "Bracken Robotics",
+        "industry": "logistics",
+        "size": "smb",
+        "region": "apac-southeast"
+      }
+    },
+    {
+      "id": "L-0131",
+      "tier": "cold",
+      "company": {
+        "name": "Embry SaaS",
+        "industry": "construction",
+        "size": "smb",
+        "region": "emea-de"
+      },
+      "contact": {
+        "firstName": "Ursula",
+        "lastName": "Saxena",
+        "role": "Director of Business Intelligence",
+        "email": "u.saxena@embry-co.example"
+      }
+    },
+    {
+      "id": "L-0132",
+      "tier": "cold",
+      "company": {
+        "name": "Sage Cooperative",
+        "industry": "pharma",
+        "size": "mid-market",
+        "region": "us-mid-atlantic"
+      }
+    },
+    {
+      "id": "L-0133",
+      "tier": "cold",
+      "company": {
+        "name": "Hazel Agritech",
+        "industry": "ecommerce",
+        "size": "smb",
+        "region": "apac-southeast"
+      }
+    },
+    {
+      "id": "L-0134",
+      "tier": "cold",
+      "company": {
+        "name": "Ridge Pharma",
+        "industry": "agritech",
+        "size": "smb",
+        "region": "apac-au-nz"
+      },
+      "contact": {
+        "firstName": "Adan",
+        "lastName": "Xiang",
+        "email": "a.xiang@ridge-co.example"
+      }
+    },
+    {
+      "id": "L-0135",
+      "tier": "cold",
+      "company": {
+        "name": "Quarry Distribution",
+        "industry": "logistics",
+        "size": "smb",
+        "region": "emea-uk"
+      },
+      "contact": {
+        "firstName": "Saoirse",
+        "lastName": "Yoshida"
+      }
+    },
+    {
+      "id": "L-0136",
+      "tier": "cold",
+      "company": {
+        "name": "Vale Analytics",
+        "industry": "ecommerce",
+        "size": "mid-market",
+        "region": "us-northeast"
+      }
+    },
+    {
+      "id": "L-0137",
+      "tier": "cold",
+      "company": {
+        "name": "Drumlin Labs",
+        "industry": "fintech",
+        "size": "mid-market",
+        "region": "us-mid-atlantic"
+      }
+    },
+    {
+      "id": "L-0138",
+      "tier": "cold",
+      "company": {
+        "name": "Kingsley Group",
+        "industry": "fintech",
+        "size": "mid-market",
+        "region": "apac-au-nz"
+      }
+    },
+    {
+      "id": "L-0139",
+      "tier": "cold",
+      "company": {
+        "name": "Larkspur Education Group",
+        "industry": "saas",
+        "size": "smb",
+        "region": "apac-au-nz"
+      },
+      "contact": {
+        "firstName": "Eleanor",
+        "lastName": "Saxena"
+      }
+    },
+    {
+      "id": "L-0140",
+      "tier": "cold",
+      "company": {
+        "name": "Iris Partners",
+        "industry": "logistics",
+        "size": "smb",
+        "region": "us-pacific-northwest"
+      }
+    },
+    {
+      "id": "L-0141",
+      "tier": "cold",
+      "company": {
+        "name": "Beacon Logistics",
+        "industry": "saas",
+        "size": "smb",
+        "region": "emea-fr"
+      },
+      "contact": {
+        "firstName": "Niamh",
+        "lastName": "Joubert",
+        "email": "n.joubert@beacon-co.example"
+      }
+    },
+    {
+      "id": "L-0142",
+      "tier": "cold",
+      "company": {
+        "name": "Vale Analytics",
+        "industry": "saas",
+        "size": "mid-market",
+        "region": "us-southwest"
+      }
+    },
+    {
+      "id": "L-0143",
+      "tier": "cold",
+      "company": {
+        "name": "Kingsley Logistics",
+        "industry": "fintech",
+        "size": "mid-market",
+        "region": "us-southcentral"
+      },
+      "contact": {
+        "firstName": "Junia",
+        "lastName": "Ibrahim",
+        "role": "VP Engineering",
+        "email": "j.ibrahim@kingsley-co.example"
+      }
+    },
+    {
+      "id": "L-0144",
+      "tier": "cold",
+      "company": {
+        "name": "Underwood Logistics",
+        "industry": "ecommerce",
+        "size": "smb",
+        "region": "apac-southeast"
+      },
+      "contact": {
+        "firstName": "Yael",
+        "lastName": "Palomar",
+        "email": "y.palomar@underwood-co.example"
+      }
+    },
+    {
+      "id": "L-0145",
+      "tier": "cold",
+      "company": {
+        "name": "Quarry Health Services",
+        "industry": "media",
+        "size": "smb",
+        "region": "apac-southeast"
+      },
+      "contact": {
+        "firstName": "Kofi",
+        "lastName": "Dahlgren",
+        "email": "k.dahlgren@quarry-co.example"
+      }
+    },
+    {
+      "id": "L-0146",
+      "tier": "cold",
+      "company": {
+        "name": "Plume Construction",
+        "industry": "healthcare",
+        "size": "enterprise",
+        "region": "apac-au-nz"
+      },
+      "contact": {
+        "firstName": "Briana",
+        "lastName": "Chen"
+      }
+    },
+    {
+      "id": "L-0147",
+      "tier": "cold",
+      "company": {
+        "name": "Yew Pharma",
+        "industry": "hospitality",
+        "size": "mid-market",
+        "region": "us-southcentral"
+      }
+    },
+    {
+      "id": "L-0148",
+      "tier": "cold",
+      "company": {
+        "name": "Willow Capital",
+        "industry": "fintech",
+        "size": "mid-market",
+        "region": "us-northeast"
+      }
+    },
+    {
+      "id": "L-0149",
+      "tier": "cold",
+      "company": {
+        "name": "Drumlin SaaS",
+        "industry": "agritech",
+        "size": "smb",
+        "region": "canada-east"
+      }
+    },
+    {
+      "id": "L-0150",
+      "tier": "cold",
+      "company": {
+        "name": "Yew Hospitality",
+        "industry": "construction",
+        "size": "smb",
+        "region": "us-mid-atlantic"
+      },
+      "contact": {
+        "firstName": "Idris",
+        "lastName": "Yoshida",
+        "email": "i.yoshida@yew-co.example"
+      }
+    },
+    {
+      "id": "L-0151",
+      "tier": "cold",
+      "company": {
+        "name": "Larkspur Ventures",
+        "industry": "agritech",
+        "size": "mid-market",
+        "region": "us-pacific-coast"
+      },
+      "contact": {
+        "firstName": "Samira",
+        "lastName": "Ibrahim"
+      }
+    },
+    {
+      "id": "L-0152",
+      "tier": "cold",
+      "company": {
+        "name": "Thorn Agritech",
+        "industry": "pharma",
+        "size": "smb",
+        "region": "us-mountain"
+      },
+      "contact": {
+        "firstName": "Briana",
+        "lastName": "Reinholt",
+        "email": "b.reinholt@thorn-co.example"
+      }
+    },
+    {
+      "id": "L-0153",
+      "tier": "cold",
+      "company": {
+        "name": "Cobble Industries",
+        "industry": "pharma",
+        "size": "smb",
+        "region": "us-midwest"
+      },
+      "contact": {
+        "firstName": "Ursula",
+        "lastName": "Ulysses",
+        "email": "u.ulysses@cobble-co.example"
+      }
+    },
+    {
+      "id": "L-0154",
+      "tier": "cold",
+      "company": {
+        "name": "Thicket Distribution",
+        "industry": "energy",
+        "size": "smb",
+        "region": "us-mountain"
+      },
+      "contact": {
+        "firstName": "Rashid",
+        "lastName": "Chen"
+      }
+    },
+    {
+      "id": "L-0155",
+      "tier": "cold",
+      "company": {
+        "name": "Beacon Hospitality",
+        "industry": "manufacturing",
+        "size": "smb",
+        "region": "us-southcentral"
+      },
+      "contact": {
+        "firstName": "Benedict",
+        "lastName": "Vasquez",
+        "role": "Head of Platform",
+        "email": "b.vasquez@beacon-co.example"
+      }
+    },
+    {
+      "id": "L-0156",
+      "tier": "cold",
+      "company": {
+        "name": "Iris Education Group",
+        "industry": "construction",
+        "size": "mid-market",
+        "region": "us-pacific-coast"
+      }
+    },
+    {
+      "id": "L-0157",
+      "tier": "cold",
+      "company": {
+        "name": "Quarry Media",
+        "industry": "saas",
+        "size": "mid-market",
+        "region": "us-mountain"
+      },
+      "contact": {
+        "firstName": "Camilo",
+        "lastName": "Quiroga",
+        "email": "c.quiroga@quarry-co.example"
+      }
+    },
+    {
+      "id": "L-0158",
+      "tier": "cold",
+      "company": {
+        "name": "Ridge Manufacturing",
+        "industry": "ecommerce",
+        "size": "smb",
+        "region": "us-southwest"
+      },
+      "contact": {
+        "firstName": "Magnus",
+        "lastName": "Honoré",
+        "role": "Head of Platform",
+        "email": "m.honore@ridge-co.example"
+      }
+    },
+    {
+      "id": "L-0159",
+      "tier": "cold",
+      "company": {
+        "name": "Vale Hospitality",
+        "industry": "media",
+        "size": "enterprise",
+        "region": "us-southcentral"
+      },
+      "contact": {
+        "firstName": "Saoirse",
+        "lastName": "Lindqvist"
+      }
+    },
+    {
+      "id": "L-0160",
+      "tier": "cold",
+      "company": {
+        "name": "Linden Manufacturing",
+        "industry": "ecommerce",
+        "size": "mid-market",
+        "region": "us-southcentral"
+      },
+      "contact": {
+        "firstName": "Ursula",
+        "lastName": "Nightingale",
+        "role": "VP Operations",
+        "email": "u.nightingale@linden-co.example"
+      }
+    },
+    {
+      "id": "L-0161",
+      "tier": "cold",
+      "company": {
+        "name": "Oat Holdings",
+        "industry": "other",
+        "size": "smb",
+        "region": "canada-east"
+      }
+    },
+    {
+      "id": "L-0162",
+      "tier": "cold",
+      "company": {
+        "name": "Yew Media",
+        "industry": "healthcare",
+        "size": "mid-market",
+        "region": "us-mountain"
+      },
+      "contact": {
+        "firstName": "Hiroshi",
+        "lastName": "Goncalves"
+      }
+    },
+    {
+      "id": "L-0163",
+      "tier": "cold",
+      "company": {
+        "name": "Ridge Distribution",
+        "industry": "manufacturing",
+        "size": "smb",
+        "region": "canada-east"
+      }
+    },
+    {
+      "id": "L-0164",
+      "tier": "cold",
+      "company": {
+        "name": "Oxbow Trading Co.",
+        "industry": "saas",
+        "size": "mid-market",
+        "region": "emea-de"
+      },
+      "contact": {
+        "firstName": "Laila",
+        "lastName": "Ulysses"
+      }
+    },
+    {
+      "id": "L-0165",
+      "tier": "cold",
+      "company": {
+        "name": "Yew Hospitality",
+        "industry": "hospitality",
+        "size": "smb",
+        "region": "us-southeast"
+      },
+      "contact": {
+        "firstName": "Iris",
+        "lastName": "Reinholt",
+        "email": "i.reinholt@yew-co.example"
+      }
+    },
+    {
+      "id": "L-0166",
+      "tier": "cold",
+      "company": {
+        "name": "Beacon Analytics",
+        "industry": "logistics",
+        "size": "smb",
+        "region": "canada-east"
+      },
+      "contact": {
+        "firstName": "Camilo",
+        "lastName": "Lefebvre",
+        "email": "c.lefebvre@beacon-co.example"
+      }
+    },
+    {
+      "id": "L-0167",
+      "tier": "cold",
+      "company": {
+        "name": "Glen Group",
+        "industry": "logistics",
+        "size": "smb",
+        "region": "us-southcentral"
+      },
+      "contact": {
+        "firstName": "Camilo",
+        "lastName": "Goncalves",
+        "role": "Operations Manager",
+        "email": "c.goncalves@glen-co.example"
+      }
+    },
+    {
+      "id": "L-0168",
+      "tier": "cold",
+      "company": {
+        "name": "Nimbus Media",
+        "industry": "construction",
+        "size": "mid-market",
+        "region": "emea-uk"
+      }
+    },
+    {
+      "id": "L-0169",
+      "tier": "cold",
+      "company": {
+        "name": "Quarry Media",
+        "industry": "agritech",
+        "size": "smb",
+        "region": "us-mountain"
+      },
+      "contact": {
+        "firstName": "Kofi",
+        "lastName": "Tanaka",
+        "email": "k.tanaka@quarry-co.example"
+      }
+    },
+    {
+      "id": "L-0170",
+      "tier": "cold",
+      "company": {
+        "name": "Gable SaaS",
+        "industry": "education",
+        "size": "smb",
+        "region": "us-pacific-northwest"
+      }
+    },
+    {
+      "id": "L-0171",
+      "tier": "cold",
+      "company": {
+        "name": "Vesper SaaS",
+        "industry": "logistics",
+        "size": "mid-market",
+        "region": "us-pacific-coast"
+      },
+      "contact": {
+        "firstName": "Tobias",
+        "lastName": "Reinholt",
+        "role": "VP Customer Success",
+        "email": "t.reinholt@vesper-co.example"
+      }
+    },
+    {
+      "id": "L-0172",
+      "tier": "cold",
+      "company": {
+        "name": "Fern Systems",
+        "industry": "ecommerce",
+        "size": "smb",
+        "region": "apac-au-nz"
+      },
+      "contact": {
+        "firstName": "Cassia",
+        "lastName": "Ulysses"
+      }
+    },
+    {
+      "id": "L-0173",
+      "tier": "cold",
+      "company": {
+        "name": "Quill Manufacturing",
+        "industry": "manufacturing",
+        "size": "mid-market",
+        "region": "us-southcentral"
+      }
+    },
+    {
+      "id": "L-0174",
+      "tier": "cold",
+      "company": {
+        "name": "Sage Solutions",
+        "industry": "other",
+        "size": "smb",
+        "region": "emea-fr"
+      }
+    },
+    {
+      "id": "L-0175",
+      "tier": "cold",
+      "company": {
+        "name": "Drift Analytics",
+        "industry": "other",
+        "size": "enterprise",
+        "region": "us-midwest"
+      },
+      "contact": {
+        "firstName": "Niamh",
+        "lastName": "Abboud",
+        "role": "VP Strategy",
+        "email": "n.abboud@drift-co.example"
+      }
+    },
+    {
+      "id": "L-0176",
+      "tier": "cold",
+      "company": {
+        "name": "Ridge Pharma",
+        "industry": "saas",
+        "size": "mid-market",
+        "region": "canada-east"
+      },
+      "contact": {
+        "firstName": "Cassia",
+        "lastName": "Gallego",
+        "role": "Director of IT",
+        "email": "c.gallego@ridge-co.example"
+      }
+    },
+    {
+      "id": "L-0177",
+      "tier": "cold",
+      "company": {
+        "name": "Plume Financial",
+        "industry": "construction",
+        "size": "mid-market",
+        "region": "emea-uk"
+      }
+    },
+    {
+      "id": "L-0178",
+      "tier": "cold",
+      "company": {
+        "name": "Fenwick Partners",
+        "industry": "education",
+        "size": "enterprise",
+        "region": "us-southcentral"
+      },
+      "contact": {
+        "firstName": "Tobias",
+        "lastName": "Hannigan",
+        "role": "VP Engineering",
+        "email": "t.hannigan@fenwick-co.example"
+      }
+    },
+    {
+      "id": "L-0179",
+      "tier": "cold",
+      "company": {
+        "name": "Larkspur Group",
+        "industry": "hospitality",
+        "size": "mid-market",
+        "region": "canada-east"
+      },
+      "contact": {
+        "firstName": "Cassia",
+        "lastName": "Oyelaran",
+        "email": "c.oyelaran@larkspur-co.example"
+      }
+    },
+    {
+      "id": "L-0180",
+      "tier": "cold",
+      "company": {
+        "name": "Reed Financial",
+        "industry": "manufacturing",
+        "size": "smb",
+        "region": "us-southeast"
+      },
+      "contact": {
+        "firstName": "Rashid",
+        "lastName": "Quattlebaum",
+        "email": "r.quattlebaum@reed-co.example"
+      }
+    },
+    {
+      "id": "L-0181",
+      "tier": "cold",
+      "company": {
+        "name": "Juniper Energy",
+        "industry": "pharma",
+        "size": "mid-market",
+        "region": "us-pacific-northwest"
+      },
+      "contact": {
+        "firstName": "Adan",
+        "lastName": "Marchetti"
+      }
+    },
+    {
+      "id": "L-0182",
+      "tier": "cold",
+      "company": {
+        "name": "Quarry Education Group",
+        "industry": "healthcare",
+        "size": "enterprise",
+        "region": "us-southeast"
+      },
+      "contact": {
+        "firstName": "Rohan",
+        "lastName": "Jovanovic"
+      }
+    },
+    {
+      "id": "L-0183",
+      "tier": "cold",
+      "company": {
+        "name": "Drumlin Retail Brands",
+        "industry": "fintech",
+        "size": "smb",
+        "region": "us-midwest"
+      }
+    },
+    {
+      "id": "L-0184",
+      "tier": "cold",
+      "company": {
+        "name": "Juniper Health Services",
+        "industry": "pharma",
+        "size": "enterprise",
+        "region": "us-pacific-coast"
+      },
+      "contact": {
+        "firstName": "Hiroshi",
+        "lastName": "Goncalves",
+        "email": "h.goncalves@juniper-co.example"
+      }
+    },
+    {
+      "id": "L-0185",
+      "tier": "cold",
+      "company": {
+        "name": "Fern Collective",
+        "industry": "education",
+        "size": "smb",
+        "region": "us-southwest"
+      },
+      "contact": {
+        "firstName": "Adan",
+        "lastName": "Hannigan",
+        "email": "a.hannigan@fern-co.example"
+      }
+    },
+    {
+      "id": "L-0186",
+      "tier": "cold",
+      "company": {
+        "name": "Larkspur Networks",
+        "industry": "healthcare",
+        "size": "mid-market",
+        "region": "us-northeast"
+      }
+    },
+    {
+      "id": "L-0187",
+      "tier": "cold",
+      "company": {
+        "name": "Yarrow Collective",
+        "industry": "logistics",
+        "size": "smb",
+        "region": "us-southeast"
+      },
+      "contact": {
+        "firstName": "Joaquin",
+        "lastName": "Saxena"
+      }
+    },
+    {
+      "id": "L-0188",
+      "tier": "cold",
+      "company": {
+        "name": "Larkspur Holdings",
+        "industry": "construction",
+        "size": "enterprise",
+        "region": "us-southcentral"
+      },
+      "contact": {
+        "firstName": "Kestrel",
+        "lastName": "Quattlebaum"
+      }
+    },
+    {
+      "id": "L-0189",
+      "tier": "cold",
+      "company": {
+        "name": "Sable Holdings",
+        "industry": "construction",
+        "size": "mid-market",
+        "region": "us-midwest"
+      }
+    },
+    {
+      "id": "L-0190",
+      "tier": "cold",
+      "company": {
+        "name": "Meadow Energy",
+        "industry": "agritech",
+        "size": "mid-market",
+        "region": "us-southcentral"
+      },
+      "contact": {
+        "firstName": "Camilo",
+        "lastName": "Rasheed",
+        "role": "Head of Platform",
+        "email": "c.rasheed@meadow-co.example"
+      }
+    },
+    {
+      "id": "L-0191",
+      "tier": "cold",
+      "company": {
+        "name": "Reed SaaS",
+        "industry": "fintech",
+        "size": "smb",
+        "region": "us-mountain"
+      },
+      "contact": {
+        "firstName": "Priya",
+        "lastName": "Nightingale",
+        "email": "p.nightingale@reed-co.example"
+      }
+    },
+    {
+      "id": "L-0192",
+      "tier": "cold",
+      "company": {
+        "name": "Gable SaaS",
+        "industry": "ecommerce",
+        "size": "smb",
+        "region": "emea-uk"
+      },
+      "contact": {
+        "firstName": "Gunnar",
+        "lastName": "Ito",
+        "role": "Head of Platform"
+      }
+    },
+    {
+      "id": "L-0193",
+      "tier": "cold",
+      "company": {
+        "name": "Yarrow Analytics",
+        "industry": "ecommerce",
+        "size": "mid-market",
+        "region": "apac-southeast"
+      },
+      "contact": {
+        "firstName": "Hiroshi",
+        "lastName": "Truelove"
+      }
+    },
+    {
+      "id": "L-0194",
+      "tier": "cold",
+      "company": {
+        "name": "Yew Trading Co.",
+        "industry": "education",
+        "size": "mid-market",
+        "region": "us-midwest"
+      }
+    },
+    {
+      "id": "L-0195",
+      "tier": "cold",
+      "company": {
+        "name": "Calder Media",
+        "industry": "pharma",
+        "size": "mid-market",
+        "region": "canada-east"
+      }
+    },
+    {
+      "id": "L-0196",
+      "tier": "cold",
+      "company": {
+        "name": "Plume Analytics",
+        "industry": "saas",
+        "size": "smb",
+        "region": "emea-fr"
+      }
+    },
+    {
+      "id": "L-0197",
+      "tier": "cold",
+      "company": {
+        "name": "Drumlin Hospitality",
+        "industry": "hospitality",
+        "size": "smb",
+        "region": "emea-uk"
+      }
+    },
+    {
+      "id": "L-0198",
+      "tier": "cold",
+      "company": {
+        "name": "Wisp Cooperative",
+        "industry": "healthcare",
+        "size": "smb",
+        "region": "us-mountain"
+      },
+      "contact": {
+        "firstName": "Gemma",
+        "lastName": "Hannigan"
+      }
+    },
+    {
+      "id": "L-0199",
+      "tier": "cold",
+      "company": {
+        "name": "Nimbus Networks",
+        "industry": "energy",
+        "size": "smb",
+        "region": "us-pacific-northwest"
+      }
+    },
+    {
+      "id": "L-0200",
+      "tier": "cold",
+      "company": {
+        "name": "Oat Labs",
+        "industry": "construction",
+        "size": "enterprise",
+        "region": "apac-southeast"
+      }
+    }
+  ]
+}

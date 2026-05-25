@@ -1,8 +1,8 @@
-# Hello DotNetAgents C# Sample
+# Hello DNA Agent C# Sample
 
-This is the first-run sample for the public DotNetAgents distribution. It is
-deliberately offline: no live credentials, hosted services, or deployment
-target is required.
+This is the first-run sample for the engineering distribution pack. It is
+deliberately offline: no Tyr, Core 4, live credentials, or deployment target is
+required.
 
 ## Run
 
@@ -13,13 +13,13 @@ dotnet run --project samples/hello-agent-cs -- --smoke
 ```
 
 Expected result: JSON with `"status": "passed"` and a
-`resultEnvelope.schemaVersion` value of `dotnetagents.public-example.result.v1`.
+`resultEnvelope.schemaVersion` value of `dna.public-example.result.v1`.
 
 Useful exploratory commands:
 
 ```bash
 dotnet run --project samples/hello-agent-cs -- card
-dotnet run --project samples/hello-agent-cs -- hello "DotNetAgents developer"
+dotnet run --project samples/hello-agent-cs -- hello "DNA developer"
 ```
 
 ## What This Demonstrates

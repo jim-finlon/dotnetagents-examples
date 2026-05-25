@@ -1,0 +1,15 @@
+# Acme Corp Customer Support and Escalation Guide
+
+## Section 1: Overview
+Welcome to the Acme Corp Customer Support team. Our mission is to provide outstanding service. Support requests are handled through our ticketeer system and categorized by urgency.
+
+## Section 2: Urgency Levels
+We define three urgency levels:
+1. Urgent (P0): Database locked, server unreachable, or security vulnerability. Initial response target is 15 minutes.
+2. Moderate (P1): Performance degradation or feature broken. Initial response target is 2 hours.
+3. Low (P2): General questions, billing inquiries, or feature requests. Initial response target is 24 hours.
+
+## Section 3: Escalation Paths
+If a P0 issue is not resolved within 1 hour, escalate to the Engineering Lead (Jane Doe) via phone.
+For P1 issues not resolved within 4 hours, notify the Product Manager (Bob Smith) via Slack.
+For billing queries, route directly to the finance channel (#billing-support).

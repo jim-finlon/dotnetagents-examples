@@ -1,0 +1,25 @@
+## Cadence — Aaronow. Medium volume. Predictable. Honors the prospect's pace.
+
+daily_limits:
+  total_touches: 28
+  emails: 18
+  sms: 0
+  linkedin_dms: 8
+  chat_messages: 2
+
+channel_mix:
+  email: 65
+  sms: 0
+  linkedin: 28
+  chat: 7
+
+follow_up:
+  first_followup_after_hours: 48
+  second_followup_after_hours: 120
+  third_followup_after_hours: 240
+  switch_channel_after_ignored: 3
+  decay_to_nurture_after_ignored: 6
+
+preferred_send_hours:
+  weekday: [10, 14]
+  weekend: []

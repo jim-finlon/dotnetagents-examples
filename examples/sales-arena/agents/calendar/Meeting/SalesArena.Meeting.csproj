@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>SalesArena.Meeting</RootNamespace>
+    <AssemblyName>SalesArena.Meeting</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <DnaReference Include="DotNetAgents.Voice.Transcription" />
+  </ItemGroup>
+</Project>

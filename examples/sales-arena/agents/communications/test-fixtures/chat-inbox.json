@@ -1,0 +1,13 @@
+{
+  "messages": [
+    {
+      "channel": "chat",
+      "externalId": "chat-001",
+      "body": "What is your integration timeline for SSO?",
+      "fromName": "Alex Kim",
+      "fromEmail": null,
+      "companyHint": "Contoso",
+      "receivedAtUtc": "2026-05-18T10:15:00Z"
+    }
+  ]
+}

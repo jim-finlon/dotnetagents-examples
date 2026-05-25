@@ -6,7 +6,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DotNetAgents\src\DotNetAgents.Core\DotNetAgents.Core.csproj" Condition="Exists('..\..\DotNetAgents\src\DotNetAgents.Core\DotNetAgents.Core.csproj')" />
-    <PackageReference Include="DotNetAgents.Core" Version="1.0.0-preview.1" Condition="!Exists('..\..\DotNetAgents\src\DotNetAgents.Core\DotNetAgents.Core.csproj')" />
+    <DnaReference Include="DotNetAgents.Core" />
   </ItemGroup>
 </Project>

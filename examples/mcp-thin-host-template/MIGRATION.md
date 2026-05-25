@@ -1,6 +1,6 @@
 # Thin MCP Host Migration Notes
 
-These notes are for existing services that already expose MCP endpoints but
+These notes are for existing DNA services that already expose MCP endpoints but
 still carry bespoke `Program.cs` startup code. The target is not a new framework
 inside every app. The target is a smaller host where each service owns its tools
 and the shared MCP seams own the repeatable transport behavior.
@@ -15,15 +15,15 @@ Move toward this shape:
    categories, argument validation, preview/confirm semantics, and response
    guidance.
 3. Register optional shared seams by capability:
-   - `AddAgentEventProjection(...)`
-   - `AddPolicyMetadataReader(...)`
-   - `McpEventProjectionDecorator`
+   - `AddAgentLearningProjection(...)`
+   - `AddGeneticContractReader(...)`
+   - `McpLearningDecorator`
 4. Map MCP and health endpoints in a small, predictable block:
    - `UseCursorMcpCors()`
    - optional API key or edge-auth middleware
    - `MapMcpEndpoints(serviceName, true, instructions)`
    - `MapMcpStreamableHttp(serviceName, displayName, version)`
-   - `/health`, `/`, and optional `/policy/metadata`
+   - `/health`, `/`, and optional `/genetic/contract`
 
 ## Incremental Migration
 
@@ -38,7 +38,7 @@ Start with the smallest safe diff:
    `MapMcpEndpoints(...)`.
 6. Add `MapMcpStreamableHttp(...)` only after basic tool listing/call behavior
    is covered by tests.
-7. Add event projection and policy-metadata mapping after the host has
+7. Add learning projection and genetic-contract mapping after the host has
    stable service-name and tool-provider semantics.
 
 ## Validation Checklist
@@ -50,21 +50,45 @@ Start with the smallest safe diff:
 - Auth rejects mutating or high-impact calls when the configured API key is
   missing or invalid.
 - Optional streamable MCP endpoint is mapped with the same service name.
-- Optional `/policy/metadata` returns policy metadata and does not expand
+- Optional `/genetic/contract` returns policy metadata and does not expand
   production authority.
-- Optional event projection is a decorator around tool execution, not a
+- Optional learning projection is a decorator around tool execution, not a
   dependency every tool must know about.
 
-New services should start from the sample template instead of copying a
-production host wholesale. Existing services should migrate by aligning one
-block at a time, preserving behavior and tests after each step.
+## Existing Host Reality Check
+
+`security-scanning-agent/src/SecurityScanningAgent.Api/Program.cs` already proves
+the pattern can support:
+
+- API-key middleware with public health/instructions exceptions.
+- `AddAgentLearningProjection(...)`.
+- `AddGeneticContractReader(...)`.
+- `McpLearningDecorator`.
+- `MapMcpEndpoints(...)`.
+- `MapMcpStreamableHttp(...)`.
+- `/genetic/contract`.
+- A large service-specific `SecurityScanningMcpToolProvider` with preview,
+  confirmation, redaction, and allowlist rules.
+
+`infrastructure-control-agent/src/InfrastructureControl.Api/Program.cs` already
+proves the same pattern can support:
+
+- Larger service dependency graphs.
+- SignalR/dashboard endpoints alongside MCP.
+- Learning projection to multiple targets.
+- Genetic-contract endpoint mapping.
+- Tool-provider ownership of high-impact infrastructure preview/confirm tools.
+
+New services should start from the sample template instead of copying either of
+those hosts wholesale. Existing services should migrate by aligning one block at
+a time, preserving behavior and tests after each step.
 
 ## Anti-Patterns To Avoid
 
 - Copying an arbitrary service `Program.cs` into a new service.
 - Registering tools directly in endpoint lambdas.
 - Putting secret values in appsettings samples.
-- Letting event projection or policy-metadata support leak into every tool
+- Letting learning projection or genetic-contract support leak into every tool
   method.
 - Creating a second MCP transport shape for the same service without a clear
   compatibility reason.

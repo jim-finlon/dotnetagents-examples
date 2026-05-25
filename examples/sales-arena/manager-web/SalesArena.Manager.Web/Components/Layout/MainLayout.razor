@@ -1,0 +1,41 @@
+@inherits LayoutComponentBase
+
+<AppShell Theme="light" Density="UiDensity.Comfortable">
+    <Sidebar>
+        <AppNav BrandLabel="Sales Arena" BrandIcon="SA" Items="_navigationItems" AriaLabel="Manager navigation" />
+    </Sidebar>
+    <Topbar>
+        <div class="dna-topbar">
+            <div>
+                <strong>Manager console</strong>
+                <span>Operator: manager (auth stub — SA-06 adds real login)</span>
+            </div>
+        </div>
+    </Topbar>
+    <ChildContent>
+        @Body
+    </ChildContent>
+</AppShell>
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+</div>
+
+@code {
+    private static readonly IReadOnlyList<NavItemModel> _navigationItems =
+    [
+        new NavItemModel("floor", "Floor", "/floor", "grid"),
+        new NavItemModel("leaderboard", "Leaderboard", "/leaderboard", "trophy"),
+        new NavItemModel("leadpool", "Lead Pool", "/leads", "users"),
+        new NavItemModel("gallery", "Gallery", "/gallery", "users"),
+        new NavItemModel("draft", "Draft", "/draft/demo-contest", "users"),
+        new NavItemModel("pipeline", "Pipeline", "/pipeline", "chart"),
+        new NavItemModel("bullpen", "Bullpen", "/bullpen", "users"),
+        new NavItemModel("moneymap", "Money Map", "/money-map", "map"),
+        new NavItemModel("replay", "Replay", "/replay", "play"),
+        new NavItemModel("settings", "Settings", "/settings/contest", "settings"),
+        new NavItemModel("bossoffice", "Boss Office", "/boss-office", "briefcase"),
+        new NavItemModel("pivot", "Channel pivot", "/pivot", "chart"),
+    ];
+}

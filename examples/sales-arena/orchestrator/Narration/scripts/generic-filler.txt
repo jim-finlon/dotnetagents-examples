@@ -1,0 +1,5 @@
+# Low-priority filler for long quiet stretches. DNA-original.
+# Tokens: {quiet_minutes}
+{quiet_minutes} minutes of nothing on the board. The next bell breaks the streak.
+Quiet floor for {quiet_minutes} minutes. Headsets on — somewhere a prospect is about to hit reply.
+The board is still. {quiet_minutes} minutes since the last bell. Don't let it stay that way.

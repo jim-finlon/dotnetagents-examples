@@ -1,0 +1,5 @@
+# Persona-momentum (touching without replies) cues. DNA-original.
+# Tokens: {persona}, {touches}
+{persona} has fired {touches} touches without a callback. The volume's there.
+{persona} is dialing through {touches} cold ones in a row. Persistence or stubbornness — the board decides.
+{touches} touches deep on the same pod. {persona} is pushing — watch the inbox.

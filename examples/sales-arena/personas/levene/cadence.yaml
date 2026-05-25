@@ -1,0 +1,25 @@
+## Cadence — Levene. High volume. Never gives up. Long messages on every channel.
+
+daily_limits:
+  total_touches: 60
+  emails: 35
+  sms: 0
+  linkedin_dms: 18
+  chat_messages: 7
+
+channel_mix:
+  email: 60
+  sms: 0
+  linkedin: 30
+  chat: 10
+
+follow_up:
+  first_followup_after_hours: 24
+  second_followup_after_hours: 48
+  third_followup_after_hours: 96
+  switch_channel_after_ignored: 4
+  decay_to_nurture_after_ignored: 8
+
+preferred_send_hours:
+  weekday: [8, 9, 11, 13, 15, 17]
+  weekend: [10]

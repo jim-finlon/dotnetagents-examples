@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>SalesArena.Calendar</RootNamespace>
+    <AssemblyName>SalesArena.Calendar</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Meeting\**" />
+    <EmbeddedResource Remove="Meeting\**" />
+    <None Remove="Meeting\**" />
+    <Compile Remove="test-audio\**" />
+    <EmbeddedResource Remove="test-audio\**" />
+    <None Remove="test-audio\**" />
+  </ItemGroup>
+</Project>
