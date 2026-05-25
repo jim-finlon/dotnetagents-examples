@@ -361,6 +361,37 @@
       "boundaryNote": "Reference patterns only; implementation stories must keep private operating mechanics out of public examples."
     },
     {
+      "id": "control-loops",
+      "displayName": "Control Loop Examples",
+      "path": "examples/control-loops",
+      "domain": "agent-control",
+      "maturity": "runnable",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [
+        "DotNetAgents.Agents.BehaviorTrees",
+        "DotNetAgents.Agents.StateMachines",
+        "DotNetAgents.Core"
+      ],
+      "pluginsExercised": [],
+      "capabilities": [
+        "durable workflow checkpoint",
+        "state-machine transitions",
+        "behavior-tree policy",
+        "resume simulation",
+        "offline smoke"
+      ],
+      "smokeCommand": "dotnet run --project examples/control-loops -- --smoke",
+      "liveCommand": "dotnet run --project examples/control-loops -- compare",
+      "externalDependencies": [],
+      "optionalEnvironment": [],
+      "expectedOutput": [
+        "JSON with status=passed",
+        "exampleCount=4",
+        "one result envelope per control-loop capability"
+      ],
+      "boundaryNote": "Public local control-loop examples only; no private factory, hosted durability, production data, or scoring internals."
+    },
+    {
       "id": "road-access-dotnet-consumer",
       "displayName": "Road Access .NET Consumer",
       "path": "examples/road-access-dotnet-consumer",

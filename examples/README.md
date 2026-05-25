@@ -77,20 +77,24 @@ model routing, retry/error envelopes, and usage reporting.
 Runnable MCP consumer, A2A handoff, and protocol-boundary examples, plus the
 [`mcp-thin-host-template`](mcp-thin-host-template/) for local MCP server shape.
 
-### 4. [Business Operations](business-operations/) *(Coming Soon)*
+### 4. [Control Loop Examples](control-loops/)
+Runnable durable workflow, state-machine, and behavior-tree examples with local
+checkpoint/resume and public result envelopes.
+
+### 5. [Business Operations](business-operations/) *(Coming Soon)*
 Automates common workspace tasks:
 - **Project Planner**: Converts high-level goals into step-by-step markdown milestones and JSON tasks.
 - **CRM Follow-Up**: Drafts personalized outreach messages for sales leads.
 - **Communications Triage**: Classifies emails and documents by urgency and category.
 - **Appointment Assistant**: Suggests calendar schedules from free-form text.
 
-### 5. [Document Extraction](document-extraction/) *(Coming Soon)*
+### 6. [Document Extraction](document-extraction/) *(Coming Soon)*
 Demonstrates processing local text files and PDFs, chunking, and implementing local retrieval-augmented generation (RAG).
 
-### 6. [Writing & Publishing](writing-publishing/) *(Coming Soon)*
+### 7. [Writing & Publishing](writing-publishing/) *(Coming Soon)*
 Agentic assistants for drafting proposals, creating content repurposing schedules, and generating marketing material.
 
-### 7. [Education & Onboarding](education/) *(Coming Soon)*
+### 8. [Education & Onboarding](education/) *(Coming Soon)*
 An interactive educational coach that walks users through onboarding materials and dynamically generates quizzes to test comprehension.
 
 ---

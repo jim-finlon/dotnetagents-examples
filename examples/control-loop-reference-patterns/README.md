@@ -6,6 +6,9 @@ agentic service classes.
 
 The catalog is intentionally template-oriented. It gives future services a
 starting shape without forcing them to copy an arbitrary production service.
+For runnable public code, start with
+[`../control-loops`](../control-loops), which demonstrates a checkpointed
+workflow, a state machine, and a behavior tree with local synthetic data.
 Each sample separates these layers:
 
 - Chain logic: bounded model/tool steps that transform one input into one output.
@@ -13,16 +16,16 @@ Each sample separates these layers:
 - Lifecycle state: externally visible state transitions and resumability.
 - Reactive policy: stimulus classification and behavior-tree decisions.
 - Governance: actor permissions, preview/confirm controls, quotas, and risk.
-- Observability: events, traces, metrics, evidence refs, and SDLC correlation.
+- Observability: events, traces, metrics, evidence refs, and delivery correlation.
 
 ## Samples
 
 | Sample | Service Class | Pilot Baseline |
 |---|---|---|
-| `durable-workflow-service.yaml` | Durable workflow service for long-running SDLC or release work | SdlcAgent autonomous loop and release workflows |
+| `durable-workflow-service.yaml` | Durable workflow service for long-running delivery or release work | Generic autonomous loop and release workflows |
 | `reactive-policy-service.yaml` | Reactive policy service for stimulus-driven defensive or monitoring loops | SecurityScanningAgent behavior worker |
 | `guarded-control-plane-service.yaml` | Guarded control-plane service for high-impact infrastructure/control work | InfrastructureControl mutation and drift flows |
-| `evolutionary-service.yaml` | Evolutionary service for experiment, mutation, and promotion loops | PromptSpecialist and Learning Lab evolution flows |
+| `evolutionary-service.yaml` | Evolutionary service for experiment, mutation, and promotion loops | Public prompt-variant and local evaluation flows |
 
 ## Adoption Rule
 

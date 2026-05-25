@@ -15,15 +15,17 @@ Start here:
    catalog, and public-content checks before publishing an example.
 5. [Protocol Examples](protocol-examples.md) - choose and run MCP and A2A
    examples without private hosted services.
-6. [Choosing An Example](choosing-an-example.md) - pick the example closest to
+6. [Control Loop Examples](control-loop-examples.md) - run workflow,
+   state-machine, and behavior-tree examples with local synthetic state.
+7. [Choosing An Example](choosing-an-example.md) - pick the example closest to
    your product.
-7. [Running Examples](running-examples.md) - run offline-first examples and
+8. [Running Examples](running-examples.md) - run offline-first examples and
    understand live configuration.
-8. [Extending Examples](extending-examples.md) - turn a sample into your own
+9. [Extending Examples](extending-examples.md) - turn a sample into your own
    agent application.
-9. [Result Envelopes And Arena Compatibility](result-envelopes-and-arena.md) -
+10. [Result Envelopes And Arena Compatibility](result-envelopes-and-arena.md) -
    understand the public result file shape without exposing scoring internals.
-10. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
+11. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
 
 Walkthroughs:
 

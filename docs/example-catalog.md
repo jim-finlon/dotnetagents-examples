@@ -65,6 +65,17 @@ dotnet run --project examples/protocols -- --smoke
 dotnet run --project examples/mcp-thin-host-template -- --smoke
 ```
 
+## Control Loop Pack
+
+Use [`../examples/control-loops`](../examples/control-loops) when you need to
+choose between workflow, state-machine, and behavior-tree patterns. The pack is
+fully local and emits public result envelopes for each control-loop shape:
+
+```bash
+dotnet run --project examples/control-loops -- --smoke
+dotnet run --project examples/control-loops -- compare
+```
+
 ## Public Boundary
 
 Catalog entries should describe public-safe behavior, not private implementation details.

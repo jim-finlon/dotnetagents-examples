@@ -1,0 +1,375 @@
+{
+  "status": "passed",
+  "packId": "control-loops",
+  "exampleCount": 4,
+  "examples": [
+    {
+      "status": "passed",
+      "exampleId": "control-loop-durable-workflow",
+      "title": "Durable Workflow",
+      "capability": "Run a deterministic workflow until an approval checkpoint, then resume from that checkpoint.",
+      "checks": [
+        "workflow paused at human approval",
+        "checkpoint captured next step id",
+        "resume completed remaining steps",
+        "trace preserved completed step order"
+      ],
+      "details": {
+        "startedStatus": "paused",
+        "checkpointNextStepId": "human-approval",
+        "startedCompletedStepIds": [
+          "intake",
+          "classify",
+          "draft"
+        ],
+        "resumedStatus": "completed",
+        "resumedCompletedStepIds": [
+          "intake",
+          "classify",
+          "draft",
+          "human-approval",
+          "publish"
+        ],
+        "resumedOutputs": {
+          "intake": "case accepted",
+          "classify": "ready for draft",
+          "draft": "drafted response for standard customer",
+          "human-approval": "approval granted",
+          "publish": "published synthetic response"
+        }
+      },
+      "metrics": {
+        "checkpointCount": 1,
+        "completedSteps": 5,
+        "networkCalls": 0
+      },
+      "resultEnvelope": {
+        "schemaVersion": "dna.public-example.result.v1",
+        "exampleId": "control-loop-durable-workflow",
+        "exampleVersion": "1.0.0",
+        "runId": "control-loop-durable-workflow-offline-smoke",
+        "timestampUtc": "2026-05-25T19:38:02.2748569+00:00",
+        "inputSummaryHash": "sha256:1785c6f11c5f4331c04d1863a454106706ef0f75e1beb078fd2c09849537757f",
+        "outputArtifactRefs": [
+          {
+            "kind": "transcript",
+            "ref": "durable-workflow-transcript.json",
+            "mediaType": "application/json"
+          }
+        ],
+        "localValidation": {
+          "status": "passed",
+          "checks": [
+            "workflow paused at human approval",
+            "checkpoint captured next step id",
+            "resume completed remaining steps",
+            "trace preserved completed step order"
+          ]
+        },
+        "selfReportedMetrics": {
+          "checkpointCount": 1,
+          "completedSteps": 5,
+          "networkCalls": 0
+        }
+      }
+    },
+    {
+      "status": "passed",
+      "exampleId": "control-loop-state-machine",
+      "title": "State Machine",
+      "capability": "Use AgentStateMachine\u003CT\u003E to make lifecycle states, guards, and transitions explicit.",
+      "checks": [
+        "initial state set",
+        "guarded transition accepted when input exists",
+        "approval guard blocked until approval flag was set",
+        "transition history recorded"
+      ],
+      "details": {
+        "currentState": "Resolved",
+        "transitionHistory": [
+          {
+            "fromState": "New",
+            "toState": "Triaged"
+          },
+          {
+            "fromState": "Triaged",
+            "toState": "WaitingForApproval"
+          },
+          {
+            "fromState": "WaitingForApproval",
+            "toState": "Resolved"
+          }
+        ],
+        "events": [
+          "transition:new-to-triaged",
+          "entered:triaged",
+          "transition:approval-needed",
+          "entered:waiting-for-approval",
+          "transition:approved",
+          "entered:resolved"
+        ]
+      },
+      "metrics": {
+        "states": 4,
+        "transitions": 3,
+        "events": 6
+      },
+      "resultEnvelope": {
+        "schemaVersion": "dna.public-example.result.v1",
+        "exampleId": "control-loop-state-machine",
+        "exampleVersion": "1.0.0",
+        "runId": "control-loop-state-machine-offline-smoke",
+        "timestampUtc": "2026-05-25T19:38:02.2982625+00:00",
+        "inputSummaryHash": "sha256:38de86a16a1e4968df49a5ede0f1274efaafe414570ccc018c4cb44f4fc49dc1",
+        "outputArtifactRefs": [
+          {
+            "kind": "transcript",
+            "ref": "state-machine-transcript.json",
+            "mediaType": "application/json"
+          }
+        ],
+        "localValidation": {
+          "status": "passed",
+          "checks": [
+            "initial state set",
+            "guarded transition accepted when input exists",
+            "approval guard blocked until approval flag was set",
+            "transition history recorded"
+          ]
+        },
+        "selfReportedMetrics": {
+          "states": 4,
+          "transitions": 3,
+          "events": 6
+        }
+      }
+    },
+    {
+      "status": "passed",
+      "exampleId": "control-loop-behavior-tree",
+      "title": "Behavior Tree",
+      "capability": "Use selector, sequence, condition, and action nodes for tactical decision flow.",
+      "checks": [
+        "selector evaluated first viable branch",
+        "conditions passed in sequence",
+        "action node recorded next decision",
+        "fallback remained available"
+      ],
+      "details": {
+        "name": "support-case-policy",
+        "description": "Public local policy selector for support-case next action.",
+        "status": "Success",
+        "decision": "draft-resolution",
+        "trace": [
+          "drafted resolution from local policy"
+        ]
+      },
+      "metrics": {
+        "branches": 2,
+        "traceEvents": 1,
+        "networkCalls": 0
+      },
+      "resultEnvelope": {
+        "schemaVersion": "dna.public-example.result.v1",
+        "exampleId": "control-loop-behavior-tree",
+        "exampleVersion": "1.0.0",
+        "runId": "control-loop-behavior-tree-offline-smoke",
+        "timestampUtc": "2026-05-25T19:38:02.3036181+00:00",
+        "inputSummaryHash": "sha256:a7f09a254fcf4b729d6e455a519b425f2ef6c956d534cc050f2dd7cdd873f3be",
+        "outputArtifactRefs": [
+          {
+            "kind": "transcript",
+            "ref": "behavior-tree-transcript.json",
+            "mediaType": "application/json"
+          }
+        ],
+        "localValidation": {
+          "status": "passed",
+          "checks": [
+            "selector evaluated first viable branch",
+            "conditions passed in sequence",
+            "action node recorded next decision",
+            "fallback remained available"
+          ]
+        },
+        "selfReportedMetrics": {
+          "branches": 2,
+          "traceEvents": 1,
+          "networkCalls": 0
+        }
+      }
+    },
+    {
+      "status": "passed",
+      "exampleId": "control-loop-pattern-comparison",
+      "title": "Pattern Comparison",
+      "capability": "Choose a control-loop pattern by process shape instead of implementation fashion.",
+      "checks": [
+        "workflow guidance present",
+        "state-machine guidance present",
+        "behavior-tree guidance present"
+      ],
+      "details": [
+        {
+          "patternId": "durable-workflow",
+          "useWhen": "Use when ordered work must pause, resume, retry, or produce step evidence.",
+          "example": "support case intake to approval to publish"
+        },
+        {
+          "patternId": "state-machine",
+          "useWhen": "Use when valid lifecycle states and transitions are the central safety rule.",
+          "example": "ticket state from New to Triaged to Resolved"
+        },
+        {
+          "patternId": "behavior-tree",
+          "useWhen": "Use when tactical policy should try preferred branches before fallbacks.",
+          "example": "choose draft, ask for context, or escalate"
+        }
+      ],
+      "metrics": {
+        "patterns": 3
+      },
+      "resultEnvelope": {
+        "schemaVersion": "dna.public-example.result.v1",
+        "exampleId": "control-loop-pattern-comparison",
+        "exampleVersion": "1.0.0",
+        "runId": "control-loop-pattern-comparison-offline-smoke",
+        "timestampUtc": "2026-05-25T19:38:02.3038359+00:00",
+        "inputSummaryHash": "sha256:dc5574719664c6788b0ada72bff15121b4e5b33d611879c2568e12b5cf22b2d3",
+        "outputArtifactRefs": [
+          {
+            "kind": "transcript",
+            "ref": "control-loop-pattern-comparison.json",
+            "mediaType": "application/json"
+          }
+        ],
+        "localValidation": {
+          "status": "passed",
+          "checks": [
+            "workflow guidance present",
+            "state-machine guidance present",
+            "behavior-tree guidance present"
+          ]
+        },
+        "selfReportedMetrics": {
+          "patterns": 3
+        }
+      }
+    }
+  ],
+  "resultEnvelopes": [
+    {
+      "schemaVersion": "dna.public-example.result.v1",
+      "exampleId": "control-loop-durable-workflow",
+      "exampleVersion": "1.0.0",
+      "runId": "control-loop-durable-workflow-offline-smoke",
+      "timestampUtc": "2026-05-25T19:38:02.2748569+00:00",
+      "inputSummaryHash": "sha256:1785c6f11c5f4331c04d1863a454106706ef0f75e1beb078fd2c09849537757f",
+      "outputArtifactRefs": [
+        {
+          "kind": "transcript",
+          "ref": "durable-workflow-transcript.json",
+          "mediaType": "application/json"
+        }
+      ],
+      "localValidation": {
+        "status": "passed",
+        "checks": [
+          "workflow paused at human approval",
+          "checkpoint captured next step id",
+          "resume completed remaining steps",
+          "trace preserved completed step order"
+        ]
+      },
+      "selfReportedMetrics": {
+        "checkpointCount": 1,
+        "completedSteps": 5,
+        "networkCalls": 0
+      }
+    },
+    {
+      "schemaVersion": "dna.public-example.result.v1",
+      "exampleId": "control-loop-state-machine",
+      "exampleVersion": "1.0.0",
+      "runId": "control-loop-state-machine-offline-smoke",
+      "timestampUtc": "2026-05-25T19:38:02.2982625+00:00",
+      "inputSummaryHash": "sha256:38de86a16a1e4968df49a5ede0f1274efaafe414570ccc018c4cb44f4fc49dc1",
+      "outputArtifactRefs": [
+        {
+          "kind": "transcript",
+          "ref": "state-machine-transcript.json",
+          "mediaType": "application/json"
+        }
+      ],
+      "localValidation": {
+        "status": "passed",
+        "checks": [
+          "initial state set",
+          "guarded transition accepted when input exists",
+          "approval guard blocked until approval flag was set",
+          "transition history recorded"
+        ]
+      },
+      "selfReportedMetrics": {
+        "states": 4,
+        "transitions": 3,
+        "events": 6
+      }
+    },
+    {
+      "schemaVersion": "dna.public-example.result.v1",
+      "exampleId": "control-loop-behavior-tree",
+      "exampleVersion": "1.0.0",
+      "runId": "control-loop-behavior-tree-offline-smoke",
+      "timestampUtc": "2026-05-25T19:38:02.3036181+00:00",
+      "inputSummaryHash": "sha256:a7f09a254fcf4b729d6e455a519b425f2ef6c956d534cc050f2dd7cdd873f3be",
+      "outputArtifactRefs": [
+        {
+          "kind": "transcript",
+          "ref": "behavior-tree-transcript.json",
+          "mediaType": "application/json"
+        }
+      ],
+      "localValidation": {
+        "status": "passed",
+        "checks": [
+          "selector evaluated first viable branch",
+          "conditions passed in sequence",
+          "action node recorded next decision",
+          "fallback remained available"
+        ]
+      },
+      "selfReportedMetrics": {
+        "branches": 2,
+        "traceEvents": 1,
+        "networkCalls": 0
+      }
+    },
+    {
+      "schemaVersion": "dna.public-example.result.v1",
+      "exampleId": "control-loop-pattern-comparison",
+      "exampleVersion": "1.0.0",
+      "runId": "control-loop-pattern-comparison-offline-smoke",
+      "timestampUtc": "2026-05-25T19:38:02.3038359+00:00",
+      "inputSummaryHash": "sha256:dc5574719664c6788b0ada72bff15121b4e5b33d611879c2568e12b5cf22b2d3",
+      "outputArtifactRefs": [
+        {
+          "kind": "transcript",
+          "ref": "control-loop-pattern-comparison.json",
+          "mediaType": "application/json"
+        }
+      ],
+      "localValidation": {
+        "status": "passed",
+        "checks": [
+          "workflow guidance present",
+          "state-machine guidance present",
+          "behavior-tree guidance present"
+        ]
+      },
+      "selfReportedMetrics": {
+        "patterns": 3
+      }
+    }
+  ]
+}

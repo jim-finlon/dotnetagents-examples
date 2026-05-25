@@ -2,11 +2,11 @@ id: durable-workflow-service
 serviceClass: durable_workflow
 purpose: >
   Coordinate long-running work where every stage must be resumable, auditable,
-  and safe to retry. Use for SDLC story execution, release trains, migration
+  and safe to retry. Use for delivery story execution, release trains, migration
   waves, and other operator-visible workflows.
 pilotBaseline:
-  service: SdlcAgent
-  storyUse: "Autonomous loop lifecycle and release workflow stories"
+  service: PublicWorkflowCoordinator
+  storyUse: "Autonomous loop lifecycle and release workflow examples"
 layers:
   chainLogic:
     owns:
@@ -53,7 +53,7 @@ layers:
       - closeout evidence
     privilegedActions:
       - merge to main
-      - deploy to Tyr
+      - deploy to a configured environment
     privilegedActionRule: "Require explicit policy and evidence before mutation."
   observability:
     requiredDimensions:
@@ -76,4 +76,4 @@ safeDefaults:
 implementationNotes:
   - "Keep LLM chains idempotent and side-effect free."
   - "Put durable orchestration in workflow/state primitives, not prompt text."
-  - "Use SDLC closeout as the durable evidence boundary."
+  - "Use delivery closeout as the durable evidence boundary."
