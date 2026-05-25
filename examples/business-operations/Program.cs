@@ -46,6 +46,32 @@ static async Task<int> RunExampleAsync(string? exampleId)
         return WriteError($"Unknown example '{exampleId}'. Run the 'list' command to see available examples.");
     }
 
+    if (string.Equals(exampleId, "communications-triage", StringComparison.OrdinalIgnoreCase))
+    {
+        Console.WriteLine("=== Operations Triage Example (Communications Triage) ===");
+        Console.WriteLine();
+        
+        var inputs = new[]
+        {
+            new SyntheticInput("Email", "Security Alert: Production vulnerability detected in API gateway. Patch required immediately.", "security-audit@dna.invalid"),
+            new SyntheticInput("Task", "Weekly backup verification check: ensure Mimir postgres snapshots are copied to backup storage.", "system-cron@dna.invalid"),
+            new SyntheticInput("CalendarEvent", "Sprint alignment sync with loki-antigravity workstation team: Monday 10:00 AM.", "calendar-daemon@dna.invalid")
+        };
+
+        foreach (var input in inputs)
+        {
+            var classification = TriageHelper.TriageInput(input);
+            Console.WriteLine($"Input Type: {input.Type}");
+            Console.WriteLine($"From: {input.Sender}");
+            Console.WriteLine($"Content: {input.Content}");
+            Console.WriteLine($"Classification Urgency: {classification.Urgency}");
+            Console.WriteLine($"Topic Area: {classification.Topic}");
+            Console.WriteLine($"Recommended Posture: {classification.ResponsePosture}");
+            Console.WriteLine("---------------------------------------------");
+        }
+        return 0;
+    }
+
     var provider = PublicLlmProvider.TryCreateFromEnv();
     if (provider != null)
     {
@@ -274,3 +300,42 @@ internal sealed record BusinessOperationsSmokeResult(
     string PackId,
     int ExampleCount,
     IReadOnlyList<PublicExampleResultEnvelope> ResultEnvelopes);
+
+internal sealed record SyntheticInput(string Type, string Content, string Sender);
+
+internal sealed record TriageClassification(string Urgency, string Topic, string ResponsePosture);
+
+internal static class TriageHelper
+{
+    public static TriageClassification TriageInput(SyntheticInput input)
+    {
+        var urgency = "low";
+        var topic = "general";
+        var posture = "Review at leisure";
+
+        if (input.Content.Contains("vulnerability", StringComparison.OrdinalIgnoreCase) || 
+            input.Content.Contains("Security Alert", StringComparison.OrdinalIgnoreCase))
+        {
+            urgency = "high";
+            topic = "security";
+            posture = "Immediate Patch / P0 Incident Escalation";
+        }
+        else if (input.Content.Contains("backup", StringComparison.OrdinalIgnoreCase) || 
+                 input.Content.Contains("cron", StringComparison.OrdinalIgnoreCase))
+        {
+            urgency = "medium";
+            topic = "infrastructure";
+            posture = "Acknowledge receipt and monitor execution logs";
+        }
+        else if (input.Content.Contains("sync", StringComparison.OrdinalIgnoreCase) || 
+                 input.Content.Contains("meeting", StringComparison.OrdinalIgnoreCase))
+        {
+            urgency = "low";
+            topic = "coordination";
+            posture = "Add placeholder to calendar and reply confirmation";
+        }
+
+        return new TriageClassification(urgency, topic, posture);
+    }
+}
+
