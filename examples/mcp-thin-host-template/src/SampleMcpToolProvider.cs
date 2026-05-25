@@ -112,7 +112,21 @@ public sealed class SampleMcpToolProvider : IMcpToolProvider
             Name = name,
             Description = description,
             Category = category,
-            RequiredArguments = requiredArguments
+            InputSchema = new McpToolInputSchema
+            {
+                Required = requiredArguments.ToList(),
+                Properties = requiredArguments.ToDictionary(
+                    argument => argument,
+                    argument => new McpProperty
+                    {
+                        Type = "string",
+                        Description = $"Required {argument} argument."
+                    },
+                    StringComparer.Ordinal)
+            },
+            Examples = requiredArguments.Count == 0
+                ? [$"{name}()"]
+                : [$"{name}({string.Join(", ", requiredArguments.Select(argument => argument + ": value"))})"]
         };
 }
 

@@ -73,20 +73,24 @@ A starter project demonstrating the basic lifecycle of an agent card, tool defin
 Runnable public basics for tool calling, structured output, streaming progress,
 model routing, retry/error envelopes, and usage reporting.
 
-### 3. [Business Operations](business-operations/) *(Coming Soon)*
+### 3. [Protocol Examples](protocols/)
+Runnable MCP consumer, A2A handoff, and protocol-boundary examples, plus the
+[`mcp-thin-host-template`](mcp-thin-host-template/) for local MCP server shape.
+
+### 4. [Business Operations](business-operations/) *(Coming Soon)*
 Automates common workspace tasks:
 - **Project Planner**: Converts high-level goals into step-by-step markdown milestones and JSON tasks.
 - **CRM Follow-Up**: Drafts personalized outreach messages for sales leads.
 - **Communications Triage**: Classifies emails and documents by urgency and category.
 - **Appointment Assistant**: Suggests calendar schedules from free-form text.
 
-### 4. [Document Extraction](document-extraction/) *(Coming Soon)*
+### 5. [Document Extraction](document-extraction/) *(Coming Soon)*
 Demonstrates processing local text files and PDFs, chunking, and implementing local retrieval-augmented generation (RAG).
 
-### 5. [Writing & Publishing](writing-publishing/) *(Coming Soon)*
+### 6. [Writing & Publishing](writing-publishing/) *(Coming Soon)*
 Agentic assistants for drafting proposals, creating content repurposing schedules, and generating marketing material.
 
-### 6. [Education & Onboarding](education/) *(Coming Soon)*
+### 7. [Education & Onboarding](education/) *(Coming Soon)*
 An interactive educational coach that walks users through onboarding materials and dynamically generates quizzes to test comprehension.
 
 ---

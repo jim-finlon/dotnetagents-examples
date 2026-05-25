@@ -26,6 +26,7 @@ managed labs, certification receipts, and advanced Arena packs.
 | `examples/education` | Tutor and classroom-oriented public examples. |
 | `examples/writing-publishing` | Writing and publishing assistant patterns. |
 | `examples/mcp-thin-host-template` | Public MCP thin-host starter. |
+| `examples/protocols` | MCP consumer, A2A handoff, and protocol-boundary examples. |
 | `examples/road-access-dotnet-consumer` | Consumer integration sample. |
 
 The next public release tranches are tracked as the Example Systems Showcase:
@@ -47,6 +48,7 @@ The `/docs` tree explains how to use and adapt the examples:
 - [Example Catalog](docs/example-catalog.md)
 - [Example Contract](docs/example-contract.md)
 - [Example Quality Gates](docs/example-quality-gates.md)
+- [Protocol Examples](docs/protocol-examples.md)
 - [Choosing An Example](docs/choosing-an-example.md)
 - [Running Examples](docs/running-examples.md)
 - [Extending Examples](docs/extending-examples.md)

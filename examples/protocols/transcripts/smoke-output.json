@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "packId": "protocols",
+  "exampleCount": 3,
+  "expectedExamples": [
+    "protocol-mcp-consumer",
+    "protocol-a2a-handoff",
+    "protocol-boundary"
+  ],
+  "validation": {
+    "offline": true,
+    "requiresCredentials": false,
+    "requiresNetwork": false,
+    "resultEnvelopeSchema": "dna.public-example.result.v1"
+  }
+}

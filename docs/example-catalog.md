@@ -53,6 +53,18 @@ envelopes, and usage reporting in one deterministic smoke command:
 dotnet run --project examples/foundation -- --smoke
 ```
 
+## Protocol Pack
+
+Use [`../examples/protocols`](../examples/protocols) when you need to see how
+DotNetAgents keeps tool-facing MCP surfaces separate from agent-facing A2A
+handoffs. It includes local-only examples for MCP consumption, A2A handoff, and
+the protocol boundary decision:
+
+```bash
+dotnet run --project examples/protocols -- --smoke
+dotnet run --project examples/mcp-thin-host-template -- --smoke
+```
+
 ## Public Boundary
 
 Catalog entries should describe public-safe behavior, not private implementation details.

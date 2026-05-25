@@ -285,22 +285,56 @@
       "maturity": "template",
       "primaryLanguage": "csharp",
       "packagesExercised": [
-        "DotNetAgents.Mcp"
+        "DotNetAgents.Mcp",
+        "DotNetAgents.Mcp.Server"
       ],
       "pluginsExercised": [],
       "capabilities": [
         "MCP host shape",
         "tool provider scaffold",
-        "configuration template"
+        "configuration template",
+        "offline smoke"
       ],
-      "smokeCommand": null,
-      "liveCommand": null,
+      "smokeCommand": "dotnet run --project examples/mcp-thin-host-template -- --smoke",
+      "liveCommand": "dotnet run --project examples/mcp-thin-host-template",
       "externalDependencies": [],
       "optionalEnvironment": [],
       "expectedOutput": [
-        "reviewable host template source and sample configuration"
+        "JSON with status=passed",
+        "toolCount=3",
+        "unknown-tool rejection evidence"
       ],
       "boundaryNote": "Template only; must remain local/configurable and avoid private service endpoints."
+    },
+    {
+      "id": "protocols",
+      "displayName": "Protocol Examples",
+      "path": "examples/protocols",
+      "domain": "protocol",
+      "maturity": "runnable",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [
+        "DotNetAgents.A2A",
+        "DotNetAgents.Core",
+        "DotNetAgents.Mcp"
+      ],
+      "pluginsExercised": [],
+      "capabilities": [
+        "MCP client/consumer shape",
+        "A2A handoff",
+        "protocol boundary decision",
+        "offline smoke"
+      ],
+      "smokeCommand": "dotnet run --project examples/protocols -- --smoke",
+      "liveCommand": "dotnet run --project examples/protocols -- boundary",
+      "externalDependencies": [],
+      "optionalEnvironment": [],
+      "expectedOutput": [
+        "JSON with status=passed",
+        "exampleCount=3",
+        "one result envelope per protocol capability"
+      ],
+      "boundaryNote": "Public local protocol examples only; no private endpoints, production credentials, or hosted evaluation services."
     },
     {
       "id": "control-loop-reference-patterns",

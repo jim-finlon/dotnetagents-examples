@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <DnaReference Include="DotNetAgents.Contracts" />
+    <DnaReference Include="DotNetAgents.Mcp" />
+    <DnaReference Include="DotNetAgents.Mcp.Server" />
+  </ItemGroup>
+</Project>

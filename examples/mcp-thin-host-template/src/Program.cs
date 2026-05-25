@@ -3,6 +3,12 @@ using DotNetAgents.Mcp;
 using DotNetAgents.Mcp.Models;
 using DotNetAgents.Mcp.Server;
 using Dna.McpThinHost.Template;
+using System.Text.Json;
+
+if (args.Contains("--smoke", StringComparer.OrdinalIgnoreCase))
+{
+    return await ThinMcpTemplateSmoke.RunAsync().ConfigureAwait(false);
+}
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -93,6 +99,64 @@ app.MapMcpEndpoints(serviceName, true, instructions);
 app.MapMcpStreamableHttp(serviceName, displayName, version);
 
 app.Run();
+return 0;
+
+internal static class ThinMcpTemplateSmoke
+{
+    public static async Task<int> RunAsync()
+    {
+        var provider = new SampleMcpToolProvider(new SampleDomainStore());
+        var tools = await provider.GetToolsAsync("sample_thin_mcp").ConfigureAwait(false);
+        var instructions = await provider.CallToolAsync("get_instructions", new Dictionary<string, object>()).ConfigureAwait(false);
+        var echo = await provider.CallToolAsync(
+            "echo",
+            new Dictionary<string, object> { ["message"] = "hello protocol smoke" }).ConfigureAwait(false);
+        var status = await provider.CallToolAsync("get_sample_status", new Dictionary<string, object>()).ConfigureAwait(false);
+        var missing = await provider.CallToolAsync("missing_tool", new Dictionary<string, object>()).ConfigureAwait(false);
+
+        var passed = tools.Count == 3 &&
+                     tools.All(tool => tool.InputSchema is not null) &&
+                     instructions.Success &&
+                     echo.Success &&
+                     status.Success &&
+                     !missing.Success &&
+                     missing.ErrorCode == "NOT_FOUND";
+
+        var output = new
+        {
+            status = passed ? "passed" : "failed",
+            service = "sample_thin_mcp",
+            toolCount = tools.Count,
+            tools = tools.Select(tool => new
+            {
+                tool.Name,
+                tool.Category,
+                required = tool.InputSchema.Required
+            }),
+            calls = new
+            {
+                instructions = instructions.Success,
+                echo = echo.Success,
+                sampleStatus = status.Success,
+                unknownToolRejected = !missing.Success
+            },
+            transcript = new[]
+            {
+                "GET /mcp/instructions",
+                "GET /mcp/tools",
+                "POST /mcp/tools/call get_instructions",
+                "POST /mcp/tools/call echo",
+                "POST /mcp/tools/call get_sample_status"
+            }
+        };
+
+        Console.WriteLine(JsonSerializer.Serialize(output, new JsonSerializerOptions(JsonSerializerDefaults.Web)
+        {
+            WriteIndented = true
+        }));
+        return passed ? 0 : 1;
+    }
+}
 
 internal static class ThinMcpAuthExtensions
 {

@@ -13,15 +13,17 @@ Start here:
    mode and validation contract for every runnable example.
 4. [Example Quality Gates](example-quality-gates.md) - run local build, smoke,
    catalog, and public-content checks before publishing an example.
-5. [Choosing An Example](choosing-an-example.md) - pick the example closest to
+5. [Protocol Examples](protocol-examples.md) - choose and run MCP and A2A
+   examples without private hosted services.
+6. [Choosing An Example](choosing-an-example.md) - pick the example closest to
    your product.
-6. [Running Examples](running-examples.md) - run offline-first examples and
+7. [Running Examples](running-examples.md) - run offline-first examples and
    understand live configuration.
-7. [Extending Examples](extending-examples.md) - turn a sample into your own
+8. [Extending Examples](extending-examples.md) - turn a sample into your own
    agent application.
-8. [Result Envelopes And Arena Compatibility](result-envelopes-and-arena.md) -
+9. [Result Envelopes And Arena Compatibility](result-envelopes-and-arena.md) -
    understand the public result file shape without exposing scoring internals.
-9. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
+10. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
 
 Walkthroughs:
 
