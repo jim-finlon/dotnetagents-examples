@@ -2,7 +2,8 @@
 
 Open-source sample agents and applications that demonstrate the public DotNetAgents platform without exposing DNA private factory, premium, test environment, or hosted-service implementation.
 
-This repository is a fresh-history snapshot from the LAN Forgejo source of truth. It intentionally contains public-safe examples only. Private workspace history and premium/private platform code are not part of this repository.
+This repository contains public-safe examples only. Private workspace history
+and premium/private platform code are not part of this repository.
 
 ## Included examples
 

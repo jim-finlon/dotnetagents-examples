@@ -8,6 +8,13 @@
     <EnableNETAnalyzers Condition="'$(EnableNETAnalyzers)' == ''">true</EnableNETAnalyzers>
     <AnalysisLevel Condition="'$(AnalysisLevel)' == ''">latest</AnalysisLevel>
     <Deterministic Condition="'$(Deterministic)' == ''">true</Deterministic>
+    <Authors>DotNetAgents Contributors</Authors>
+    <Company>DotNetAgents Contributors</Company>
+    <Product>DotNetAgents Examples</Product>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/jim-finlon/dotnetagents-examples</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jim-finlon/dotnetagents-examples</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
 
     <!-- Align with DotNetAgents / shared bumps at 10.0.5; suppress downgrade noise until packages are unified. -->
     <NoWarn>$(NoWarn);1591;NU1605</NoWarn>
