@@ -76,6 +76,16 @@ dotnet run --project examples/control-loops -- --smoke
 dotnet run --project examples/control-loops -- compare
 ```
 
+## Orchestration Pack
+
+Use [`../examples/orchestration`](../examples/orchestration) when one role should
+not own generation, execution, verification, and approval by itself:
+
+```bash
+dotnet run --project examples/orchestration -- --smoke
+dotnet run --project examples/orchestration -- compare
+```
+
 ## Public Boundary
 
 Catalog entries should describe public-safe behavior, not private implementation details.

@@ -81,20 +81,24 @@ Runnable MCP consumer, A2A handoff, and protocol-boundary examples, plus the
 Runnable durable workflow, state-machine, and behavior-tree examples with local
 checkpoint/resume and public result envelopes.
 
-### 5. [Business Operations](business-operations/) *(Coming Soon)*
+### 5. [Orchestration Examples](orchestration/)
+Runnable writer/editor/judge, planner/executor/verifier, and preview/confirm
+approval examples with typed handoffs and deterministic transcripts.
+
+### 6. [Business Operations](business-operations/) *(Coming Soon)*
 Automates common workspace tasks:
 - **Project Planner**: Converts high-level goals into step-by-step markdown milestones and JSON tasks.
 - **CRM Follow-Up**: Drafts personalized outreach messages for sales leads.
 - **Communications Triage**: Classifies emails and documents by urgency and category.
 - **Appointment Assistant**: Suggests calendar schedules from free-form text.
 
-### 6. [Document Extraction](document-extraction/) *(Coming Soon)*
+### 7. [Document Extraction](document-extraction/) *(Coming Soon)*
 Demonstrates processing local text files and PDFs, chunking, and implementing local retrieval-augmented generation (RAG).
 
-### 7. [Writing & Publishing](writing-publishing/) *(Coming Soon)*
+### 8. [Writing & Publishing](writing-publishing/) *(Coming Soon)*
 Agentic assistants for drafting proposals, creating content repurposing schedules, and generating marketing material.
 
-### 8. [Education & Onboarding](education/) *(Coming Soon)*
+### 9. [Education & Onboarding](education/) *(Coming Soon)*
 An interactive educational coach that walks users through onboarding materials and dynamically generates quizzes to test comprehension.
 
 ---

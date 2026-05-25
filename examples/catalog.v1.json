@@ -392,6 +392,39 @@
       "boundaryNote": "Public local control-loop examples only; no private factory, hosted durability, production data, or scoring internals."
     },
     {
+      "id": "orchestration",
+      "displayName": "Orchestration Examples",
+      "path": "examples/orchestration",
+      "domain": "agent-orchestration",
+      "maturity": "runnable",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [
+        "DotNetAgents.Core"
+      ],
+      "pluginsExercised": [],
+      "capabilities": [
+        "writer-editor-judge loop",
+        "planner-executor-verifier gate",
+        "preview-confirm approval",
+        "typed handoffs",
+        "offline smoke"
+      ],
+      "smokeCommand": "dotnet run --project examples/orchestration -- --smoke",
+      "liveCommand": "dotnet run --project examples/orchestration -- compare",
+      "externalDependencies": [],
+      "optionalEnvironment": [
+        "OPENAI_API_KEY",
+        "ANTHROPIC_API_KEY",
+        "OLLAMA_MODEL"
+      ],
+      "expectedOutput": [
+        "JSON with status=passed",
+        "exampleCount=4",
+        "one result envelope per orchestration capability"
+      ],
+      "boundaryNote": "Public local orchestration examples only; no private prompts, production approval systems, production data, or scoring internals."
+    },
+    {
       "id": "road-access-dotnet-consumer",
       "displayName": "Road Access .NET Consumer",
       "path": "examples/road-access-dotnet-consumer",

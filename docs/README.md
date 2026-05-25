@@ -17,15 +17,17 @@ Start here:
    examples without private hosted services.
 6. [Control Loop Examples](control-loop-examples.md) - run workflow,
    state-machine, and behavior-tree examples with local synthetic state.
-7. [Choosing An Example](choosing-an-example.md) - pick the example closest to
+7. [Orchestration Examples](orchestration-examples.md) - run multi-role
+   writer/editor/judge, planner/executor/verifier, and approval examples.
+8. [Choosing An Example](choosing-an-example.md) - pick the example closest to
    your product.
-8. [Running Examples](running-examples.md) - run offline-first examples and
+9. [Running Examples](running-examples.md) - run offline-first examples and
    understand live configuration.
-9. [Extending Examples](extending-examples.md) - turn a sample into your own
+10. [Extending Examples](extending-examples.md) - turn a sample into your own
    agent application.
-10. [Result Envelopes And Arena Compatibility](result-envelopes-and-arena.md) -
+11. [Result Envelopes And Arena Compatibility](result-envelopes-and-arena.md) -
    understand the public result file shape without exposing scoring internals.
-11. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
+12. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
 
 Walkthroughs:
 

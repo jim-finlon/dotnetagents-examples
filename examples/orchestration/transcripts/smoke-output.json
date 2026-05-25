@@ -1,0 +1,512 @@
+{
+  "status": "passed",
+  "packId": "orchestration",
+  "exampleCount": 4,
+  "examples": [
+    {
+      "status": "passed",
+      "exampleId": "orchestration-writer-editor-judge",
+      "title": "Writer Editor Judge",
+      "capability": "Separate generation, critique, revision, and judging into typed deterministic roles.",
+      "checks": [
+        "writer produced a structured draft",
+        "editor returned explicit edits",
+        "judge returned a typed verdict",
+        "approved output met score threshold"
+      ],
+      "details": {
+        "request": {
+          "topic": "Explain why typed result envelopes matter for public agent examples.",
+          "audience": "C# application developers",
+          "constraints": [
+            "concise",
+            "public-safe",
+            "actionable"
+          ]
+        },
+        "draft": {
+          "request": {
+            "topic": "Explain why typed result envelopes matter for public agent examples.",
+            "audience": "C# application developers",
+            "constraints": [
+              "concise",
+              "public-safe",
+              "actionable"
+            ]
+          },
+          "sections": [
+            {
+              "title": "problem",
+              "text": "Agent examples need outputs that applications can verify."
+            },
+            {
+              "title": "approach",
+              "text": "Wrap each run in a stable result envelope with checks, artifacts, and metrics."
+            },
+            {
+              "title": "result",
+              "text": "Developers can build, smoke, compare, and extend the example safely."
+            }
+          ]
+        },
+        "revision": {
+          "original": {
+            "request": {
+              "topic": "Explain why typed result envelopes matter for public agent examples.",
+              "audience": "C# application developers",
+              "constraints": [
+                "concise",
+                "public-safe",
+                "actionable"
+              ]
+            },
+            "sections": [
+              {
+                "title": "problem",
+                "text": "Agent examples need outputs that applications can verify."
+              },
+              {
+                "title": "approach",
+                "text": "Wrap each run in a stable result envelope with checks, artifacts, and metrics."
+              },
+              {
+                "title": "result",
+                "text": "Developers can build, smoke, compare, and extend the example safely."
+              }
+            ]
+          },
+          "revisedSections": [
+            {
+              "title": "problem",
+              "text": "Agent examples need outputs that applications can verify."
+            },
+            {
+              "title": "approach",
+              "text": "Wrap each run in a stable result envelope with checks, artifacts, and metrics. Keep the envelope deterministic in smoke mode."
+            },
+            {
+              "title": "result",
+              "text": "Developers can build, smoke, compare, and extend the example safely."
+            }
+          ],
+          "edits": [
+            "Added validation note to approach section.",
+            "Confirmed each section uses public-safe phrasing."
+          ]
+        },
+        "verdict": {
+          "approved": true,
+          "score": 1,
+          "reasons": [
+            "states the developer problem",
+            "names deterministic validation",
+            "states usable result"
+          ]
+        }
+      },
+      "metrics": {
+        "roles": 3,
+        "edits": 2,
+        "judgeScore": 1
+      },
+      "resultEnvelope": {
+        "schemaVersion": "dna.public-example.result.v1",
+        "exampleId": "orchestration-writer-editor-judge",
+        "exampleVersion": "1.0.0",
+        "runId": "orchestration-writer-editor-judge-offline-smoke",
+        "timestampUtc": "2026-05-25T19:48:51.2203862+00:00",
+        "inputSummaryHash": "sha256:e551b4a4d330cd8363f77338f995bb85dd37c34ab42ad08aa1a1ba11f1d5fc1b",
+        "outputArtifactRefs": [
+          {
+            "kind": "transcript",
+            "ref": "writer-editor-judge-transcript.json",
+            "mediaType": "application/json"
+          }
+        ],
+        "localValidation": {
+          "status": "passed",
+          "checks": [
+            "writer produced a structured draft",
+            "editor returned explicit edits",
+            "judge returned a typed verdict",
+            "approved output met score threshold"
+          ]
+        },
+        "selfReportedMetrics": {
+          "roles": 3,
+          "edits": 2,
+          "judgeScore": 1
+        }
+      }
+    },
+    {
+      "status": "passed",
+      "exampleId": "orchestration-planner-executor-verifier",
+      "title": "Planner Executor Verifier",
+      "capability": "Split planning, execution, and verification so the checker is not the worker.",
+      "checks": [
+        "planner emitted ordered steps",
+        "executor produced one result per step",
+        "verifier checked required evidence",
+        "verification output remained structured"
+      ],
+      "details": {
+        "goal": {
+          "goalId": "goal-public-001",
+          "summary": "Publish a local public example with build, smoke, and docs evidence.",
+          "requiredEvidence": [
+            "build",
+            "smoke",
+            "docs"
+          ]
+        },
+        "plan": {
+          "goal": {
+            "goalId": "goal-public-001",
+            "summary": "Publish a local public example with build, smoke, and docs evidence.",
+            "requiredEvidence": [
+              "build",
+              "smoke",
+              "docs"
+            ]
+          },
+          "steps": [
+            {
+              "id": "build",
+              "description": "Compile the example project.",
+              "evidenceKind": "build"
+            },
+            {
+              "id": "smoke",
+              "description": "Run deterministic smoke mode.",
+              "evidenceKind": "smoke"
+            },
+            {
+              "id": "docs",
+              "description": "Update README and route docs.",
+              "evidenceKind": "docs"
+            }
+          ]
+        },
+        "execution": {
+          "goalId": "goal-public-001",
+          "stepResults": [
+            {
+              "stepId": "build",
+              "status": "completed",
+              "evidenceRef": "build:build:ok"
+            },
+            {
+              "stepId": "smoke",
+              "status": "completed",
+              "evidenceRef": "smoke:smoke:ok"
+            },
+            {
+              "stepId": "docs",
+              "status": "completed",
+              "evidenceRef": "docs:docs:ok"
+            }
+          ]
+        },
+        "verification": {
+          "passed": true,
+          "missingEvidence": [],
+          "checkedSteps": [
+            "build",
+            "smoke",
+            "docs"
+          ],
+          "notes": [
+            "all planned steps completed"
+          ]
+        }
+      },
+      "metrics": {
+        "plannedSteps": 3,
+        "executedSteps": 3,
+        "missingEvidence": 0
+      },
+      "resultEnvelope": {
+        "schemaVersion": "dna.public-example.result.v1",
+        "exampleId": "orchestration-planner-executor-verifier",
+        "exampleVersion": "1.0.0",
+        "runId": "orchestration-planner-executor-verifier-offline-smoke",
+        "timestampUtc": "2026-05-25T19:48:51.227785+00:00",
+        "inputSummaryHash": "sha256:f2821ed6850e8edf70e117832a582a85dc5c454af7cfb649a761468c34818910",
+        "outputArtifactRefs": [
+          {
+            "kind": "transcript",
+            "ref": "planner-executor-verifier-transcript.json",
+            "mediaType": "application/json"
+          }
+        ],
+        "localValidation": {
+          "status": "passed",
+          "checks": [
+            "planner emitted ordered steps",
+            "executor produced one result per step",
+            "verifier checked required evidence",
+            "verification output remained structured"
+          ]
+        },
+        "selfReportedMetrics": {
+          "plannedSteps": 3,
+          "executedSteps": 3,
+          "missingEvidence": 0
+        }
+      }
+    },
+    {
+      "status": "passed",
+      "exampleId": "orchestration-preview-confirm-approval",
+      "title": "Human In The Loop Approval",
+      "capability": "Preview a synthetic external action, refuse an invalid confirmation, then confirm with the matching token.",
+      "checks": [
+        "preview did not mutate external state",
+        "invalid confirmation was refused",
+        "valid confirmation emitted evidence ref",
+        "action used synthetic local data"
+      ],
+      "details": {
+        "action": {
+          "actionId": "action-public-001",
+          "description": "Publish a synthetic support reply to a local transcript file.",
+          "risk": "external-write",
+          "previewText": "Would write support-reply.md with a polite explanation and next step."
+        },
+        "preview": {
+          "previewId": "preview-action-public-001",
+          "action": {
+            "actionId": "action-public-001",
+            "description": "Publish a synthetic support reply to a local transcript file.",
+            "risk": "external-write",
+            "previewText": "Would write support-reply.md with a polite explanation and next step."
+          },
+          "requiresConfirmation": true,
+          "confirmationToken": "\u003Credacted-demo-token\u003E",
+          "warnings": [
+            "external write is synthetic in this example",
+            "confirmation token must match preview"
+          ]
+        },
+        "refused": {
+          "status": "refused",
+          "previewId": "preview-action-public-001",
+          "reason": "confirmation token did not match preview"
+        },
+        "confirmed": {
+          "status": "confirmed",
+          "previewId": "preview-action-public-001",
+          "reason": "synthetic action approved",
+          "evidenceRef": "approval/action-public-001.json"
+        }
+      },
+      "metrics": {
+        "previews": 1,
+        "refusals": 1,
+        "confirmations": 1
+      },
+      "resultEnvelope": {
+        "schemaVersion": "dna.public-example.result.v1",
+        "exampleId": "orchestration-preview-confirm-approval",
+        "exampleVersion": "1.0.0",
+        "runId": "orchestration-preview-confirm-approval-offline-smoke",
+        "timestampUtc": "2026-05-25T19:48:51.2286708+00:00",
+        "inputSummaryHash": "sha256:2d8f6d5d557c31c19deaf720449e11d2b708e46c199468b84e7a0311bd6d4394",
+        "outputArtifactRefs": [
+          {
+            "kind": "transcript",
+            "ref": "preview-confirm-approval-transcript.json",
+            "mediaType": "application/json"
+          }
+        ],
+        "localValidation": {
+          "status": "passed",
+          "checks": [
+            "preview did not mutate external state",
+            "invalid confirmation was refused",
+            "valid confirmation emitted evidence ref",
+            "action used synthetic local data"
+          ]
+        },
+        "selfReportedMetrics": {
+          "previews": 1,
+          "refusals": 1,
+          "confirmations": 1
+        }
+      }
+    },
+    {
+      "status": "passed",
+      "exampleId": "orchestration-pattern-comparison",
+      "title": "Orchestration Pattern Comparison",
+      "capability": "Choose a multi-role orchestration shape by risk and evidence needs.",
+      "checks": [
+        "critique loop guidance present",
+        "verification gate guidance present",
+        "approval checkpoint guidance present"
+      ],
+      "details": [
+        {
+          "patternId": "writer-editor-judge",
+          "useWhen": "Use when output quality improves through critique and an independent verdict.",
+          "example": "draft public docs or examples"
+        },
+        {
+          "patternId": "planner-executor-verifier",
+          "useWhen": "Use when execution should be checked against requirements by a separate role.",
+          "example": "ship a local example with evidence"
+        },
+        {
+          "patternId": "preview-confirm-approval",
+          "useWhen": "Use when a proposed action should be visible before it is committed.",
+          "example": "review a synthetic external write"
+        }
+      ],
+      "metrics": {
+        "patterns": 3
+      },
+      "resultEnvelope": {
+        "schemaVersion": "dna.public-example.result.v1",
+        "exampleId": "orchestration-pattern-comparison",
+        "exampleVersion": "1.0.0",
+        "runId": "orchestration-pattern-comparison-offline-smoke",
+        "timestampUtc": "2026-05-25T19:48:51.2288534+00:00",
+        "inputSummaryHash": "sha256:d60fd04b45bbb07325cfd21643dda6c3c3ff17a4110b88018d870a59349e0b24",
+        "outputArtifactRefs": [
+          {
+            "kind": "transcript",
+            "ref": "orchestration-pattern-comparison.json",
+            "mediaType": "application/json"
+          }
+        ],
+        "localValidation": {
+          "status": "passed",
+          "checks": [
+            "critique loop guidance present",
+            "verification gate guidance present",
+            "approval checkpoint guidance present"
+          ]
+        },
+        "selfReportedMetrics": {
+          "patterns": 3
+        }
+      }
+    }
+  ],
+  "resultEnvelopes": [
+    {
+      "schemaVersion": "dna.public-example.result.v1",
+      "exampleId": "orchestration-writer-editor-judge",
+      "exampleVersion": "1.0.0",
+      "runId": "orchestration-writer-editor-judge-offline-smoke",
+      "timestampUtc": "2026-05-25T19:48:51.2203862+00:00",
+      "inputSummaryHash": "sha256:e551b4a4d330cd8363f77338f995bb85dd37c34ab42ad08aa1a1ba11f1d5fc1b",
+      "outputArtifactRefs": [
+        {
+          "kind": "transcript",
+          "ref": "writer-editor-judge-transcript.json",
+          "mediaType": "application/json"
+        }
+      ],
+      "localValidation": {
+        "status": "passed",
+        "checks": [
+          "writer produced a structured draft",
+          "editor returned explicit edits",
+          "judge returned a typed verdict",
+          "approved output met score threshold"
+        ]
+      },
+      "selfReportedMetrics": {
+        "roles": 3,
+        "edits": 2,
+        "judgeScore": 1
+      }
+    },
+    {
+      "schemaVersion": "dna.public-example.result.v1",
+      "exampleId": "orchestration-planner-executor-verifier",
+      "exampleVersion": "1.0.0",
+      "runId": "orchestration-planner-executor-verifier-offline-smoke",
+      "timestampUtc": "2026-05-25T19:48:51.227785+00:00",
+      "inputSummaryHash": "sha256:f2821ed6850e8edf70e117832a582a85dc5c454af7cfb649a761468c34818910",
+      "outputArtifactRefs": [
+        {
+          "kind": "transcript",
+          "ref": "planner-executor-verifier-transcript.json",
+          "mediaType": "application/json"
+        }
+      ],
+      "localValidation": {
+        "status": "passed",
+        "checks": [
+          "planner emitted ordered steps",
+          "executor produced one result per step",
+          "verifier checked required evidence",
+          "verification output remained structured"
+        ]
+      },
+      "selfReportedMetrics": {
+        "plannedSteps": 3,
+        "executedSteps": 3,
+        "missingEvidence": 0
+      }
+    },
+    {
+      "schemaVersion": "dna.public-example.result.v1",
+      "exampleId": "orchestration-preview-confirm-approval",
+      "exampleVersion": "1.0.0",
+      "runId": "orchestration-preview-confirm-approval-offline-smoke",
+      "timestampUtc": "2026-05-25T19:48:51.2286708+00:00",
+      "inputSummaryHash": "sha256:2d8f6d5d557c31c19deaf720449e11d2b708e46c199468b84e7a0311bd6d4394",
+      "outputArtifactRefs": [
+        {
+          "kind": "transcript",
+          "ref": "preview-confirm-approval-transcript.json",
+          "mediaType": "application/json"
+        }
+      ],
+      "localValidation": {
+        "status": "passed",
+        "checks": [
+          "preview did not mutate external state",
+          "invalid confirmation was refused",
+          "valid confirmation emitted evidence ref",
+          "action used synthetic local data"
+        ]
+      },
+      "selfReportedMetrics": {
+        "previews": 1,
+        "refusals": 1,
+        "confirmations": 1
+      }
+    },
+    {
+      "schemaVersion": "dna.public-example.result.v1",
+      "exampleId": "orchestration-pattern-comparison",
+      "exampleVersion": "1.0.0",
+      "runId": "orchestration-pattern-comparison-offline-smoke",
+      "timestampUtc": "2026-05-25T19:48:51.2288534+00:00",
+      "inputSummaryHash": "sha256:d60fd04b45bbb07325cfd21643dda6c3c3ff17a4110b88018d870a59349e0b24",
+      "outputArtifactRefs": [
+        {
+          "kind": "transcript",
+          "ref": "orchestration-pattern-comparison.json",
+          "mediaType": "application/json"
+        }
+      ],
+      "localValidation": {
+        "status": "passed",
+        "checks": [
+          "critique loop guidance present",
+          "verification gate guidance present",
+          "approval checkpoint guidance present"
+        ]
+      },
+      "selfReportedMetrics": {
+        "patterns": 3
+      }
+    }
+  ]
+}
