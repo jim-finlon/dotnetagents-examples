@@ -38,3 +38,11 @@ public sealed record Proposal(
     string PersonaId,
     IReadOnlyList<ProposalPackage> Tiers,
     IReadOnlyList<string> Citations);
+
+public sealed record ProposalProspect(
+    string Company,
+    string FirstName,
+    string Role,
+    string Timezone,
+    string RegulatedIndustryOrEuOrCustomResidency);
+

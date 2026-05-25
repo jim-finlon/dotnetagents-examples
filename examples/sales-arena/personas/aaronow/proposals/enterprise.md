@@ -50,7 +50,7 @@ fixed-fee where applicable.
 
 ## FAQ
 
-- **Custom DPA terms?** Negotiable through our legal team per the
+- **Custom DPA terms?** Negotiable through our legal team per our
   standard process.
 - **BAA / HIPAA?** Per the standard contract, the Suite does not sign
   BAAs and is not HIPAA-compliant.

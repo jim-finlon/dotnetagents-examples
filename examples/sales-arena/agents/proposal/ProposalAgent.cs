@@ -8,10 +8,24 @@ namespace SalesArena.Proposal;
 public interface IProposalAgent
 {
     Proposal ComposeProposal(ProposalContext context);
+    string SubstituteTemplate(string template, ProposalProspect prospect);
 }
 
 public sealed class ProposalAgent : IProposalAgent
 {
+    public string SubstituteTemplate(string template, ProposalProspect prospect)
+    {
+        if (template is null) throw new ArgumentNullException(nameof(template));
+        if (prospect is null) throw new ArgumentNullException(nameof(prospect));
+
+        return template
+            .Replace("{{prospect.company}}", prospect.Company, StringComparison.Ordinal)
+            .Replace("{{prospect.first_name}}", prospect.FirstName, StringComparison.Ordinal)
+            .Replace("{{prospect.role}}", prospect.Role, StringComparison.Ordinal)
+            .Replace("{{prospect.timezone}}", prospect.Timezone, StringComparison.Ordinal)
+            .Replace("{{prospect.regulated_industry_or_eu_or_custom_residency}}", prospect.RegulatedIndustryOrEuOrCustomResidency, StringComparison.Ordinal);
+    }
+
     public Proposal ComposeProposal(ProposalContext context)
     {
         if (context is null) throw new ArgumentNullException(nameof(context));
