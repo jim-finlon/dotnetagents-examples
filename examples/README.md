@@ -57,6 +57,11 @@ dotnet run --project samples/hello-agent-cs -- hello "Alice"
 
 The repository is structured as a collection of specialized business domains:
 
+The expanded Example Systems Showcase roadmap is tracked in
+[`../docs/roadmap/example-systems-showcase.md`](../docs/roadmap/example-systems-showcase.md).
+Each future example family must include an offline smoke mode, optional live
+mode, expected output evidence, and public/private boundary notes.
+
 ### 1. [Hello Agent C#](hello-agent-cs/)
 A starter project demonstrating the basic lifecycle of an agent card, tool definition, and simple interactive chat completions in both offline and live modes.
 

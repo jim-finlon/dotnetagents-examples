@@ -5,15 +5,17 @@ software.
 
 Start here:
 
-1. [Choosing An Example](choosing-an-example.md) - pick the example closest to
+1. [Example Systems Showcase Roadmap](roadmap/example-systems-showcase.md) -
+   see the planned public example portfolio and delivery story ids.
+2. [Choosing An Example](choosing-an-example.md) - pick the example closest to
    your product.
-2. [Running Examples](running-examples.md) - run offline-first examples and
+3. [Running Examples](running-examples.md) - run offline-first examples and
    understand live configuration.
-3. [Extending Examples](extending-examples.md) - turn a sample into your own
+4. [Extending Examples](extending-examples.md) - turn a sample into your own
    agent application.
-4. [Result Envelopes And Arena Compatibility](result-envelopes-and-arena.md) -
+5. [Result Envelopes And Arena Compatibility](result-envelopes-and-arena.md) -
    understand the public result file shape without exposing scoring internals.
-5. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
+6. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
 
 Walkthroughs:
 

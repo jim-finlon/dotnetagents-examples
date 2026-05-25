@@ -27,9 +27,10 @@ managed labs, certification receipts, and advanced Arena packs.
 | `examples/mcp-thin-host-template` | Public MCP thin-host starter. |
 | `examples/road-access-dotnet-consumer` | Consumer integration sample. |
 
-Deferred for later public releases: competitive multi-agent demos, advanced
-control-loop reference packs, non-.NET language ports, and examples that need
-separate public writing, review, or security hardening.
+The next public release tranches are tracked as the Example Systems Showcase:
+foundation patterns, protocol examples, orchestration loops, control-loop
+systems, business/developer/RAG demos, plugin showcases, and a public-safe
+game-style teaser. See the roadmap for story ids and delivery order.
 
 ## How This Fits With DotNetAgents
 
@@ -41,6 +42,7 @@ separate public writing, review, or security hardening.
 
 The `/docs` tree explains how to use and adapt the examples:
 
+- [Example Systems Showcase Roadmap](docs/roadmap/example-systems-showcase.md)
 - [Choosing An Example](docs/choosing-an-example.md)
 - [Running Examples](docs/running-examples.md)
 - [Extending Examples](docs/extending-examples.md)
