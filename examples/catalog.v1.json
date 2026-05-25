@@ -470,6 +470,34 @@
         "public-safe scaffold and docs"
       ],
       "boundaryNote": "Public game-style teaser only; no private scoring internals or premium simulator mechanics."
+    },
+    {
+      "id": "developer-systems",
+      "displayName": "Developer Systems",
+      "path": "examples/developer-systems",
+      "domain": "developer-productivity",
+      "maturity": "runnable",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [
+        "DotNetAgents.Core"
+      ],
+      "pluginsExercised": [],
+      "capabilities": [
+        "code review",
+        "release notes",
+        "docs maintainer",
+        "test authoring",
+        "offline pack smoke"
+      ],
+      "smokeCommand": "dotnet run --project examples/developer-systems/DeveloperSystemsExamples.csproj -- --smoke",
+      "liveCommand": "dotnet run --project examples/developer-systems/DeveloperSystemsExamples.csproj -- run code-review",
+      "externalDependencies": [],
+      "optionalEnvironment": [],
+      "expectedOutput": [
+        "JSON with status=passed",
+        "one result envelope per developer capability example"
+      ],
+      "boundaryNote": "Uses synthetic developer scenarios; no private source control, credentials, or production repository links are required."
     }
   ]
 }
