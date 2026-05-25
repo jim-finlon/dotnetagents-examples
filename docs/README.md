@@ -15,5 +15,11 @@ Start here:
    understand the public result file shape without exposing scoring internals.
 5. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
 
+Walkthroughs:
+
+- [Hello Agent](walkthroughs/hello-agent.md)
+- [MCP Thin Host](walkthroughs/mcp-thin-host.md)
+- [Document Extraction](walkthroughs/document-extraction.md)
+
 The examples are intentionally public-safe. They show runnable patterns without
 private hosted services, private datasets, premium code, or operational runbooks.
