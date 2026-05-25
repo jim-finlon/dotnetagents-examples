@@ -1,5 +1,0 @@
-# Generic bell cues — anything the orchestrator explicitly rings.
-# Tokens: {persona}, {reason}, {line}
-The bell rings for {persona}. Reason: {reason}.
-{line}
-Bell up. {persona}. {reason}.

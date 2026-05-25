@@ -1,6 +1,0 @@
-# Boss Office cost catalog (operator-only dashboard). Edit without redeploying code.
-asOfUtc: 2026-05-18T09:00:00Z
-costPerTouchUsd: 0.42
-tier_frontier_spend_usd: 1840
-tier_standard_spend_usd: 620
-tier_economy_spend_usd: 210

@@ -1,7 +1,0 @@
-# Deal-closed cues — DNA-original.
-# Tokens: {persona}, {lead}, {value}
-{persona} just closed {lead} for {value}. The bell rings.
-Mark it on the board: {persona} took {lead} home for {value}.
-{persona} put a name on the wall. {lead} — {value}. Done.
-That's {value} for {persona}. {lead} signed. Coffee's poured.
-Closed. {persona} on the board with {lead} at {value}. Next.

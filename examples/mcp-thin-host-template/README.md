@@ -1,9 +1,9 @@
-# DNA MCP Thin Host Template
+# DotNetAgents MCP Thin Host Template
 
-This sample is the canonical starting point for a new DNA HTTP MCP service.
+This sample is the public starting point for a new DotNetAgents HTTP MCP service.
 It keeps the host thin: service-specific behavior belongs in an
 `IMcpToolProvider`, while shared host seams own endpoint mapping, streamable MCP,
-learning projection, genetic-contract reading, CORS, health, and optional auth.
+event projection, policy metadata reading, CORS, health, and optional auth.
 
 Use this template when creating a new service that should expose:
 
@@ -30,8 +30,8 @@ The preferred pattern is:
 
 1. Register service-specific stores/adapters.
 2. Register optional shared seams:
-   - `AddAgentLearningProjection(...)`
-   - `AddGeneticContractReader(...)`
+   - `AddAgentEventProjection(...)`
+   - `AddPolicyMetadataReader(...)`
 3. Register the concrete tool provider.
 4. Register `IMcpToolProvider` directly or through `McpLearningDecorator`.
 5. Build the app.
@@ -41,27 +41,15 @@ The preferred pattern is:
 7. Map common endpoints:
    - `/health`
    - `/`
-   - optional `/genetic/contract`
+   - optional `/policy/metadata`
    - `MapMcpEndpoints(...)`
    - optional `MapMcpStreamableHttp(...)`
-
-## Validation Against Existing Hosts
-
-This template was checked against two current DNA thin hosts:
-
-- `security-scanning-agent/src/SecurityScanningAgent.Api/Program.cs`
-- `infrastructure-control-agent/src/InfrastructureControl.Api/Program.cs`
-
-Both already follow the same shape: service registrations first, optional
-learning/genetic seams, `IMcpToolProvider` registration, `UseCursorMcpCors`,
-MCP endpoint mapping, streamable HTTP mapping, health/root endpoints, and
-service-specific tool providers.
 
 ## Security Notes
 
 - Do not put API keys or tokens in this sample.
-- Use config/env placeholders and resolve real secrets through CredentialsAgent
-  or service-owned secure configuration.
+- Use config/env placeholders and resolve real secrets through your own secure
+  configuration provider.
 - Keep unauthenticated endpoints narrow: typically `/health`, `/`, and
   `/mcp/instructions`.
 - High-impact tools should implement preview/confirm semantics in the tool

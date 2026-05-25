@@ -9,7 +9,7 @@ full agent implementations are built out.
 From the repository root:
 
 ```bash
-dotnet run --project samples/public-entrepreneur-examples -- --smoke
+dotnet run --project examples/public-entrepreneur-examples -- --smoke
 ```
 
 Expected result: JSON with `"status": "passed"`, `exampleCount` equal to `9`,
@@ -18,8 +18,8 @@ and one `dna.public-example.result.v1` envelope for each example.
 Useful exploratory commands:
 
 ```bash
-dotnet run --project samples/public-entrepreneur-examples -- list
-dotnet run --project samples/public-entrepreneur-examples -- run research-assistant
+dotnet run --project examples/public-entrepreneur-examples -- list
+dotnet run --project examples/public-entrepreneur-examples -- run research-assistant
 ```
 
 ## Included Examples
@@ -40,9 +40,6 @@ loops, or production data.
 
 ## Related public samples
 
-- [`samples/sales-arena/`](../sales-arena/README.md) — the flagship
-  multi-agent Sales Arena that exercises 30+ public DNA packages.
-  Walking tour at [`docs/public/SALES-ARENA-QUICKSTART.md`](../../docs/public/SALES-ARENA-QUICKSTART.md).
-- [`samples/business-operations/`](../business-operations/README.md) —
+- [`examples/business-operations/`](../business-operations/README.md) —
   commodity business-agent examples (project planner, CRM follow-up,
   communications triage, appointment + time-management).

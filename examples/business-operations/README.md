@@ -9,7 +9,7 @@ so future competition or hosted ingestion paths can consume the same shape.
 From the repository root:
 
 ```bash
-dotnet run --project samples/business-operations -- --smoke
+dotnet run --project examples/business-operations -- --smoke
 ```
 
 Expected result: JSON with `"status": "passed"`, `exampleCount` equal to `5`,
@@ -18,8 +18,8 @@ and one `dna.public-example.result.v1` envelope for each example.
 Useful exploratory commands:
 
 ```bash
-dotnet run --project samples/business-operations -- list
-dotnet run --project samples/business-operations -- run project-planner
+dotnet run --project examples/business-operations -- list
+dotnet run --project examples/business-operations -- run project-planner
 ```
 
 ## Included Examples
@@ -36,9 +36,6 @@ state, no hosted automation surface, and no evaluator or promotion loop.
 
 ## Related public samples
 
-- [`samples/sales-arena/`](../sales-arena/README.md) — the flagship
-  multi-agent Sales Arena that exercises 30+ public DNA packages.
-  Walking tour at [`docs/public/SALES-ARENA-QUICKSTART.md`](../../docs/public/SALES-ARENA-QUICKSTART.md).
-- [`samples/public-entrepreneur-examples/`](../public-entrepreneur-examples/README.md)
+- [`examples/public-entrepreneur-examples/`](../public-entrepreneur-examples/README.md)
   — the nine commodity public-example agents (research assistant,
   meeting summarizer, proposal writer, etc.).

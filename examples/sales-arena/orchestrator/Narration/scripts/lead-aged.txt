@@ -1,5 +1,0 @@
-# Aged-lead cues. DNA-original.
-# Tokens: {lead}, {hours}
-Lead {lead} has been quiet for {hours} hours. Someone owes them a touch.
-{hours} hours of silence on {lead}. Either it's dead or someone's about to revive it.
-Cold lead alert: {lead} hasn't heard from anyone in {hours} hours.

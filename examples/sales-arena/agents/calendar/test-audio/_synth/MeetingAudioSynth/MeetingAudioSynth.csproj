@@ -1,7 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>SalesArena.Meeting.AudioSynth</RootNamespace>
-    <AssemblyName>MeetingAudioSynth</AssemblyName>
-  </PropertyGroup>
-</Project>

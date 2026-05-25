@@ -12,8 +12,15 @@ This repository is a fresh-history snapshot from the LAN Forgejo source of truth
 - `business-operations` - basic CRM, calendar, communication, and project-management patterns.
 - `education` - tutor/classroom-oriented public examples.
 - `writing-publishing` - public-safe writing assistant patterns.
-- `control-loop-reference-patterns` - generic control-loop examples.
 - `mcp-thin-host-template` - public MCP thin-host starter.
 - `road-access-dotnet-consumer` - public consumer integration sample.
 
-The examples use public package references and avoid platform service service implementations, orchestration service, memory service, credential provider custody internals, evaluation/test environment orchestration, private LAN hosts, proprietary prompts, and commercial media workflow code.
+Deferred for a later public release: competitive multi-agent demos, control-loop
+reference packs, and non-.NET language ports. They need separate public writing,
+review, and validation before they belong in this repository.
+
+The examples use public package references and avoid platform service
+implementations, orchestration service internals, memory service internals,
+credential provider custody internals, evaluation/test environment
+orchestration, private LAN hosts, proprietary prompts, and commercial media
+workflow code.

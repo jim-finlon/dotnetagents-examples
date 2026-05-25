@@ -1,6 +1,0 @@
-# Premium-lead drip cues. Reward at the top of the leaderboard.
-# Tokens: {persona}, {count}, {reason}
-{persona} just earned {count} premium leads. Reason: {reason}.
-The good ones go to {persona}. {count} fresh leads on the rail. Reason: {reason}.
-{count} hand-picked leads, signed and dropped onto {persona}'s pod. That's the reward.
-Premium drip: {count} leads to {persona}. The rest of the floor, keep working.

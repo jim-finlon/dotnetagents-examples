@@ -17,13 +17,13 @@ static int RunSmoke()
 {
     var card = HelloAgent.AgentCard;
     var hello = HelloAgent.HandleHello("David Carter");
-    var lesson = HelloAgent.RecordLesson("hello-agent-cs.smoke", "success");
+    var eventRecord = HelloAgent.RecordLocalEvent("hello-agent-cs.smoke", "success");
 
     var passed = card.AgentId == "hello-agent-cs" &&
                  card.A2ARegistrationRoute == "/.well-known/agent.json" &&
                  card.McpTools.Contains("hello") &&
                  hello.Message.Contains("David Carter", StringComparison.Ordinal) &&
-                 lesson.ProblemSignature == "sample:hello-agent-cs:smoke";
+                 eventRecord.EventKey == "sample:hello-agent-cs:smoke";
 
     var envelope = PublicExampleResultEnvelope.Create(
         exampleId: card.AgentId,
@@ -35,7 +35,7 @@ static int RunSmoke()
                 "agent card route present",
                 "mcp tool list includes hello",
                 "hello response contains requested name",
-                "lesson event includes stable problem signature"
+                "local event includes stable event key"
             ]),
         outputArtifactRefs:
         [
@@ -55,8 +55,8 @@ static int RunSmoke()
         card.A2ARegistrationRoute,
         card.McpTools,
         hello.Message,
-        lesson.ProblemSignature,
-        lesson.Outcome,
+        eventRecord.EventKey,
+        eventRecord.Outcome,
         resultEnvelope = envelope
     }, passed ? 0 : 1);
 }
@@ -94,10 +94,10 @@ internal static class HelloAgent
     public static HelloAgentCard AgentCard { get; } = new(
         AgentId: "hello-agent-cs",
         DisplayName: "Hello DNA Agent C#",
-        Purpose: "Offline engineering-distribution sample that maps one tiny tool to A2A, MCP, and lesson-recording concepts.",
+        Purpose: "Offline engineering-distribution sample that maps one tiny tool to public agent and MCP concepts.",
         A2ARegistrationRoute: "/.well-known/agent.json",
         McpTools: ["hello", "card"],
-        LessonEventShape: "lesson.event.v1");
+        LocalEventShape: "local.event.v1");
 
     public static HelloResponse HandleHello(string name) =>
         new(
@@ -106,13 +106,13 @@ internal static class HelloAgent
             A2AIntent: "agent.sample.hello",
             NextStep: "Open README.md, change the greeting, then rerun --smoke.");
 
-    public static LessonEvent RecordLesson(string step, string outcome) =>
+    public static LocalEvent RecordLocalEvent(string step, string outcome) =>
         new(
-            ProblemSignature: "sample:hello-agent-cs:smoke",
+            EventKey: "sample:hello-agent-cs:smoke",
             Service: AgentCard.AgentId,
             Step: step,
             Outcome: outcome,
-            Summary: "The Hello-agent sample smoke command validated the local A2A/MCP/lesson shape without external dependencies.");
+            Summary: "The Hello-agent sample smoke command validated the local public agent and MCP shape without external dependencies.");
 }
 
 internal sealed record HelloAgentCard(
@@ -121,7 +121,7 @@ internal sealed record HelloAgentCard(
     string Purpose,
     string A2ARegistrationRoute,
     IReadOnlyList<string> McpTools,
-    string LessonEventShape);
+    string LocalEventShape);
 
 internal sealed record HelloResponse(
     string Message,
@@ -129,8 +129,8 @@ internal sealed record HelloResponse(
     string A2AIntent,
     string NextStep);
 
-internal sealed record LessonEvent(
-    string ProblemSignature,
+internal sealed record LocalEvent(
+    string EventKey,
     string Service,
     string Step,
     string Outcome,

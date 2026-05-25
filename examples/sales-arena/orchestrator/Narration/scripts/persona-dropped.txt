@@ -1,6 +1,0 @@
-# Bottom-tier revocation cues. The hard side of the contest.
-# Tokens: {persona}, {count}, {reason}
-{count} leads just came off {persona}'s board. The pool got them back.
-{persona} loses {count} leads to the pool. Reason: {reason}.
-Hard line: {persona} is down {count} leads. Get them back the hard way.
-{persona}, the pool reclaimed {count} of yours. That's the cost of falling behind.
