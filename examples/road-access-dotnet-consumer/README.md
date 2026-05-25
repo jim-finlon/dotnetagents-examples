@@ -1,15 +1,14 @@
-# Road Access .NET Consumer Sample
+# Private Network .NET Consumer Sample
 
 This sample shows the configuration shape a public-facing .NET app should use
-when it consumes one approved DNA internal service through the WireGuard
-road-access tunnel.
+when it consumes one approved internal service through a private network path.
 
 The sample is configuration-only on purpose. Public apps should use their own
 typed options and `HttpClient` wiring, but they should keep the same guardrails:
 
-- explicit `RoadAccess:Enabled`
-- one allowlisted `RoadAccess:AllowedService`
-- private tunnel-only `RoadAccess:BaseUrl`
+- explicit private-access enablement
+- one allowlisted service
+- private-network-only base URL
 - API key read from an environment variable, never from source-controlled JSON
 - short timeout and bounded retries
 - safe fallback behavior when the tunnel or backend is down

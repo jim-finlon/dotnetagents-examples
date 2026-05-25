@@ -13,7 +13,7 @@ dotnet run --project examples/business-operations -- --smoke
 ```
 
 Expected result: JSON with `"status": "passed"`, `exampleCount` equal to `5`,
-and one `dna.public-example.result.v1` envelope for each example.
+and one `dotnetagents.public-example.result.v1` envelope for each example.
 
 Useful exploratory commands:
 

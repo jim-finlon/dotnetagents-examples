@@ -12,8 +12,8 @@ Use this template when creating a new service that should expose:
 - `GET /mcp/tools`
 - `POST /mcp/tools/call`
 - optional streamable MCP HTTP
-- optional `GET /genetic/contract`
-- optional learning-event projection around tool calls
+- optional policy metadata endpoint
+- optional agent-event projection around tool calls
 
 ## Files
 

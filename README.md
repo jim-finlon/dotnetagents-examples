@@ -1,27 +1,93 @@
 # DotNetAgents Examples
 
-Open-source sample agents and applications that demonstrate the public DotNetAgents platform without exposing DNA private factory, premium, test environment, or hosted-service implementation.
+This repository contains public, runnable examples for the DotNetAgents platform.
 
-This repository contains public-safe examples only. Private workspace history
-and premium/private platform code are not part of this repository.
+DotNetAgents is a .NET 10 platform for building production agents that can plan,
+act, observe, improve, and operate under governance. The examples here show how
+to use the public package train without depending on private hosted services,
+premium code, customer projects, or internal infrastructure.
 
-## Included examples
+Start here when you want to see what the platform feels like as software.
 
-- `hello-agent-cs` - smallest runnable console shape for a DotNetAgents app.
-- `document-extraction` - public document extraction worker demo.
-- `public-entrepreneur-examples` - starter entrepreneur agents.
-- `business-operations` - basic CRM, calendar, communication, and project-management patterns.
-- `education` - tutor/classroom-oriented public examples.
-- `writing-publishing` - public-safe writing assistant patterns.
-- `mcp-thin-host-template` - public MCP thin-host starter.
-- `road-access-dotnet-consumer` - public consumer integration sample.
+The examples intentionally show the public foundation, not the private factory
+machinery. The same patterns are leveraged in private agent repositories for
+governed delivery, evaluation, and operations, while premium packages add
+managed labs, certification receipts, and advanced Arena packs.
 
-Deferred for a later public release: competitive multi-agent demos, control-loop
-reference packs, and non-.NET language ports. They need separate public writing,
-review, and validation before they belong in this repository.
+## Example Catalog
 
-The examples use public package references and avoid platform service
-implementations, orchestration service internals, memory service internals,
-credential provider custody internals, evaluation/test environment
-orchestration, private LAN hosts, proprietary prompts, and commercial media
-workflow code.
+| Example | Purpose |
+| --- | --- |
+| `examples/hello-agent-cs` | Smallest runnable console shape for a DotNetAgents app. |
+| `examples/document-extraction` | Public document extraction worker pattern. |
+| `examples/public-entrepreneur-examples` | Starter agents for solo and small-business workflows. |
+| `examples/business-operations` | CRM, calendar, communication, and project-management patterns. |
+| `examples/education` | Tutor and classroom-oriented public examples. |
+| `examples/writing-publishing` | Writing and publishing assistant patterns. |
+| `examples/mcp-thin-host-template` | Public MCP thin-host starter. |
+| `examples/road-access-dotnet-consumer` | Consumer integration sample. |
+
+Deferred for later public releases: competitive multi-agent demos, advanced
+control-loop reference packs, non-.NET language ports, and examples that need
+separate public writing, review, or security hardening.
+
+## How This Fits With DotNetAgents
+
+- `dotnetagents` is the public core platform.
+- `dotnetagents-plugins` contains optional integration adapters.
+- `dotnetagents-examples` shows the public packages in runnable applications.
+
+Main platform repository:
+
+https://github.com/jim-finlon/dotnetagents
+
+Comparison guide:
+
+https://github.com/jim-finlon/dotnetagents/blob/main/COMPARISON.md
+
+## What The Examples Demonstrate
+
+These examples focus on agent systems as durable .NET software:
+
+- dependency-injected runtime setup
+- clear tool boundaries
+- workflow-oriented task execution
+- public-safe MCP host patterns
+- structured application surfaces instead of prompt-only scripts
+- starter patterns for agents that can be measured and improved over time
+
+The examples intentionally avoid private implementation details. They should be
+safe to read, fork, and adapt as public starter code.
+
+## Quick Start
+
+Install .NET 10, clone the repository, and inspect an example:
+
+```bash
+git clone https://github.com/jim-finlon/dotnetagents-examples.git
+cd dotnetagents-examples/examples/hello-agent-cs
+dotnet run
+```
+
+Some examples may require package sources or preview packages that match the
+current DotNetAgents package train. Check the individual project files for exact
+package references.
+
+## Public-Safe Scope
+
+This repository does not include private factory workflows, hosted-service
+internals, private memory services, credential custody internals, proprietary
+prompts, private LAN hosts, or commercial media workflow code.
+
+If an example needs those capabilities, it should use a public abstraction,
+document the missing external dependency, or remain out of this repository until
+it can be presented safely.
+
+Roadmap examples will include more workflow agents, MCP/A2A service templates,
+memory patterns, voice and multimodal flows, and a public-friendly gamified
+Arena experience for comparing agent strategies without exposing proprietary
+scoring internals.
+
+## License
+
+DotNetAgents examples are licensed under Apache-2.0. See `LICENSE` and `NOTICE`.

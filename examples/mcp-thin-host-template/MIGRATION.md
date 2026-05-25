@@ -23,7 +23,7 @@ Move toward this shape:
    - optional API key or edge-auth middleware
    - `MapMcpEndpoints(serviceName, true, instructions)`
    - `MapMcpStreamableHttp(serviceName, displayName, version)`
-   - `/health`, `/`, and optional `/genetic/contract`
+   - `/health`, `/`, and optional `/policy/metadata`
 
 ## Incremental Migration
 

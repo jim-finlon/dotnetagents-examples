@@ -11,7 +11,7 @@ dotnet run --project samples/document-extraction -- --smoke
 ```
 
 Expected result: JSON with `"status": "passed"` and a
-`dna.public-example.result.v1` envelope for `document-extraction`.
+`dotnetagents.public-example.result.v1` envelope for `document-extraction`.
 
 This demo is public-offering code. It does not use private credential custody,
 hosted document queues, proprietary layout extraction, or private evaluation
