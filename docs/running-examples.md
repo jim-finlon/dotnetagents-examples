@@ -11,8 +11,8 @@ validation scripts should consume.
 
 ```bash
 git clone https://github.com/jim-finlon/dotnetagents-examples.git
-cd dotnetagents-examples/examples/hello-agent-cs
-dotnet run -- --smoke
+cd dotnetagents-examples
+dotnet run --project examples/foundation -- --smoke
 ```
 
 Expected behavior:
@@ -48,6 +48,14 @@ package feed documented by the individual example.
 Some README files show commands from the repository root. Others assume you are
 inside the example folder. If a command fails because a project path cannot be
 found, check the example README and run from the path it names.
+
+The foundation pack is the first stop for new users:
+
+```bash
+dotnet run --project examples/foundation -- tools
+dotnet run --project examples/foundation -- structured-output
+dotnet run --project examples/foundation -- streaming
+```
 
 ## Validation
 

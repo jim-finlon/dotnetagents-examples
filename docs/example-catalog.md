@@ -42,6 +42,17 @@ Every new catalog entry must include:
 
 Use `null` for `smokeCommand` or `liveCommand` only when the example is a template, reference pack, or scaffold. Runnable examples should always have a smoke command.
 
+## Foundation Pack
+
+Start with [`../examples/foundation`](../examples/foundation) when you want to
+learn the public execution vocabulary before choosing a domain example. It
+covers tool calling, structured output, streaming, model routing, retry/error
+envelopes, and usage reporting in one deterministic smoke command:
+
+```bash
+dotnet run --project examples/foundation -- --smoke
+```
+
 ## Public Boundary
 
 Catalog entries should describe public-safe behavior, not private implementation details.

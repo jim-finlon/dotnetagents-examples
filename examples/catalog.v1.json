@@ -56,6 +56,47 @@
       "boundaryNote": "Public offline sample; no private hosted service, production data, or credential custody dependency."
     },
     {
+      "id": "foundation",
+      "displayName": "Foundation Examples",
+      "path": "examples/foundation",
+      "domain": "foundation",
+      "maturity": "runnable",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [
+        "DotNetAgents.Core",
+        "DotNetAgents.Abstractions"
+      ],
+      "pluginsExercised": [],
+      "capabilities": [
+        "tool calling",
+        "structured output",
+        "streaming progress",
+        "model routing",
+        "retry and error envelopes",
+        "usage reporting",
+        "offline smoke"
+      ],
+      "smokeCommand": "dotnet run --project examples/foundation -- --smoke",
+      "liveCommand": "dotnet run --project examples/foundation -- routing",
+      "externalDependencies": [
+        "optional LLM provider for examples that extend the routing plan into live execution"
+      ],
+      "optionalEnvironment": [
+        "OPENAI_API_KEY",
+        "OPENAI_MODEL",
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_MODEL",
+        "OLLAMA_MODEL",
+        "OLLAMA_HOST"
+      ],
+      "expectedOutput": [
+        "JSON with status=passed",
+        "exampleCount=6",
+        "one result envelope per foundation capability"
+      ],
+      "boundaryNote": "Deterministic public foundation pack; no private laboratory, hosted factory, credential custody, or production data dependency."
+    },
+    {
       "id": "document-extraction",
       "displayName": "Document Extraction",
       "path": "examples/document-extraction",

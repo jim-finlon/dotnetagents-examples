@@ -19,6 +19,7 @@ managed labs, certification receipts, and advanced Arena packs.
 | Example | Purpose |
 | --- | --- |
 | `examples/hello-agent-cs` | Smallest runnable console shape for a DotNetAgents app. |
+| `examples/foundation` | Tool calling, structured output, streaming, routing, retry, and usage basics. |
 | `examples/document-extraction` | Public document extraction worker pattern. |
 | `examples/public-entrepreneur-examples` | Starter agents for solo and small-business workflows. |
 | `examples/business-operations` | CRM, calendar, communication, and project-management patterns. |
@@ -84,8 +85,8 @@ Install .NET 10, clone the repository, and inspect an example:
 
 ```bash
 git clone https://github.com/jim-finlon/dotnetagents-examples.git
-cd dotnetagents-examples/examples/hello-agent-cs
-dotnet run
+cd dotnetagents-examples
+dotnet run --project examples/foundation -- --smoke
 ```
 
 Some examples may require package sources or preview packages that match the

@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "packId": "foundation",
+  "exampleCount": 6,
+  "expectedExamples": [
+    "foundation-tool-calling",
+    "foundation-structured-output",
+    "foundation-streaming",
+    "foundation-model-routing",
+    "foundation-retry-envelope",
+    "foundation-usage-reporting"
+  ],
+  "validation": {
+    "offline": true,
+    "requiresCredentials": false,
+    "requiresNetwork": false,
+    "resultEnvelopeSchema": "dna.public-example.result.v1"
+  }
+}
