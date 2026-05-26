@@ -17,7 +17,7 @@ The examples also serve as pressure tests. When an example exposes awkward setup
 | Developer systems | Code review, release notes, docs maintenance, test authoring. | `4675e1fe-81bb-4bb4-bd16-b5de750c01ab` |
 | RAG/data | Knowledge assistant, document correction, citation verifier. | `4fea72a0-99f5-44f3-b071-9ceea0e04756` |
 | Plugin showcase | Vector, messaging, storage, database, browser, UI, multimodal. | `815104bf-32b4-4ef9-ab73-53133c8ab386` |
-| Public game-style teaser | Gamified agent comparison with public-safe result summaries. | `a09cd058-42ef-43cd-9b01-14c9d7877fa3` |
+| Public game-style teaser (Implemented) | Gamified agent comparison with public-safe result summaries. | `a09cd058-42ef-43cd-9b01-14c9d7877fa3` |
 
 ## Quality Bar
 

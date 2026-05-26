@@ -490,21 +490,24 @@
       "displayName": "Sales Arena",
       "path": "examples/sales-arena",
       "domain": "game-style-teaser",
-      "maturity": "scaffold",
+      "maturity": "runnable",
       "primaryLanguage": "csharp",
-      "packagesExercised": [],
+      "packagesExercised": [
+        "DotNetAgents.Core"
+      ],
       "pluginsExercised": [],
       "capabilities": [
         "synthetic personas",
         "contest-style replay",
         "result summaries"
       ],
-      "smokeCommand": null,
-      "liveCommand": null,
+      "smokeCommand": "dotnet run --project examples/sales-arena/cli/SalesArena.Cli/SalesArena.Cli.csproj -- --smoke",
+      "liveCommand": "dotnet run --project examples/sales-arena/cli/SalesArena.Cli/SalesArena.Cli.csproj -- init --leads examples/sales-arena/lead-packs/glengarry-v1/leads.json",
       "externalDependencies": [],
       "optionalEnvironment": [],
       "expectedOutput": [
-        "public-safe scaffold and docs"
+        "JSON containing status=passed and resultEnvelope",
+        "resultEnvelope.schemaVersion=dna.public-example.result.v1"
       ],
       "boundaryNote": "Public game-style teaser only; no private scoring internals or premium simulator mechanics."
     },

@@ -20,5 +20,8 @@
     <ProjectReference Include="../../orchestrator/SalesArena.Orchestrator.csproj" />
     <ProjectReference Include="../../replay/SalesArena.Replay.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <DnaReference Include="DotNetAgents.Core" />
+  </ItemGroup>
 
 </Project>

@@ -16,6 +16,11 @@ public static class Program
 {
     public static async Task<int> Main(string[] args)
     {
+        if (args.Length > 0 && args[0] == "--smoke")
+        {
+            return await Commands.SmokeRunner.RunAsync().ConfigureAwait(false);
+        }
+
         var rootCommand = new RootCommand("DNA Sales Arena CLI — init / contest / floor / bell / replay.")
         {
             Name = "dna-arena",

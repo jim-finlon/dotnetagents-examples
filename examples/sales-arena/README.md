@@ -1,10 +1,25 @@
-# DNA Sales Arena — Flagship Public Agent Package
+# DNA Sales Arena — Flagship Public Agent Package (Public Teaser)
 
 > *"Coffee's for closers."* — the Arena, every time a deal closes
 
 A competitive multi-agent sales floor. 4–6 AI sales-rep personas work the same lead pool. Live leaderboard, voice narration, replay engine, "Glengarry premium leads" that drip to the top performer. Built entirely on `staging/public-dotnetagents/` packages — no premium-factory disclosure.
 
-This directory is **scaffolded but not yet implemented**. The implementation lives in epics SA-01 through SA-07 (Mission Control). See [`docs/public/SALES-ARENA-FLAGSHIP-PLAN.md`](../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md) for the strategy and full story breakdown.
+This directory is **runnable as a public-safe game-style teaser**. It allows running a deterministic offline smoke simulation that demonstrates competitive agent comparison, ledger events, ASCII leaderboard updates, and replay generation. The full production implementation lives in epics SA-01 through SA-07 (Mission Control). See [`docs/public/SALES-ARENA-FLAGSHIP-PLAN.md`](../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md) for the strategy and full story breakdown.
+
+## Public Arena Teaser (Smoke Mode)
+
+This repository includes a safe, zero-dependency teaser simulation to verify the CLI, ledger, leaderboard, and replay composition pipeline:
+
+```bash
+dotnet run --project public/dotnetagents-examples/examples/sales-arena/cli/SalesArena.Cli/SalesArena.Cli.csproj -- --smoke
+```
+
+This runs a deterministic local simulation between Roma, Levene, and Moss, verifies their events are indexed by the ledger, computes the leaderboard standings (Cadillac tier for Roma, SteakKnives tier for Levene, YouAreFired tier for Moss), and outputs a compliant `PublicExampleResultEnvelope` JSON to stdout.
+
+## Open-Core Boundary Note
+
+This teaser does not expose private scoring internals, live prompt strategies, premium datasets, genetic/evolution optimizer mechanics, or hosted simulator control plane operations. Those capabilities reside exclusively in the premium enterprise layers.
+
 
 ## What goes where
 
@@ -78,7 +93,7 @@ For authoring custom personas, see
 
 ## Build status
 
-This is scaffolding. The 45 SDLC stories that fill it live in Mission Control:
+The public teaser is fully implemented. The 45 production SDLC stories that fill out the remaining live/simulator features live in Mission Control:
 
 - **Epic SA-01** Agent foundation (8 stories) — CRM, Calendar, Comms, supporting cast
 - **Epic SA-02** Orchestrator + ledger + leaderboard + theatre (7 stories)

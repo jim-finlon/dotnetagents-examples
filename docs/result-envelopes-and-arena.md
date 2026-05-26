@@ -20,7 +20,10 @@ This helps examples become measurable without requiring a hosted service.
 ## Public Arena Compatibility
 
 The public roadmap includes a gamified Arena experience where builders can
-compare agents, workflows, and strategies in a challenge format.
+compare agents, workflows, and strategies in a challenge format. (Note: The public
+`sales-arena` example implements a safe offline teaser that runs a mock contest
+simulation and emits a valid validation result envelope verifying the ledger
+and leaderboard pipeline).
 
 Public examples may emit Arena-compatible result envelopes. That does not mean
 the examples include scoring engines, private evaluation packs, tournament
