@@ -535,6 +535,46 @@
         "one result envelope per developer capability example"
       ],
       "boundaryNote": "Uses synthetic developer scenarios; no private source control, credentials, or production repository links are required."
+    },
+    {
+      "id": "plugin-showcase",
+      "displayName": "Plugin Showcase Pack",
+      "path": "examples/plugin-showcase",
+      "domain": "plugin-showcase",
+      "maturity": "runnable",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [
+        "DotNetAgents.Core"
+      ],
+      "pluginsExercised": [
+        "vector-stores",
+        "messaging",
+        "storage-artifacts",
+        "database-tooling",
+        "browser-computer-use",
+        "ui",
+        "multimodal-media"
+      ],
+      "capabilities": [
+        "vector stores",
+        "messaging",
+        "storage artifacts",
+        "database tooling",
+        "browser computer use",
+        "ui approval",
+        "multimodal media",
+        "offline smoke"
+      ],
+      "smokeCommand": "dotnet run --project examples/plugin-showcase -- --smoke",
+      "liveCommand": "dotnet run --project examples/plugin-showcase -- run vector",
+      "externalDependencies": [],
+      "optionalEnvironment": [],
+      "expectedOutput": [
+        "JSON containing status=passed and results dictionary for 7 plugin families",
+        "resultEnvelope.schemaVersion=dna.public-example.result.v1"
+      ],
+      "boundaryNote": "Demonstrates the 7 public plugin families; utilizes deterministic offline fakes during smoke testing with zero credentials or service dependencies."
     }
   ]
 }
+
