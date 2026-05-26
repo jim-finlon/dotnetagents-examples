@@ -71,7 +71,7 @@ An implementation story should close with:
 - changed catalog entry ids;
 - output fixture or transcript path when applicable;
 - public content scan result;
-- follow-up story ids for core/plugin friction.
+- follow-up story ids for core/plugin friction (see [Friction Ledger](friction-ledger.md)).
 
 Run [Example Quality Gates](example-quality-gates.md) before closeout:
 

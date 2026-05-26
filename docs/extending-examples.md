@@ -56,7 +56,8 @@ as part of the example contract:
 - add a public/private boundary note.
 
 If the example exposes awkward core or plugin ergonomics, record the friction in
-the delivery story and route a follow-up instead of hiding the workaround.
+the delivery story using the [Friction Ledger](friction-ledger.md) template and
+route a follow-up instead of hiding the workaround.
 
 ## Move From Example To Product
 

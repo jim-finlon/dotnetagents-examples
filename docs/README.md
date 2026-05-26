@@ -13,21 +13,23 @@ Start here:
    mode and validation contract for every runnable example.
 4. [Example Quality Gates](example-quality-gates.md) - run local build, smoke,
    catalog, and public-content checks before publishing an example.
-5. [Protocol Examples](protocol-examples.md) - choose and run MCP and A2A
+5. [Friction Ledger](friction-ledger.md) - record, classify, and route core
+   and plugin friction discovered during example development.
+6. [Protocol Examples](protocol-examples.md) - choose and run MCP and A2A
    examples without private hosted services.
-6. [Control Loop Examples](control-loop-examples.md) - run workflow,
+7. [Control Loop Examples](control-loop-examples.md) - run workflow,
    state-machine, and behavior-tree examples with local synthetic state.
-7. [Orchestration Examples](orchestration-examples.md) - run multi-role
+8. [Orchestration Examples](orchestration-examples.md) - run multi-role
    writer/editor/judge, planner/executor/verifier, and approval examples.
-8. [Choosing An Example](choosing-an-example.md) - pick the example closest to
+9. [Choosing An Example](choosing-an-example.md) - pick the example closest to
    your product.
-9. [Running Examples](running-examples.md) - run offline-first examples and
-   understand live configuration.
-10. [Extending Examples](extending-examples.md) - turn a sample into your own
-   agent application.
-11. [Result Envelopes And Arena Compatibility](result-envelopes-and-arena.md) -
-   understand the public result file shape without exposing scoring internals.
-12. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
+10. [Running Examples](running-examples.md) - run offline-first examples and
+    understand live configuration.
+11. [Extending Examples](extending-examples.md) - turn a sample into your own
+    agent application.
+12. [Result Envelopes And Arena Compatibility](result-envelopes-and-arena.md) -
+    understand the public result file shape without exposing scoring internals.
+13. [Troubleshooting](troubleshooting.md) - fix common local setup problems.
 
 Walkthroughs:
 

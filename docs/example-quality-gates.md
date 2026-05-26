@@ -38,7 +38,7 @@ Each implementation story should record:
 - smoke command(s) and pass/fail result;
 - output transcript or fixture path;
 - public-content scan command and result;
-- any follow-up story ids for core/plugin friction.
+- any follow-up story ids for core/plugin friction (see [Friction Ledger](friction-ledger.md)).
 
 For smoke output, prefer deterministic JSON with `status`, `exampleId` or
 `packId`, and a `resultEnvelope` where the example produces agent output.
