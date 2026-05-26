@@ -112,6 +112,7 @@
         "chunking",
         "keyword retrieval",
         "optional live synthesis",
+        "correction review workflow",
         "result envelope"
       ],
       "smokeCommand": "dotnet run --project examples/document-extraction -- --smoke",
@@ -132,6 +133,42 @@
         "resultEnvelope.schemaVersion=dna.public-example.result.v1"
       ],
       "boundaryNote": "Uses local sample documents by default; live provider calls are optional and operator-configured."
+    },
+    {
+      "id": "rag-data",
+      "displayName": "RAG and Data Pack",
+      "path": "examples/rag-data",
+      "domain": "rag-data",
+      "maturity": "runnable",
+      "primaryLanguage": "csharp",
+      "packagesExercised": [
+        "DotNetAgents.Core"
+      ],
+      "pluginsExercised": [],
+      "capabilities": [
+        "knowledge assistant",
+        "citation verifier",
+        "grounded answer checker",
+        "offline smoke"
+      ],
+      "smokeCommand": "dotnet run --project examples/rag-data -- --smoke",
+      "liveCommand": "dotnet run --project examples/rag-data -- query \"What is the escalation SLA?\"",
+      "externalDependencies": [
+        "optional LLM provider for live mode"
+      ],
+      "optionalEnvironment": [
+        "OPENAI_API_KEY",
+        "OPENAI_MODEL",
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_MODEL",
+        "OLLAMA_MODEL",
+        "OLLAMA_HOST"
+      ],
+      "expectedOutput": [
+        "JSON containing response answer and verificationReport",
+        "resultEnvelope.schemaVersion=dna.public-example.result.v1"
+      ],
+      "boundaryNote": "Offline citation verification and local query fallback are fully local; live model generation requires optional keys."
     },
     {
       "id": "business-operations",
