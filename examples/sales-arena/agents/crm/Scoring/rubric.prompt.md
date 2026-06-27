@@ -8,4 +8,4 @@ Score each lead on three axes from 0-100:
 
 Return JSON-shaped reasoning in prose; hosts may swap the backing model via DotNetAgents.PromptRuntime.
 
-Premium tease: pass `premium_routing=true` to route through AEQ model selection (feature-flag pass-through only).
+Premium tease: pass `premium_routing=true` to route through hosted model selection (feature-flag pass-through only).

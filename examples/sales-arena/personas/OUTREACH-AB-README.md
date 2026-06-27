@@ -2,7 +2,7 @@
 
 Canonical corpus: **six personas × four channels × three variants = 72** markdown files under:
 
-`samples/sales-arena/personas/{persona}/outreach/{email|sms|linkedin|chat}/{variant-1|variant-2|variant-3}.md`
+`examples/sales-arena/personas/{persona}/outreach/{email|sms|linkedin|chat}/{variant-1|variant-2|variant-3}.md`
 
 ## Frontmatter contract
 
@@ -30,7 +30,7 @@ The winning variant becomes the default template until the next contest reset. A
 ## Regenerating templates
 
 ```bash
-python3 samples/sales-arena/personas/tools/Generate-Sa0505OutreachTemplates.py
+python3 examples/sales-arena/personas/tools/Generate-Sa0505OutreachTemplates.py
 ```
 
 The generator is idempotent: it skips existing long-form `variant-1` email files that already include `word_count_target`.

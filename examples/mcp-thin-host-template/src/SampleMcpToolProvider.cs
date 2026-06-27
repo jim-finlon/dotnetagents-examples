@@ -6,7 +6,7 @@ namespace Dna.McpThinHost.Template;
 public sealed class SampleMcpToolProvider : IMcpToolProvider
 {
     private const string ServiceName = "sample_thin_mcp";
-    private const string DirectoryLink = "https://github.com/jim-finlon/dna-workspace/blob/main/docs/MCP_BOOTSTRAP_AND_CONSUMER_DIRECTORY.md";
+    private const string DirectoryLink = "https://github.com/jim-finlon/dotnetagents-examples/blob/main/docs/walkthroughs/mcp-thin-host.md";
 
     private readonly SampleDomainStore _store;
 

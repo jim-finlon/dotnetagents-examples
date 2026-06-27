@@ -107,5 +107,5 @@ This story (SA-02-03) lands the Ledger. Downstream stories that build on it:
 
 ## See also
 
-- [Sales Arena Flagship Plan §6.2](../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md)
+- [Sales Arena Flagship Plan §6.2](../../../examples/sales-arena/README.md)
 - `SalesArena.Crm.Agent` (SA-01-01) — emits CRM stage-changed events that the orchestrator forwards into the ledger as `LeadAssigned` / `MeetingBooked` / etc.

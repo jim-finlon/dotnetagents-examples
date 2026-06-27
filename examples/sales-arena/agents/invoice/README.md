@@ -1,6 +1,6 @@
 # Invoice Agent
 
-Deterministic invoice composition + CSV writer for the Sales Arena ([SALES-ARENA-FLAGSHIP-PLAN.md §5](../../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md)).
+Deterministic invoice composition + CSV writer for the Sales Arena ([SALES-ARENA-FLAGSHIP-PLAN.md §5](../../../../examples/sales-arena/README.md)).
 Slice scope: story `51ba31db` — child of parent SA-01-08 (`77f86038`).
 
 ## Surface

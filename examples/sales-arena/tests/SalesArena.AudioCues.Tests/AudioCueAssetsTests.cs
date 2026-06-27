@@ -6,7 +6,7 @@ namespace SalesArena.AudioCues.Tests;
 /// <summary>
 /// SA-06-04 audio-cue acceptance: every cue exists, is a valid RIFF WAVE,
 /// is ≤ 500 KB, and the folder totals ≤ 3 MB. Source provenance is
-/// in samples/sales-arena/assets/audio/LICENSE.md.
+/// in examples/sales-arena/assets/audio/LICENSE.md.
 /// </summary>
 public sealed class AudioCueAssetsTests
 {
@@ -26,7 +26,7 @@ public sealed class AudioCueAssetsTests
     public void Cue_file_exists(string name)
     {
         var path = Path.Combine(AudioDir(), name);
-        File.Exists(path).Should().BeTrue($"SA-06-04 acceptance requires {name} under samples/sales-arena/assets/audio/");
+        File.Exists(path).Should().BeTrue($"SA-06-04 acceptance requires {name} under examples/sales-arena/assets/audio/");
     }
 
     [Theory]
@@ -85,10 +85,10 @@ public sealed class AudioCueAssetsTests
 
     private static string AudioDir()
     {
-        // Test bin/Debug/net10.0 → up five → samples/sales-arena/assets/audio/
+        // Test bin/Debug/net10.0 → up five → examples/sales-arena/assets/audio/
         var candidate = Path.GetFullPath(Path.Combine(
             AppContext.BaseDirectory, "..", "..", "..", "..", "..", "assets", "audio"));
         if (Directory.Exists(candidate)) return candidate;
-        throw new DirectoryNotFoundException($"could not locate samples/sales-arena/assets/audio/ (looked at {candidate})");
+        throw new DirectoryNotFoundException($"could not locate examples/sales-arena/assets/audio/ (looked at {candidate})");
     }
 }

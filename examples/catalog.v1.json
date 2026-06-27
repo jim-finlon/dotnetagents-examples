@@ -94,7 +94,7 @@
         "exampleCount=6",
         "one result envelope per foundation capability"
       ],
-      "boundaryNote": "Deterministic public foundation pack; no private laboratory, hosted factory, credential custody, or production data dependency."
+      "boundaryNote": "Deterministic public foundation pack; no proprietary evaluation lab, hosted factory, credential custody, or production data dependency."
     },
     {
       "id": "document-extraction",
@@ -580,4 +580,3 @@
     }
   ]
 }
-

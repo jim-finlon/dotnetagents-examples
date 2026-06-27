@@ -7,11 +7,11 @@ Pure-.NET — no third-party dependencies.
 ## Regenerate
 
 ```bash
-dotnet run --project samples/sales-arena/assets/audio/_synth/AudioCueSynth
+dotnet run --project examples/sales-arena/assets/audio/_synth/AudioCueSynth
 ```
 
 The program writes the four `.wav` files to
-`samples/sales-arena/assets/audio/`. Output is bit-exact across runs
+`examples/sales-arena/assets/audio/`. Output is bit-exact across runs
 (fixed seed + closed-form math), so re-running and re-committing is
 safe — only edit the synthesis parameters in `Program.cs` if you
 intend to change the cue.
@@ -19,7 +19,7 @@ intend to change the cue.
 ## License
 
 The generator + the `.wav` outputs are all DNA-original work, released
-under CC0 1.0 Universal. See `samples/sales-arena/assets/audio/LICENSE.md`
+under CC0 1.0 Universal. See `examples/sales-arena/assets/audio/LICENSE.md`
 for the per-file provenance table.
 
 ## Why ship the generator alongside the audio

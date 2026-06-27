@@ -54,8 +54,8 @@ static async Task<int> RunExampleAsync(string? exampleId)
         var inputs = new[]
         {
             new SyntheticInput("Email", "Security Alert: Production vulnerability detected in API gateway. Patch required immediately.", "security-audit@dna.invalid"),
-            new SyntheticInput("Task", "Weekly backup verification check: ensure Mimir postgres snapshots are copied to backup storage.", "system-cron@dna.invalid"),
-            new SyntheticInput("CalendarEvent", "Sprint alignment sync with loki-antigravity workstation team: Monday 10:00 AM.", "calendar-daemon@dna.invalid")
+            new SyntheticInput("Task", "Weekly backup verification check: ensure customer database snapshots are copied to backup storage.", "system-cron@example.invalid"),
+            new SyntheticInput("CalendarEvent", "Sprint alignment sync with platform workstation team: Monday 10:00 AM.", "calendar-daemon@example.invalid")
         };
 
         foreach (var input in inputs)
@@ -338,4 +338,3 @@ internal static class TriageHelper
         return new TriageClassification(urgency, topic, posture);
     }
 }
-

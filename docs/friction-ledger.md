@@ -61,7 +61,7 @@ When friction is recorded, choose one of the following resolution paths:
 - **Action**: File a documentation-specific SDLC story.
 
 ### 6. Premium/Private Deferral
-- **When**: The resolution requires access to DNA Factory proprietary engines (e.g., live Arena tournament simulation, genetic prompt mutation, internal evaluation scoring).
+- **When**: The resolution requires access to DNA Factory proprietary engines (e.g., hosted simulation controls, enterprise optimizer mechanics, non-public evaluation scoring).
 - **Action**: Defer the fix to the private backlog. Mark the public ledger entry with `NOT_PUBLIC_SAFE: <reason>` and route it to the premium platform queue.
 
 ---

@@ -91,5 +91,5 @@ it:
 
 ## See also
 
-- [Sales Arena Flagship Plan §4.1](../../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md)
+- [Sales Arena Flagship Plan §4.1](../../../../examples/sales-arena/README.md)
 - `DotNetAgents.Agents.StateMachines` — the public state-machine kit this wraps

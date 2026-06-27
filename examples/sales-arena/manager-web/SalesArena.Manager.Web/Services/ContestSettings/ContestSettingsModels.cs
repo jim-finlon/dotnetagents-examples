@@ -135,7 +135,7 @@ public sealed class ContestSettingsFormModel
         (ScoringConfigIds.ByRevenue, "Revenue ($)"),
         (ScoringConfigIds.ByDealCount, "Deals Won"),
         (ScoringConfigIds.ByConversion, "Conversion (%)"),
-        (ScoringConfigIds.ByAeq, "AEQ Composite"),
+        (ScoringConfigIds.ByComposite, "Composite Score"),
     ];
 }
 

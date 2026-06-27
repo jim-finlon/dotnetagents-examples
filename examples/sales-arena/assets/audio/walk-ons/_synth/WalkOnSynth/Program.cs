@@ -8,8 +8,8 @@ namespace SalesArena.Assets.WalkOnSynth;
 /// (≈ 172 KB) — well under the 200 KB-per-clip cap. Pure System.IO + Math,
 /// zero third-party deps, bit-exact regeneration.
 ///
-/// <para>Run: <c>dotnet run --project samples/sales-arena/assets/audio/walk-ons/_synth/WalkOnSynth</c>.
-/// Output lands at <c>samples/sales-arena/assets/audio/walk-ons/{persona}.wav</c>.</para>
+/// <para>Run: <c>dotnet run --project examples/sales-arena/assets/audio/walk-ons/_synth/WalkOnSynth</c>.
+/// Output lands at <c>examples/sales-arena/assets/audio/walk-ons/{persona}.wav</c>.</para>
 /// </summary>
 internal static class Program
 {

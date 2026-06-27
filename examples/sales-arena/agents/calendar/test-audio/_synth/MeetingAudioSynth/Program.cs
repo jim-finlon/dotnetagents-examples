@@ -9,8 +9,8 @@ namespace SalesArena.Meeting.AudioSynth;
 /// is pure tone + silence -- there is no human speech, no IP claim, and
 /// the bytes are CC0 by virtue of being entirely DNA-synthesized.
 ///
-/// <para>Run: <c>dotnet run --project samples/sales-arena/agents/calendar/test-audio/_synth/MeetingAudioSynth</c>.
-/// Output lands at <c>samples/sales-arena/agents/calendar/test-audio/meeting-demo.wav</c>.</para>
+/// <para>Run: <c>dotnet run --project examples/sales-arena/agents/calendar/test-audio/_synth/MeetingAudioSynth</c>.
+/// Output lands at <c>examples/sales-arena/agents/calendar/test-audio/meeting-demo.wav</c>.</para>
 ///
 /// <para>The fixture is intentionally short (about 4 seconds) and shaped so
 /// the bit-pattern is stable across runs: four 0.5s tones at A4/C5/E5/G5

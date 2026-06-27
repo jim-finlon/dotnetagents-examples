@@ -27,7 +27,7 @@ static async Task<int> RunHelloAsync(string name)
                 Message: greeting.Trim(),
                 McpToolName: "hello",
                 A2AIntent: "agent.sample.hello",
-                NextStep: "Try adding more custom prompts or checkout other examples in samples/"
+                NextStep: "Try adding more custom prompts or check out other examples in examples/"
             ));
         }
         catch (Exception ex)
@@ -44,13 +44,13 @@ static int RunSmoke()
 {
     var card = HelloAgent.AgentCard;
     var hello = HelloAgent.HandleHello("David Carter");
-    var lesson = HelloAgent.RecordLesson("hello-agent-cs.smoke", "success");
+    var learning = HelloAgent.RecordLearningEvent("hello-agent-cs.smoke", "success");
 
     var passed = card.AgentId == "hello-agent-cs" &&
                  card.A2ARegistrationRoute == "/.well-known/agent.json" &&
                  card.McpTools.Contains("hello") &&
                  hello.Message.Contains("David Carter", StringComparison.Ordinal) &&
-                 lesson.ProblemSignature == "sample:hello-agent-cs:smoke";
+                 learning.ProblemKey == "sample:hello-agent-cs:smoke";
 
     var envelope = PublicExampleResultEnvelope.Create(
         exampleId: card.AgentId,
@@ -62,7 +62,7 @@ static int RunSmoke()
                 "agent card route present",
                 "mcp tool list includes hello",
                 "hello response contains requested name",
-                "lesson event includes stable problem signature"
+                "learning event includes stable problem key"
             ]),
         outputArtifactRefs:
         [
@@ -82,8 +82,8 @@ static int RunSmoke()
         card.A2ARegistrationRoute,
         card.McpTools,
         hello.Message,
-        lesson.ProblemSignature,
-        lesson.Outcome,
+        learning.ProblemKey,
+        learning.Outcome,
         resultEnvelope = envelope
     }, passed ? 0 : 1);
 }
@@ -93,9 +93,9 @@ static int WriteHelp()
     Console.WriteLine("Hello DNA Agent C# sample");
     Console.WriteLine();
     Console.WriteLine("Commands:");
-    Console.WriteLine("  dotnet run --project samples/hello-agent-cs -- --smoke");
-    Console.WriteLine("  dotnet run --project samples/hello-agent-cs -- card");
-    Console.WriteLine("  dotnet run --project samples/hello-agent-cs -- hello \"Your name\"");
+    Console.WriteLine("  dotnet run --project examples/hello-agent-cs -- --smoke");
+    Console.WriteLine("  dotnet run --project examples/hello-agent-cs -- card");
+    Console.WriteLine("  dotnet run --project examples/hello-agent-cs -- hello \"Your name\"");
     Console.WriteLine();
     Console.WriteLine("Live Mode Configuration (optional):");
     Console.WriteLine("Configure API keys as environment variables to run live executions via providers:");
@@ -133,10 +133,10 @@ internal static class HelloAgent
     public static HelloAgentCard AgentCard { get; } = new(
         AgentId: "hello-agent-cs",
         DisplayName: "Hello DNA Agent C#",
-        Purpose: "Offline engineering-distribution sample that maps one tiny tool to A2A, MCP, and lesson-recording concepts.",
+        Purpose: "Offline engineering-distribution sample that maps one tiny tool to A2A, MCP, and learning-event concepts.",
         A2ARegistrationRoute: "/.well-known/agent.json",
         McpTools: ["hello", "card"],
-        LessonEventShape: "lesson.event.v1");
+        LearningEventShape: "learning.event.v1");
 
     /// <summary>
     /// Generates a standard offline greeting message.
@@ -145,24 +145,24 @@ internal static class HelloAgent
     /// <returns>A structured HelloResponse.</returns>
     public static HelloResponse HandleHello(string name) =>
         new(
-            Message: $"Hello, {name}. This sample is intentionally offline: no Core 4, Tyr, credentials, or live services required.",
+            Message: $"Hello, {name}. This sample is intentionally offline: no private control plane, credentials, or live services required.",
             McpToolName: "hello",
             A2AIntent: "agent.sample.hello",
             NextStep: "Open README.md, change the greeting, then rerun --smoke.");
 
     /// <summary>
-    /// Records a deterministic lesson event for local telemetry or audit validation.
+    /// Records a deterministic learning event for local telemetry or audit validation.
     /// </summary>
     /// <param name="step">The execution step name.</param>
     /// <param name="outcome">The execution outcome status.</param>
-    /// <returns>A structured LessonEvent.</returns>
-    public static LessonEvent RecordLesson(string step, string outcome) =>
+    /// <returns>A structured LearningEvent.</returns>
+    public static LearningEvent RecordLearningEvent(string step, string outcome) =>
         new(
-            ProblemSignature: "sample:hello-agent-cs:smoke",
+            ProblemKey: "sample:hello-agent-cs:smoke",
             Service: AgentCard.AgentId,
             Step: step,
             Outcome: outcome,
-            Summary: "The Hello-agent sample smoke command validated the local A2A/MCP/lesson shape without external dependencies.");
+            Summary: "The Hello-agent sample smoke command validated the local A2A/MCP/learning-event shape without external dependencies.");
 }
 
 /// <summary>
@@ -174,7 +174,7 @@ internal sealed record HelloAgentCard(
     string Purpose,
     string A2ARegistrationRoute,
     IReadOnlyList<string> McpTools,
-    string LessonEventShape);
+    string LearningEventShape);
 
 /// <summary>
 /// Structured greeting response.
@@ -186,10 +186,10 @@ internal sealed record HelloResponse(
     string NextStep);
 
 /// <summary>
-/// Telemetry lesson event payload.
+/// Telemetry learning event payload.
 /// </summary>
-internal sealed record LessonEvent(
-    string ProblemSignature,
+internal sealed record LearningEvent(
+    string ProblemKey,
     string Service,
     string Step,
     string Outcome,

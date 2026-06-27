@@ -62,7 +62,7 @@ To plug the Arena into a real product you actually sell:
 2. Keep file paths under the five subdirectories above.
 3. Run `dna-arena knowledge reindex` (once SA-01-08 ships).
 
-See [`docs/public/SALES-ARENA-REAL-DATA.md`](../../../docs/public/SALES-ARENA-REAL-DATA.md)
+See [`examples/sales-arena/README.md`](../../../examples/sales-arena/README.md)
 for the safety + compliance frame before pointing the Arena at real
 products and real prospects.
 
@@ -90,7 +90,7 @@ Before merging any change to this tree:
 
 ## See also
 
-- [Sales Arena Flagship Plan](../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md)
+- [Sales Arena Flagship Plan](../../../examples/sales-arena/README.md)
   §5.4 — knowledge-pack design.
 - SA-01-08 — Knowledge Agent that indexes this corpus.
 - SA-05-03 — this story.

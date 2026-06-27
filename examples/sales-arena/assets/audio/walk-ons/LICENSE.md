@@ -34,7 +34,7 @@ construction.
 ## Regeneration
 
 ```bash
-dotnet run --project samples/sales-arena/assets/audio/walk-ons/_synth/WalkOnSynth
+dotnet run --project examples/sales-arena/assets/audio/walk-ons/_synth/WalkOnSynth
 ```
 
 The generator writes back into this folder; re-runs are bit-exact.

@@ -21,4 +21,4 @@ dotnet run --project public/dotnetagents-examples/examples/meeting-assistant -- 
 ## Public / Private Boundary
 
 - **Public**: Basic open-core C# `DotNetAgents` abstractions for decision and action-item extraction, follow-up composition, and validation.
-- **Private**: Automated background calendar sync to Odin MSSQL/Exchange, persistent meeting transcripts database (on Mimir), and live meeting summaries processed via premium LLM gateways (such as Baldur or Vidar).
+- **Private**: Automated background calendar sync to enterprise mail systems, persistent meeting transcripts database, and live meeting summaries processed via premium LLM gateways.

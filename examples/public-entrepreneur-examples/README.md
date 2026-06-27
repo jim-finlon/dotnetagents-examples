@@ -40,9 +40,9 @@ loops, or production data.
 
 ## Related public samples
 
-- [`samples/sales-arena/`](../sales-arena/README.md) — the flagship
+- [`examples/sales-arena/`](../sales-arena/README.md) — the flagship
   multi-agent Sales Arena that exercises 30+ public DNA packages.
-  Walking tour at [`docs/public/SALES-ARENA-QUICKSTART.md`](../../docs/public/SALES-ARENA-QUICKSTART.md).
+  Walking tour at [`examples/sales-arena/README.md`](../../examples/sales-arena/README.md).
 - [`samples/business-operations/`](../business-operations/README.md) —
   commodity business-agent examples (project planner, CRM follow-up,
   communications triage, appointment + time-management).

@@ -38,12 +38,12 @@ lead-packs/
 
 ```bash
 # v1 flagship pack
-python3 samples/sales-arena/lead-packs/tools/test-lead-pack.py \
-    samples/sales-arena/lead-packs/glengarry-v1/leads.json
+python3 examples/sales-arena/lead-packs/tools/test-lead-pack.py \
+    examples/sales-arena/lead-packs/glengarry-v1/leads.json
 
 # v2 renewal pack (also accepts v1 paths)
-python3 samples/sales-arena/lead-packs/tools/test-lead-pack-v2.py \
-    samples/sales-arena/lead-packs/saas-renewal-v1/leads.json
+python3 examples/sales-arena/lead-packs/tools/test-lead-pack-v2.py \
+    examples/sales-arena/lead-packs/saas-renewal-v1/leads.json
 ```
 
 Expected: `PASS` with 200 leads (20 glengarry, 180 cold) for Glengarry; `PASS` with
@@ -52,8 +52,8 @@ Expected: `PASS` with 200 leads (20 glengarry, 180 cold) for Glengarry; `PASS` w
 ## Regenerate deterministic packs
 
 ```bash
-python3 samples/sales-arena/lead-packs/tools/generate-glengarry-v1.py
-python3 samples/sales-arena/lead-packs/tools/generate-saas-renewal-v1.py
+python3 examples/sales-arena/lead-packs/tools/generate-glengarry-v1.py
+python3 examples/sales-arena/lead-packs/tools/generate-saas-renewal-v1.py
 ```
 
 Seeds live in each script (`20260517` Glengarry, `20260518` SaaS-renewal); deterministic
@@ -63,7 +63,7 @@ output keeps diffs reviewable.
 
 **100% synthetic.** All names, companies, domains, and contact details are
 fictional. The Arena refuses to load packs containing live-looking PII unless
-the operator explicitly attests they've followed `docs/public/SALES-ARENA-REAL-DATA.md`.
+the operator explicitly attests they've followed `examples/sales-arena/README.md`.
 
 ## Authoring your own pack
 
@@ -82,6 +82,6 @@ can be expressed.
 
 ## See also
 
-- [Sales Arena Flagship Plan](../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md) §3.3
-- SA-05-02 (Mission Control story)
+- [Sales Arena Flagship Plan](../../../examples/sales-arena/README.md) §3.3
+- SA-05-02 public provenance marker
 - SA-06-03 (v2 schema + SaaS-renewal pack)

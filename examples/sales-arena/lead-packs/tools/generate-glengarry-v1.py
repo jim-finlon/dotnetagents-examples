@@ -13,9 +13,9 @@ The 180 cold leads can be deterministic — they're volume fodder. Levene will
 fire 47 of them off before lunch and most will bounce.
 
 Run:
-    python3 samples/sales-arena/lead-packs/tools/generate-glengarry-v1.py
+    python3 examples/sales-arena/lead-packs/tools/generate-glengarry-v1.py
 
-Output: samples/sales-arena/lead-packs/glengarry-v1/leads.json
+Output: examples/sales-arena/lead-packs/glengarry-v1/leads.json
 """
 
 from __future__ import annotations

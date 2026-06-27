@@ -22,11 +22,11 @@ carries `customer_tier`, `mrr`, `renewal_date`, `churn_risk_score`, and
 ## Validate
 
 ```bash
-python3 samples/sales-arena/lead-packs/tools/test-lead-pack-v2.py \
-  samples/sales-arena/lead-packs/saas-renewal-v1/leads.json
+python3 examples/sales-arena/lead-packs/tools/test-lead-pack-v2.py \
+  examples/sales-arena/lead-packs/saas-renewal-v1/leads.json
 
-python3 samples/sales-arena/lead-packs/tools/test-lead-pack-v2.py \
-  samples/sales-arena/lead-packs/glengarry-v1/leads.json
+python3 examples/sales-arena/lead-packs/tools/test-lead-pack-v2.py \
+  examples/sales-arena/lead-packs/glengarry-v1/leads.json
 ```
 
 The v2 validator delegates v1 packs to `test-lead-pack.py` (backwards-compatible).
@@ -34,7 +34,7 @@ The v2 validator delegates v1 packs to `test-lead-pack.py` (backwards-compatible
 ## Regenerate
 
 ```bash
-python3 samples/sales-arena/lead-packs/tools/generate-saas-renewal-v1.py
+python3 examples/sales-arena/lead-packs/tools/generate-saas-renewal-v1.py
 ```
 
 Seed: `20260518` (deterministic).
@@ -42,4 +42,4 @@ Seed: `20260518` (deterministic).
 ## See also
 
 - [`../README.md`](../README.md) — pack index
-- [Sales Arena Flagship Plan](../../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md) — SA-06-03
+- [Sales Arena Flagship Plan](../../../../examples/sales-arena/README.md) — SA-06-03

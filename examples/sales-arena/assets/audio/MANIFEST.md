@@ -42,7 +42,7 @@ media-capable runner.
 ## `cold-open.wav`
 
 - **When it plays.** Beat 1 of the 12-minute live demo
-  ([SALES-ARENA-DEMO-SCRIPT.md](../../../../docs/public/SALES-ARENA-DEMO-SCRIPT.md)).
+  ([SALES-ARENA-DEMO-SCRIPT.md](../../../../examples/sales-arena/README.md)).
 - **Length target.** 5 seconds.
 - **Character.** A sparse, low-key sting: single muted brass note
   swelling under the narrator's opening line, fading to silence as the

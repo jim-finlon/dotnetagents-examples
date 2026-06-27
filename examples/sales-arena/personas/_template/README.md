@@ -43,7 +43,7 @@ personas/<your-persona>/
 
 1. Copy this template:
    ```bash
-   cp -r samples/sales-arena/personas/_template samples/sales-arena/personas/your-closer-name
+   cp -r examples/sales-arena/personas/_template examples/sales-arena/personas/your-closer-name
    ```
 
 2. Edit `persona.yaml` — name them, tag them, pick a model tier:
@@ -66,7 +66,7 @@ personas/<your-persona>/
 
 7. Test:
    ```bash
-   dna-arena persona validate samples/sales-arena/personas/your-closer-name
+   dna-arena persona validate examples/sales-arena/personas/your-closer-name
    dna-arena contest start --personas roma,your-closer-name --hours 1 --time-compression 60
    ```
 
@@ -98,9 +98,9 @@ That `.salesman.zip` is shareable. Drop it into anyone else's Arena and watch yo
 
 ## Resources
 
-- [Persona-pack format spec (SA-07-01)](../../../docs/public/SALES-ARENA-PERSONA-PACK-FORMAT.md) *(authored once SA-07-01 ships)*
-- [Workshop: Build your closer in an hour (SA-07-05)](../../../docs/public/SALES-ARENA-WORKSHOP.md) *(authored once SA-07-05 ships)*
-- [Sales Arena Flagship Plan](../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md)
+- [Persona-pack format spec (SA-07-01)](../../../examples/sales-arena/README.md) *(authored once SA-07-01 ships)*
+- [Workshop: Build your closer in an hour (SA-07-05)](../../../examples/sales-arena/README.md) *(authored once SA-07-05 ships)*
+- [Sales Arena Flagship Plan](../../../examples/sales-arena/README.md)
 
 ---
 

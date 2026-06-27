@@ -11,5 +11,5 @@ We define three urgency levels:
 
 ## Section 3: Escalation Paths
 If a P0 issue is not resolved within 1 hour, escalate to the Engineering Lead (Jane Doe) via phone.
-For P1 issues not resolved within 4 hours, notify the Product Manager (Bob Smith) via Slack.
+For P1 issues not resolved within 4 hours, notify the on-call product lead through the configured team channel.
 For billing queries, route directly to the finance channel (#billing-support).

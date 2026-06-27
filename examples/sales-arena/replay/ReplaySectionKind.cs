@@ -2,7 +2,7 @@ namespace SalesArena.Replay;
 
 /// <summary>
 /// Canonical replay sections. Each maps to an <c>ISectionBuilder</c> + a
-/// forkable header template at <c>samples/sales-arena/replay/templates/{kind}.md</c>.
+/// forkable header template at <c>examples/sales-arena/replay/templates/{kind}.md</c>.
 /// </summary>
 public enum ReplaySectionKind
 {

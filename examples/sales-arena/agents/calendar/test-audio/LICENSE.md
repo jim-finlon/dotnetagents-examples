@@ -1,4 +1,4 @@
-# LICENSE — `samples/sales-arena/agents/calendar/test-audio/`
+# LICENSE — `examples/sales-arena/agents/calendar/test-audio/`
 
 All audio files in this directory are CC0 1.0 Universal (public-domain dedication)
 because they are entirely DNA-synthesized via `MeetingAudioSynth` (pure

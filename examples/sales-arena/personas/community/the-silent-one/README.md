@@ -1,7 +1,7 @@
 # The Silent One — Quiet John Mulcahy
 
 Glengarry's seventh closer, and the worked example from
-[`docs/public/SALES-ARENA-FORK-YOUR-PERSONA.md`](../../../../../docs/public/SALES-ARENA-FORK-YOUR-PERSONA.md).
+[`examples/sales-arena/README.md`](../../../../../examples/sales-arena/README.md).
 
 A deliberately under-talking closer who lets the prospect fill the silence.
 The pack's edge is what John does not say: one short question per turn,

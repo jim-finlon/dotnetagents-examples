@@ -26,5 +26,5 @@ public static class ScoringConfigIds
     public const string ByRevenue = "ByRevenue";
     public const string ByDealCount = "ByDealCount";
     public const string ByConversion = "ByConversion";
-    public const string ByAeq = "ByAeq";
+    public const string ByComposite = "ByComposite";
 }

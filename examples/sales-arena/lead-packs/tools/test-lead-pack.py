@@ -11,7 +11,7 @@ pip-installing anything. After SA-04-03 ships, the same checks live behind
 Exits 0 on pass, 2 on failure. Prints a structured report.
 
 Usage:
-    python3 test-lead-pack.py samples/sales-arena/lead-packs/glengarry-v1/leads.json
+    python3 test-lead-pack.py examples/sales-arena/lead-packs/glengarry-v1/leads.json
 """
 
 from __future__ import annotations

@@ -1,7 +1,7 @@
 # CRM Next-Best-Action (NBA) Engine
 
 Story `ecf26755` (SA-01-02). Behavior-tree-shaped NBA engine with four persona variants
-under the existing `SalesArena.Crm.Agent` project ([SALES-ARENA-FLAGSHIP-PLAN.md §4.1](../../../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md)).
+under the existing `SalesArena.Crm.Agent` project ([SALES-ARENA-FLAGSHIP-PLAN.md §4.1](../../../../../examples/sales-arena/README.md)).
 
 ## Surface
 

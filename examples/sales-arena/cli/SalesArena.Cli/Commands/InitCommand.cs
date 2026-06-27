@@ -19,7 +19,7 @@ public static class InitCommand
 
         var leadsOption = new Option<FileInfo?>(
             name: "--leads",
-            description: "Path to the lead-pack JSON file (e.g. samples/sales-arena/lead-packs/synthetic-200.json).")
+            description: "Path to the lead-pack JSON file (e.g. examples/sales-arena/lead-packs/synthetic-200.json).")
         {
             IsRequired = true,
         };

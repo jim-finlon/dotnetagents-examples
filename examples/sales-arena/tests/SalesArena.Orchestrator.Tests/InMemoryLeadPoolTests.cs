@@ -302,7 +302,7 @@ public sealed class InMemoryLeadPoolTests
 
     private static string? LocateGlengarryV1()
     {
-        // Walk up from the test binary toward repo root, looking for samples/sales-arena/lead-packs/glengarry-v1/leads.json.
+        // Walk up from the test binary toward repo root, looking for examples/sales-arena/lead-packs/glengarry-v1/leads.json.
         var dir = AppContext.BaseDirectory;
         for (var i = 0; i < 12 && !string.IsNullOrEmpty(dir); i++)
         {

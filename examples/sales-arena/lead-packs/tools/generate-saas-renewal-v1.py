@@ -4,9 +4,9 @@ Generates the SaaS-renewal v1 lead pack — 100 fictional existing customers wit
 renewal-relevant v2 fields (MRR, renewal_date, churn_risk_score, expansion_signal).
 
 Run:
-    python3 samples/sales-arena/lead-packs/tools/generate-saas-renewal-v1.py
+    python3 examples/sales-arena/lead-packs/tools/generate-saas-renewal-v1.py
 
-Output: samples/sales-arena/lead-packs/saas-renewal-v1/leads.json
+Output: examples/sales-arena/lead-packs/saas-renewal-v1/leads.json
 """
 
 from __future__ import annotations

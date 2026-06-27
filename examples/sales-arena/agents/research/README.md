@@ -1,6 +1,6 @@
 # Research Agent
 
-Deterministic 1-pager assembler for the Sales Arena ([SALES-ARENA-FLAGSHIP-PLAN.md §5](../../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md)).
+Deterministic 1-pager assembler for the Sales Arena ([SALES-ARENA-FLAGSHIP-PLAN.md §5](../../../../examples/sales-arena/README.md)).
 Slice scope: story `7b756c99` — child of parent SA-01-08 (`77f86038`).
 
 ## Surface

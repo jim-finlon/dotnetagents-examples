@@ -10,7 +10,7 @@ namespace SalesArena.Cli.Commands;
 
 public static class BellCommand
 {
-    public const string AsciiBellRelativePath = "samples/sales-arena/assets/ascii/ascii-bell.txt";
+    public const string AsciiBellRelativePath = "examples/sales-arena/assets/ascii/ascii-bell.txt";
     public const string DingLine = "DING DING DING";
 
     public static Command Create()

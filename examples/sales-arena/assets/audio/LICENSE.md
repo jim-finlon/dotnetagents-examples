@@ -27,7 +27,7 @@ gesture is a public-domain musical figure with long-standing prior art.
 ## Regeneration
 
 ```bash
-dotnet run --project samples/sales-arena/assets/audio/_synth/AudioCueSynth
+dotnet run --project examples/sales-arena/assets/audio/_synth/AudioCueSynth
 ```
 
 The generator writes back into this folder; re-runs are bit-exact.

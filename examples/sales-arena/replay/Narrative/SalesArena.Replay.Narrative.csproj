@@ -8,7 +8,7 @@
   <ItemGroup>
     <!-- Copy the operator-editable prompt template next to the assembly so
          NarrativeRewriter.LoadDefaultPrompt() can find it at runtime. The
-         canonical source lives in samples/sales-arena/replay/templates/. -->
+         canonical source lives in examples/sales-arena/replay/templates/. -->
     <None Include="..\templates\narrative-rewriter.prompt.md" Link="templates\narrative-rewriter.prompt.md" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
