@@ -9,8 +9,8 @@ namespace SalesArena.Assets.AudioCueSynth;
 /// zero third-party dependencies. The output WAVs are CC0 by virtue of
 /// being entirely DNA-synthesized.
 ///
-/// <para>Run: <c>dotnet run --project samples/sales-arena/assets/audio/_synth/AudioCueSynth</c>.
-/// Output lands at <c>samples/sales-arena/assets/audio/{bell,drumroll,sad-trombone,cold-open}.wav</c>.
+/// <para>Run: <c>dotnet run --project examples/sales-arena/assets/audio/_synth/AudioCueSynth</c>.
+/// Output lands at <c>examples/sales-arena/assets/audio/{bell,drumroll,sad-trombone,cold-open}.wav</c>.
 /// Determinism: every sample is derived from a fixed-seed pseudo-RNG +
 /// closed-form math; runs are bit-exact.</para>
 /// </summary>

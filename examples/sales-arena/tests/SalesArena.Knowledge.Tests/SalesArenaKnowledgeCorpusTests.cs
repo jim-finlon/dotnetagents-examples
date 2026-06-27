@@ -93,14 +93,14 @@ public sealed class SalesArenaKnowledgeCorpusTests
         var current = new DirectoryInfo(AppContext.BaseDirectory);
         while (current is not null)
         {
-            var candidate = Path.Combine(current.FullName, "samples", "sales-arena", "knowledge");
+            var candidate = Path.Combine(current.FullName, "examples", "sales-arena", "knowledge");
             if (Directory.Exists(candidate))
                 return candidate;
 
             current = current.Parent;
         }
 
-        throw new DirectoryNotFoundException("Could not locate samples/sales-arena/knowledge from the test output directory.");
+        throw new DirectoryNotFoundException("Could not locate examples/sales-arena/knowledge from the test output directory.");
     }
 }
 

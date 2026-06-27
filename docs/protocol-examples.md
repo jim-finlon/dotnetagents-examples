@@ -62,5 +62,5 @@ examples intentionally stop at the protocol contract and local execution shape.
 - Keep sample endpoints localhost, in-process, or placeholder-only.
 - Do not include private LAN hosts, production URLs, or real tokens.
 - Use synthetic requests and transcripts.
-- Keep private laboratory, simulator, and Arena operating mechanics out of
-  public examples.
+- Keep proprietary evaluation and simulator operating mechanics out of public
+  examples.

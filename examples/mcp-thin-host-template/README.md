@@ -47,12 +47,8 @@ The preferred pattern is:
 
 ## Validation Against Existing Hosts
 
-This template was checked against two current DNA thin hosts:
-
-- `security-scanning-agent/src/SecurityScanningAgent.Api/Program.cs`
-- `infrastructure-control-agent/src/InfrastructureControl.Api/Program.cs`
-
-Both already follow the same shape: service registrations first, optional
+This template was checked against the compact sample host in `src/` and a
+larger enterprise host shape. Both follow the same shape: service registrations first, optional
 learning/genetic seams, `IMcpToolProvider` registration, `UseCursorMcpCors`,
 MCP endpoint mapping, streamable HTTP mapping, health/root endpoints, and
 service-specific tool providers.
@@ -60,8 +56,8 @@ service-specific tool providers.
 ## Security Notes
 
 - Do not put API keys or tokens in this sample.
-- Use config/env placeholders and resolve real secrets through CredentialsAgent
-  or service-owned secure configuration.
+- Use config/env placeholders and resolve real secrets through your deployment's
+  credential store or service-owned secure configuration.
 - Keep unauthenticated endpoints narrow: typically `/health`, `/`, and
   `/mcp/instructions`.
 - High-impact tools should implement preview/confirm semantics in the tool

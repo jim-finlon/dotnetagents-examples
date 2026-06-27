@@ -107,7 +107,7 @@ public sealed class LeaderboardEngineTests
     }
 
     [Fact]
-    public async Task AeqScoring_blends_revenue_winrate_and_speed()
+    public async Task CompositeScoring_blends_revenue_winrate_and_speed()
     {
         await using var ledger = NewLedger();
         // Pre-seed lead assignments so AvgTimeToClose can be computed.
@@ -121,7 +121,7 @@ public sealed class LeaderboardEngineTests
         await AppendClose(ledger, "levene", "L-101", 80_000m, "Won", T0.AddDays(7));
 
         var engine = new LeaderboardEngine(ledger);
-        var board = await engine.ComputeAsync(Contest, new AeqScoring(), AsOf);
+        var board = await engine.ComputeAsync(Contest, new CompositeScoring(), AsOf);
 
         // Roma's faster close + 100% win rate edges Levene's higher per-deal revenue.
         board.Entries[0].Persona.Should().Be("roma");
@@ -223,7 +223,7 @@ public sealed class LeaderboardEngineTests
             new RevenueScoring(),
             new DealCountScoring(),
             new ConversionScoring(),
-            new AeqScoring(),
+            new CompositeScoring(),
         };
         configs.Select(c => c.Id).Should().OnlyHaveUniqueItems();
         configs.Select(c => c.Name).Should().OnlyHaveUniqueItems();
@@ -232,21 +232,21 @@ public sealed class LeaderboardEngineTests
             ScoringConfigIds.ByRevenue,
             ScoringConfigIds.ByDealCount,
             ScoringConfigIds.ByConversion,
-            ScoringConfigIds.ByAeq,
+            ScoringConfigIds.ByComposite,
         });
     }
 
     [Fact]
-    public void AeqScoring_rejects_negative_weights()
+    public void CompositeScoring_rejects_negative_weights()
     {
-        var act = () => new AeqScoring(revenueWeight: -0.1, winRateWeight: 0.6, speedWeight: 0.5);
+        var act = () => new CompositeScoring(revenueWeight: -0.1, winRateWeight: 0.6, speedWeight: 0.5);
         act.Should().Throw<ArgumentException>();
     }
 
     [Fact]
-    public void AeqScoring_rejects_weights_that_dont_sum_to_one()
+    public void CompositeScoring_rejects_weights_that_dont_sum_to_one()
     {
-        var act = () => new AeqScoring(revenueWeight: 0.4, winRateWeight: 0.4, speedWeight: 0.4);
+        var act = () => new CompositeScoring(revenueWeight: 0.4, winRateWeight: 0.4, speedWeight: 0.4);
         act.Should().Throw<ArgumentException>();
     }
 

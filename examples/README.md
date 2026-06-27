@@ -26,7 +26,7 @@ Every example project in this portfolio supports two distinct modes:
 #### 1. Offline Smoke Mode (`--smoke`)
 Runs immediately without any external network connections, API keys, or model server dependencies. It executes local, deterministic checks to verify that the environment, build configuration, and envelope schemas are correctly set up.
 ```bash
-dotnet run --project samples/hello-agent-cs -- --smoke
+dotnet run --project examples/hello-agent-cs -- --smoke
 ```
 
 #### 2. Live Execution Mode
@@ -48,7 +48,7 @@ export OLLAMA_HOST="http://localhost:11434" # Defaults to http://localhost:11434
 
 Then, run the program specifying the command:
 ```bash
-dotnet run --project samples/hello-agent-cs -- hello "Alice"
+dotnet run --project examples/hello-agent-cs -- hello "Alice"
 ```
 
 ---

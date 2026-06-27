@@ -1,7 +1,7 @@
 # Contest Lifecycle + Rules Engine
 
 Story `6edc804e` (SA-02-05). Deterministic, in-process contest lifecycle for the
-Sales Arena ([SALES-ARENA-FLAGSHIP-PLAN.md §6.1 + §13](../../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md)).
+Sales Arena ([SALES-ARENA-FLAGSHIP-PLAN.md §6.1 + §13](../../../../examples/sales-arena/README.md)).
 
 ## State machine
 

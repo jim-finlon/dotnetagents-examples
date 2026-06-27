@@ -1,12 +1,12 @@
 # MeetingAudioSynth
 
 DNA-authored synthesizer for the SA-01-05 Meeting Agent integration test fixture.
-Produces a CC0 WAV file at `samples/sales-arena/agents/calendar/test-audio/meeting-demo.wav`.
+Produces a CC0 WAV file at `examples/sales-arena/agents/calendar/test-audio/meeting-demo.wav`.
 
 ## Regenerate
 
 ```bash
-dotnet run --project samples/sales-arena/agents/calendar/test-audio/_synth/MeetingAudioSynth
+dotnet run --project examples/sales-arena/agents/calendar/test-audio/_synth/MeetingAudioSynth
 ```
 
 The output is a deterministic sequence of four short sine tones (A4, C5, E5, G5)

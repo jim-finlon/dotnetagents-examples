@@ -16,7 +16,7 @@ class HelloAgentCard:
     purpose: str
     a2a_registration_route: str
     mcp_tools: list[str]
-    lesson_event_shape: str
+    learning_event_shape: str
 
 
 @dataclass(frozen=True)
@@ -28,8 +28,8 @@ class HelloResponse:
 
 
 @dataclass(frozen=True)
-class LessonEvent:
-    problem_signature: str
+class LearningEvent:
+    problem_key: str
     service: str
     step: str
     outcome: str
@@ -41,38 +41,38 @@ AGENT_CARD = HelloAgentCard(
     display_name="Hello DNA Agent Python",
     purpose=(
         "Offline engineering-distribution sample that maps one tiny tool to "
-        "A2A, MCP, and lesson-recording concepts."
+        "A2A, MCP, and learning-event concepts."
     ),
     a2a_registration_route="/.well-known/agent.json",
     mcp_tools=["hello", "card"],
-    lesson_event_shape="lesson.event.v1",
+    learning_event_shape="learning.event.v1",
 )
 
 
 def handle_hello(name: str) -> HelloResponse:
     return HelloResponse(
         message=(
-            f"Hello, {name}. This sample is intentionally offline: no Core 4, "
-            "Tyr, credentials, or live services required."
+            f"Hello, {name}. This sample is intentionally offline: no private "
+            "control plane, credentials, or live services required."
         ),
         mcp_tool_name="hello",
         a2a_intent="agent.sample.hello",
         next_step=(
             "Open README.md, change the greeting in "
-            "samples/hello_agent_py/run.py, then rerun --smoke."
+            "examples/hello_agent_py/run.py, then rerun --smoke."
         ),
     )
 
 
-def record_lesson(step: str, outcome: str) -> LessonEvent:
-    return LessonEvent(
-        problem_signature="sample:hello-agent-py:smoke",
+def record_learning_event(step: str, outcome: str) -> LearningEvent:
+    return LearningEvent(
+        problem_key="sample:hello-agent-py:smoke",
         service=AGENT_CARD.agent_id,
         step=step,
         outcome=outcome,
         summary=(
             "The Hello-agent Python sample smoke command validated the local "
-            "A2A/MCP/lesson shape without external dependencies."
+            "A2A/MCP/learning-event shape without external dependencies."
         ),
     )
 
@@ -102,7 +102,7 @@ def create_result_envelope(passed: bool) -> dict[str, Any]:
                 "agent card route present",
                 "mcp tool list includes hello",
                 "hello response contains requested name",
-                "lesson event includes stable problem signature",
+                "learning event includes stable problem key",
             ],
         },
         "selfReportedMetrics": {
@@ -114,14 +114,14 @@ def create_result_envelope(passed: bool) -> dict[str, Any]:
 def run_smoke() -> int:
     card = AGENT_CARD
     hello = handle_hello("David Carter")
-    lesson = record_lesson("hello-agent-py.smoke", "success")
+    learning = record_learning_event("hello-agent-py.smoke", "success")
 
     passed = (
         card.agent_id == "hello-agent-py"
         and card.a2a_registration_route == "/.well-known/agent.json"
         and "hello" in card.mcp_tools
         and "David Carter" in hello.message
-        and lesson.problem_signature == "sample:hello-agent-py:smoke"
+        and learning.problem_key == "sample:hello-agent-py:smoke"
     )
 
     write_json(
@@ -131,8 +131,8 @@ def run_smoke() -> int:
             "a2ARegistrationRoute": card.a2a_registration_route,
             "mcpTools": card.mcp_tools,
             "message": hello.message,
-            "problemSignature": lesson.problem_signature,
-            "outcome": lesson.outcome,
+            "problemKey": learning.problem_key,
+            "outcome": learning.outcome,
             "resultEnvelope": create_result_envelope(passed),
         }
     )
@@ -150,7 +150,7 @@ def agent_card_json() -> dict[str, Any]:
         "purpose": AGENT_CARD.purpose,
         "a2ARegistrationRoute": AGENT_CARD.a2a_registration_route,
         "mcpTools": AGENT_CARD.mcp_tools,
-        "lessonEventShape": AGENT_CARD.lesson_event_shape,
+        "learningEventShape": AGENT_CARD.learning_event_shape,
     }
 
 

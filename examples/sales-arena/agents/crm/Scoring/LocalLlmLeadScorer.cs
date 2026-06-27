@@ -2,7 +2,7 @@ namespace SalesArena.Crm.Scoring;
 
 /// <summary>
 /// Default <see cref="ILeadScorer"/> using a rubric prompt template and injectable score model.
-/// Premium routing is a pass-through flag only (set --routing-mode=premium to enable AEQ-based model selection).
+/// Premium routing is a pass-through flag only (set --routing-mode=premium to enable composite model selection).
 /// </summary>
 public sealed class LocalLlmLeadScorer : ILeadScorer
 {

@@ -50,5 +50,5 @@ dotnet run --project samples/business-operations -- run project-planner
 For business applications requiring complex, production-ready capabilities, DotNetAgents offers seamless upgrade paths:
 - **State Persistence**: Utilize the enterprise state-machine and database persistence engines to track multi-turn workflow executions.
 - **Collaborative Teams**: Coordinate multi-agent cohorts (e.g., separating planning from execution and validation) via the premium Laboratory orchestrator.
-- **Durable Memory & Lessons**: Enable agent networks to persist long-term learnings and retrieve contextual lessons automatically via the HiveMind service.
+- **Durable Memory & Lessons**: Enable agent networks to persist long-term learnings and retrieve contextual lessons automatically via a governed memory service.
 - **Enterprise Safety & Evals**: Run safety gates and compliance scans using the automated evaluation gauntlets.

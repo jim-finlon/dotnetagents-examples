@@ -57,7 +57,7 @@ environments without copy-to-output template dirs.
 
 ## See also
 
-- [Sales Arena Flagship Plan §6.3](../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md)
+- [Sales Arena Flagship Plan §6.3](../../../examples/sales-arena/README.md)
 - SA-04-02 — Trace-explorer drill-down (deal-by-deal OTEL spans)
 - SA-04-03 — `dna-arena CLI` that calls this engine
 - SA-04-04 — Narrative-mode LLM rewriter (turns the structured report into dramatic prose with cited events)

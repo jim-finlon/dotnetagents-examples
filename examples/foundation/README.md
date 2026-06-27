@@ -72,7 +72,7 @@ need real generation. Keep live mode optional and bounded.
 ## Public Boundary
 
 This pack uses only public open-core APIs and synthetic inputs. It does not
-describe private laboratory mechanics, premium evaluator internals, private
+describe proprietary evaluation mechanics, premium evaluator internals, private
 worker pools, credential custody, or production control-plane operations.
 
 Premium packages use these same public building blocks as the low-level

@@ -44,8 +44,8 @@ it can take down the canonical Roma.
 
 ## How to participate (when SA-07-05 workshop lands)
 
-1. Follow `docs/public/SALES-ARENA-WORKSHOP.md`
-2. Author a persona using `samples/sales-arena/personas/_template/`
+1. Follow `examples/sales-arena/README.md`
+2. Author a persona using `examples/sales-arena/personas/_template/`
 3. `dna-arena persona export` → `.salesman.zip`
 4. Drop into someone else's Arena Gallery, or open a PR with a community pack
 5. Run a head-to-head
@@ -65,5 +65,5 @@ Operators can author new seasons. The community can vote on which goes live.
 
 ## See also
 
-- [Sales Arena Flagship Plan](../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md) §SA-07
-- SA-07-01 through SA-07-07 in Mission Control
+- [Sales Arena Flagship Plan](../../../examples/sales-arena/README.md) §SA-07
+- SA-07-01 through SA-07-07 in the private enterprise roadmap

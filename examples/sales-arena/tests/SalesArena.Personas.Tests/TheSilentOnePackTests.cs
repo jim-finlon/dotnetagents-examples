@@ -8,7 +8,7 @@ namespace SalesArena.Personas.Tests;
 /// <summary>
 /// SA-06-05 fork-your-persona tutorial drift fixture. Loads the
 /// <c>the-silent-one</c> community pack — the worked example from
-/// <c>docs/public/SALES-ARENA-FORK-YOUR-PERSONA.md</c> — and asserts:
+/// <c>examples/sales-arena/README.md</c> — and asserts:
 /// (a) the pack ships every required file, (b) the bio meets the
 /// SA-07-06 300-word floor, (c) the pack round-trips through the
 /// SA-07-01 zip codec, (d) the system prompt is distinct from each of

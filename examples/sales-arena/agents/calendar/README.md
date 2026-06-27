@@ -1,7 +1,7 @@
 # Calendar Agent
 
 Story `68c6374d` (SA-01-04). Deterministic, conflict-aware meeting-time proposal
-engine + minimal RFC 5545 ICS reader for the Sales Arena ([SALES-ARENA-FLAGSHIP-PLAN.md §4.1](../../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md)).
+engine + minimal RFC 5545 ICS reader for the Sales Arena ([SALES-ARENA-FLAGSHIP-PLAN.md §4.1](../../../../examples/sales-arena/README.md)).
 
 ## Surface
 
@@ -17,7 +17,7 @@ engine + minimal RFC 5545 ICS reader for the Sales Arena ([SALES-ARENA-FLAGSHIP-
 
 ## Companion `Meeting/` subdir
 
-The earlier `samples/sales-arena/agents/calendar/Meeting/` slice (story
+The earlier `examples/sales-arena/agents/calendar/Meeting/` slice (story
 `ac7584aa`) ships the text-only pre-meeting brief assembler + post-meeting
 summarizer. This story adds the scheduling half of the Calendar Agent.
 

@@ -51,18 +51,17 @@ public sealed class ConversionScoring : IScoringConfig
 }
 
 /// <summary>
-/// Stub AEQ-style composite. Weighted blend of revenue + win-rate + speed.
-/// The deterministic public stub — premium customers can swap in a real AEQ
-/// router via <c>DotNetAgents.ModelRouting</c> (see premium-routes-tease
-/// docs).
+/// Deterministic composite score. Weighted blend of revenue, win-rate, and
+/// speed. Premium customers can swap in hosted model routing without changing
+/// the public leaderboard contract.
 /// </summary>
-public sealed class AeqScoring : IScoringConfig
+public sealed class CompositeScoring : IScoringConfig
 {
     public double RevenueWeight { get; }
     public double WinRateWeight { get; }
     public double SpeedWeight { get; }
 
-    public AeqScoring(double revenueWeight = 0.50, double winRateWeight = 0.30, double speedWeight = 0.20)
+    public CompositeScoring(double revenueWeight = 0.50, double winRateWeight = 0.30, double speedWeight = 0.20)
     {
         if (revenueWeight < 0 || winRateWeight < 0 || speedWeight < 0)
             throw new ArgumentException("Weights must be non-negative.");
@@ -73,8 +72,8 @@ public sealed class AeqScoring : IScoringConfig
         SpeedWeight = speedWeight;
     }
 
-    public string Id => ScoringConfigIds.ByAeq;
-    public string Name => "AEQ Composite";
+    public string Id => ScoringConfigIds.ByComposite;
+    public string Name => "Composite Score";
 
     public double ComputeScore(PersonaStats stats)
     {

@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "dna://sales-arena/lead-pack.v1",
   "title": "DNA Sales Arena Lead Pack v1",
-  "description": "Synthetic B2B prospect data for the DNA Sales Arena. All entries must be fictional — names, companies, domains, contact details. The Arena refuses to load packs that look like live PII unless the operator attests they followed docs/public/SALES-ARENA-REAL-DATA.md.",
+  "description": "Synthetic B2B prospect data for the DNA Sales Arena. All entries must be fictional — names, companies, domains, contact details. The Arena refuses to load packs that look like live PII unless the operator attests they followed examples/sales-arena/README.md.",
   "type": "object",
   "required": ["version", "name", "description", "synthetic", "leads"],
   "additionalProperties": false,

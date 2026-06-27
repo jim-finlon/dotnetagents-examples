@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # demo-mode.sh — boot the exact demo state for the 12-minute live-demo
-# walkthrough described in docs/public/SALES-ARENA-DEMO-SCRIPT.md.
+# walkthrough described in examples/sales-arena/README.md.
 #
 # Goals:
 #   1. One-command boot from a clean clone.
@@ -22,7 +22,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../../.." && pwd)"
-ARENA_DIR="$ROOT/samples/sales-arena"
+ARENA_DIR="$ROOT/examples/sales-arena"
 CACHE_DIR="$ARENA_DIR/cli/scripts/.demo-cache"
 LEAD_PACK="$ARENA_DIR/lead-packs/synthetic-200.json"
 CONTEST_NAME="demo-2026"
@@ -39,7 +39,7 @@ usage() {
 demo-mode.sh — boot the Sales Arena demo state for the 12-minute live take.
 
 Usage:
-  bash samples/sales-arena/cli/scripts/demo-mode.sh [options]
+  bash examples/sales-arena/cli/scripts/demo-mode.sh [options]
 
 Options:
   --use-cache    Force the contest to use cached LLM responses (recovery
@@ -79,7 +79,7 @@ banner() {
 require_cmd() {
   if ! command -v "$1" >/dev/null 2>&1; then
     echo "demo-mode: required command not found on PATH: $1" >&2
-    echo "demo-mode: build the Arena first (dotnet build samples/sales-arena/) and ensure dna-arena is on PATH." >&2
+    echo "demo-mode: build the Arena first (dotnet build examples/sales-arena/) and ensure dna-arena is on PATH." >&2
     exit 2
   fi
 }
@@ -157,4 +157,4 @@ echo
 echo "After the bell: dna-arena replay summary --contest $CONTEST_NAME"
 echo
 echo "If anything goes wrong on the take, see the Recovery Beats table"
-echo "in docs/public/SALES-ARENA-DEMO-SCRIPT.md."
+echo "in examples/sales-arena/README.md."

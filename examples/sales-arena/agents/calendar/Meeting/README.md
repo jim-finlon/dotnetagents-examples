@@ -1,7 +1,7 @@
 # Meeting Agent (text-only slice)
 
 Deterministic, offline Meeting Agent surface from the Sales Arena flagship plan
-([SALES-ARENA-FLAGSHIP-PLAN.md §4.2](../../../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md)).
+([SALES-ARENA-FLAGSHIP-PLAN.md §4.2](../../../../../examples/sales-arena/README.md)).
 
 This slice (story aa→`ac7584aa-77fb-4f1f-9b5e-ef33dbe7e344`) covers the text-only half of parent
 SA-01-05 (`5554a795`). The two heavy lifts in the parent — synthetic

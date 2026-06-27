@@ -1,7 +1,7 @@
 # Persona Pack — Workshop Notebook
 
 > Companion notebook for the
-> [Sales Arena Build-Your-Closer Workshop](../../../../docs/public/SALES-ARENA-WORKSHOP.md).
+> [Sales Arena Build-Your-Closer Workshop](../../../../examples/sales-arena/README.md).
 > Copy this file into your persona directory and check off the boxes as
 > you go.
 
@@ -29,7 +29,7 @@ file as the per-persona log you actually edit.
 - [ ] Picked 3 tags: _____ / _____ / _____
 - [ ] Wrote 3 no-go's: _____ / _____ / _____
 - [ ] Copied the template:
-      `cp -r samples/sales-arena/personas/_template samples/sales-arena/personas/<your-closer>`.
+      `cp -r examples/sales-arena/personas/_template examples/sales-arena/personas/<your-closer>`.
 - [ ] Edited `persona.yaml` with name, author, version, model_tier, tags.
 
 **Distinctness check.** Read the name and tags out loud. Could they
@@ -111,7 +111,7 @@ buyer's problem is specific.
 ## Block 7 — Validate + sign (5 min)
 
 ```bash
-dna-arena persona validate samples/sales-arena/personas/<your-closer>
+dna-arena persona validate examples/sales-arena/personas/<your-closer>
 dna-arena persona export --name <your-closer> --sign --out <your-closer>.salesman.zip
 ```
 
@@ -129,7 +129,7 @@ dna-arena persona export --name <your-closer> --sign --out <your-closer>.salesma
 ```bash
 dna-arena contest start \
   --personas roma,<your-closer> \
-  --lead-pack samples/sales-arena/lead-packs/synthetic-200.json \
+  --lead-pack examples/sales-arena/lead-packs/synthetic-200.json \
   --hours 1 --time-compression 60
 ```
 
@@ -194,9 +194,9 @@ When all six boxes are ticked, your closer is Gallery-ready. Bell.
 
 ## Related docs
 
-- [Workshop guide (SA-07-05)](../../../../docs/public/SALES-ARENA-WORKSHOP.md)
+- [Workshop guide (SA-07-05)](../../../../examples/sales-arena/README.md)
   — the long-form version of this notebook.
 - [Persona template README](README.md) — the 30-minute quickstart
   version.
-- [Sales Arena Flagship Plan §SA-07](../../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md)
+- [Sales Arena Flagship Plan §SA-07](../../../../examples/sales-arena/README.md)
   — the parent plan.

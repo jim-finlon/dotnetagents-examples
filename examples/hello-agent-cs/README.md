@@ -9,7 +9,7 @@ required.
 From the repository root:
 
 ```bash
-dotnet run --project samples/hello-agent-cs -- --smoke
+dotnet run --project examples/hello-agent-cs -- --smoke
 ```
 
 Expected result: JSON with `"status": "passed"` and a
@@ -18,8 +18,8 @@ Expected result: JSON with `"status": "passed"` and a
 Useful exploratory commands:
 
 ```bash
-dotnet run --project samples/hello-agent-cs -- card
-dotnet run --project samples/hello-agent-cs -- hello "DNA developer"
+dotnet run --project examples/hello-agent-cs -- card
+dotnet run --project examples/hello-agent-cs -- hello "DNA developer"
 ```
 
 ## What This Demonstrates
@@ -48,7 +48,7 @@ promotion gate, or hosted competition engine.
 Edit `Program.cs`, change the greeting text in `HandleHello`, and rerun:
 
 ```bash
-dotnet run --project samples/hello-agent-cs -- --smoke
+dotnet run --project examples/hello-agent-cs -- --smoke
 ```
 
 If the smoke still passes, the local edit loop is working.

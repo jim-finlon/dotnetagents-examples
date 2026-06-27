@@ -1,7 +1,7 @@
 namespace SalesArena.OutreachTemplates;
 
 /// <summary>
-/// Loads SA-05-05 outreach templates from <c>samples/sales-arena/personas</c>.
+/// Loads SA-05-05 outreach templates from <c>examples/sales-arena/personas</c>.
 /// Consumed by SA-01-07 A/B promotion harness.
 /// </summary>
 public interface IOutreachTemplateLoader

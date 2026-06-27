@@ -3,7 +3,7 @@
 This is the Python sibling of the engineering distribution pack's first-run
 sample. The primary DotNetAgents 10 example remains
 [`../hello-agent-cs`](../hello-agent-cs); this sample is a cross-language shape
-check for the same A2A, MCP, lesson-event, and result-envelope concepts. It is
+check for the same A2A, MCP, learning-event, and result-envelope concepts. It is
 deliberately offline: no Tyr, Core 4, live credentials, or deployment target is
 required.
 

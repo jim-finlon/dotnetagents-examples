@@ -7,9 +7,11 @@ on:
     branches: [ main ]
 
 jobs:
-  inventory:
+  public-readiness:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Inventory examples
-        run: find examples -maxdepth 2 -type f | sort
+      - name: Install scan tools
+        run: sudo apt-get update && sudo apt-get install -y jq ripgrep
+      - name: Public content scan
+        run: bash scripts/verify-example-quality.sh --skip-build --skip-smoke --scan-scope all

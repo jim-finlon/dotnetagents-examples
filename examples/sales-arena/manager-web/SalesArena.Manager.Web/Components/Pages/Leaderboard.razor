@@ -5,7 +5,7 @@
 
 <PageTitle>Leaderboard — Sales Arena</PageTitle>
 
-<PageHeader Title="Leaderboard" SubTitle="Live ranking by revenue, deals, conversion, or AEQ." />
+<PageHeader Title="Leaderboard" SubTitle="Live ranking by revenue, deals, conversion, or composite score." />
 
 <div class="leaderboard-toolbar" data-testid="leaderboard-toolbar">
     <label class="leaderboard-control">
@@ -61,7 +61,7 @@
                         <th scope="col" class="text-end">Revenue</th>
                         <th scope="col" class="text-end">Deals</th>
                         <th scope="col" class="text-end">Conversion</th>
-                        <th scope="col" class="text-end">AEQ</th>
+                        <th scope="col" class="text-end">Composite</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,7 +84,7 @@
                             <td class="text-end">@row.RevenueUsd.ToString("C0")</td>
                             <td class="text-end">@row.DealsWon</td>
                             <td class="text-end">@row.WinRate.ToString("P0")</td>
-                            <td class="text-end">@FormatAeq(row)</td>
+                            <td class="text-end">@FormatComposite(row)</td>
                         </tr>
                     }
                 </tbody>
@@ -102,7 +102,7 @@
         new RevenueScoring(),
         new DealCountScoring(),
         new ConversionScoring(),
-        new AeqScoring(),
+        new CompositeScoring(),
     ];
 
     private readonly Dictionary<string, LeaderboardRow> _previousRows = new(StringComparer.Ordinal);
@@ -241,11 +241,11 @@
         string.Join(" ", persona.Split('-', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
             .Select(static part => char.ToUpperInvariant(part[0]) + part[1..]));
 
-    private static string FormatAeq(LeaderboardRow row)
+    private static string FormatComposite(LeaderboardRow row)
     {
         var revenueScore = Math.Min((double)row.RevenueUsd / 100_000.0, 1.0);
-        var aeq = (revenueScore * 0.5) + (row.WinRate * 0.3) + (row.DealsWon > 0 ? 0.2 : 0);
-        return aeq.ToString("0.00");
+        var composite = (revenueScore * 0.5) + (row.WinRate * 0.3) + (row.DealsWon > 0 ? 0.2 : 0);
+        return composite.ToString("0.00");
     }
 
     public void Dispose()

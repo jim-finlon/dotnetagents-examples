@@ -26,9 +26,8 @@ Options:
   -h, --help            Show this help.
 
 Notes:
-  Use --scan-path for newly added examples while the legacy examples tree still
-  contains known public-content audit findings. The full --scan-scope all mode is
-  intentionally strict and may fail until those legacy findings are cleaned.
+  Use --scan-path for newly added examples when you want a narrower edit-time
+  check. Release candidates should use --scan-scope all.
 USAGE
 }
 
@@ -169,8 +168,9 @@ elif rg -n -i \
   --glob '!scripts/verify-example-quality.sh' \
   -e 'good\s*rx|goodrx' \
   -e 'mission_control|SdlcAgent|review cadre|AEQ|autonomous lane|closeout policy|process incident bundle|cadre verdict' \
-  -e 'LearningLab|aeq_run_benchmark|experiment_evolution|variant promotion|cohort comparison|genetic algorithm|experiment lab' \
-  -e 'forge\.dna\.lan|tyr:5070|mimir|loki|helios|:5001|:5070|:5075|:5106|192\.168\.' \
+  -e 'LearningLab|aeq_run_benchmark|experiment_evolution|variant promotion|genetic algorithm|experiment lab|private laboratory|private lab|hosted simulator controls|internal evaluation scoring|private optimizer mechanics' \
+  -e 'forge\.dna\.lan|https?://(tyr|mimir|loki|helios)(:[0-9]{2,5})?|\\b(tyr|mimir|loki|helios):[0-9]{2,5}\\b|:5001|:5075|:5106|192\.168\.' \
+  -e 'internal post-?mortem|process incident|incident id|incident-([0-9a-f]{6,}|[A-Z]{2,}-?[0-9]+)\\b|internal Slack|Slack incident|internal email' \
   -e 'claim_story_for_execution|select_next_story|record_story_closeout' \
   -e 'CREDENTIALS_ADMIN_API_KEY|SESSION_PERSISTENCE_API_KEY' \
   -e '-----BEGIN (RSA |EC |OPENSSH |PGP )?PRIVATE KEY-----|sk-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}' \

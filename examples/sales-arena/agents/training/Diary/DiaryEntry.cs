@@ -2,7 +2,7 @@ namespace SalesArena.Training.Diary;
 
 /// <summary>
 /// One end-of-day journal entry by one persona. Persisted as Markdown under
-/// <c>samples/sales-arena/diary/&lt;contestId&gt;/&lt;persona&gt;/&lt;day&gt;.md</c>
+/// <c>examples/sales-arena/diary/&lt;contestId&gt;/&lt;persona&gt;/&lt;day&gt;.md</c>
 /// (the file-system store does the actual write).
 /// </summary>
 /// <param name="ContestId">The contest this entry belongs to.</param>

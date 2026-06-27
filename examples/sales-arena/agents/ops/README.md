@@ -1,7 +1,7 @@
 # Sales-Pod Ops Agent
 
 Thin, deterministic implementation of the **Sales-Pod Ops Agent** from the Sales
-Arena flagship plan ([SALES-ARENA-FLAGSHIP-PLAN.md §5](../../../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md)).
+Arena flagship plan ([SALES-ARENA-FLAGSHIP-PLAN.md §5](../../../../examples/sales-arena/README.md)).
 Role: contest setup and the per-rep daily queue.
 
 ## Surface

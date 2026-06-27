@@ -21,4 +21,4 @@ dotnet run --project public/dotnetagents-examples/examples/customer-support -- r
 ## Public / Private Boundary
 
 - **Public**: Basic open-core C# `DotNetAgents` abstractions for ticket categorization, routing, KB lookups, and serialization.
-- **Private**: Automated live routing to the SdlcAgent operations desk, agent token metrics logging, and enterprise CRM credentials (held in CredentialsAgent).
+- **Private**: Automated live routing to an enterprise operations desk, agent token metrics logging, and enterprise CRM credential custody.

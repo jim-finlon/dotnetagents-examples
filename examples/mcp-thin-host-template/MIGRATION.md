@@ -57,8 +57,7 @@ Start with the smallest safe diff:
 
 ## Existing Host Reality Check
 
-`security-scanning-agent/src/SecurityScanningAgent.Api/Program.cs` already proves
-the pattern can support:
+The sample host in `src/` shows the pattern can support:
 
 - API-key middleware with public health/instructions exceptions.
 - `AddAgentLearningProjection(...)`.
@@ -70,8 +69,7 @@ the pattern can support:
 - A large service-specific `SecurityScanningMcpToolProvider` with preview,
   confirmation, redaction, and allowlist rules.
 
-`infrastructure-control-agent/src/InfrastructureControl.Api/Program.cs` already
-proves the same pattern can support:
+An enterprise host can use the same pattern to support:
 
 - Larger service dependency graphs.
 - SignalR/dashboard endpoints alongside MCP.

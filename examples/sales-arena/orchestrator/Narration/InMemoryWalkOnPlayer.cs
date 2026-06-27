@@ -61,7 +61,7 @@ public sealed class InMemoryWalkOnPlayer : IWalkOnPlayer
 
     /// <summary>
     /// Default per-persona file mapping pointing at the six SA-08-10
-    /// walk-ons shipped under <c>samples/sales-arena/assets/audio/walk-ons/</c>.
+    /// walk-ons shipped under <c>examples/sales-arena/assets/audio/walk-ons/</c>.
     /// Callers can override individual entries via <see cref="RegisterWalkOn"/>.
     /// </summary>
     public static IReadOnlyDictionary<string, string> DefaultMap(string walkOnsBaseDir) =>

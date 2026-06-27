@@ -22,7 +22,7 @@
 - Discount-approval kickups from Williamson — short policy-citing
   response.
 - Executive-perspective objection responses in the knowledge pack
-  (see `samples/sales-arena/knowledge/objections/*.md`).
+  (see `examples/sales-arena/knowledge/objections/*.md`).
 
 ## When NOT to invoke Mitch & Murray
 

@@ -3,7 +3,7 @@
 Story `d900dfc6` (SA-01-08e). Deterministic, offline keyword-retrieval agent over
 the Sales Arena knowledge corpus.
 
-The on-disk corpus lives at [`samples/sales-arena/knowledge/`](../../knowledge/)
+The on-disk corpus lives at [`examples/sales-arena/knowledge/`](../../knowledge/)
 (40+ Markdown files: persona objection scripts, lead-pack briefs, pricing card,
 templates). This slice ships an in-memory inverted-index retrieval layer over
 that corpus.

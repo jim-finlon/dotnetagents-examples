@@ -66,7 +66,7 @@ dotnet run --project samples/writing-publishing -- run writing-assistant
 
 While this sample utilizes the public open-core libraries to demonstrate basic text generation workflows, upgrading to the enterprise platform unlocks advanced production features:
 
-- **Brand-Voice Fine-Tuning**: Integration with HiveMind pattern memory to enforce company-specific terminology, style guidelines, and tone-of-voice profiles automatically.
+- **Brand-Voice Fine-Tuning**: Integration with governed pattern memory to enforce company-specific terminology, style guidelines, and tone-of-voice profiles automatically.
 - **Multimodal Asset Creation**: Support for automated media generation (e.g. cover art, infographics) integrated into the content plan.
 - **Autonomous Channel Publishing**: Direct integration with social channel APIs (LinkedIn, Twitter, Mastodon) and CMS tools (WordPress, Ghost) with built-in human-in-the-loop review approvals.
 - **Scheduled Continuity**: Cron-based triggers and state-persistence to allow background agents to coordinate and publish content without user interaction.

@@ -319,7 +319,7 @@ public sealed class MockDatabaseQueryExecutor : IDatabaseQueryExecutor
         {
             return Task.FromResult<IReadOnlyList<string>>(new List<string> { "Count: 3" });
         }
-        return Task.FromResult<IReadOnlyList<string>>(new List<string> { "Agent: 1 | Name: loki-codex | Status: active" });
+        return Task.FromResult<IReadOnlyList<string>>(new List<string> { "Agent: 1 | Name: public-demo-agent | Status: active" });
     }
 }
 

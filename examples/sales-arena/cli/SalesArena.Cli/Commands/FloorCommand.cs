@@ -10,7 +10,7 @@ namespace SalesArena.Cli.Commands;
 
 public static class FloorCommand
 {
-    public const string AsciiFrameRelativePath = "samples/sales-arena/assets/ascii/ascii-floor.txt";
+    public const string AsciiFrameRelativePath = "examples/sales-arena/assets/ascii/ascii-floor.txt";
 
     public static Command Create()
     {
@@ -51,7 +51,7 @@ public static class FloorCommand
     }
 
     /// <summary>Pure handler used by the xUnit tests. Locates the ASCII frame
-    /// alongside the repository's <c>samples/sales-arena/assets/</c> tree and
+    /// alongside the repository's <c>examples/sales-arena/assets/</c> tree and
     /// prints it to <paramref name="stdout"/>. Returns 0 on success, 3 on
     /// missing-asset, 2 on usage error.</summary>
     public static int Handle(string? contest, bool asciiOnly, TextWriter stdout, TextWriter stderr)

@@ -4,7 +4,7 @@
 
 A competitive multi-agent sales floor. 4–6 AI sales-rep personas work the same lead pool. Live leaderboard, voice narration, replay engine, "Glengarry premium leads" that drip to the top performer. Built entirely on `staging/public-dotnetagents/` packages — no premium-factory disclosure.
 
-This directory is **runnable as a public-safe game-style teaser**. It allows running a deterministic offline smoke simulation that demonstrates competitive agent comparison, ledger events, ASCII leaderboard updates, and replay generation. The full production implementation lives in epics SA-01 through SA-07 (Mission Control). See [`docs/public/SALES-ARENA-FLAGSHIP-PLAN.md`](../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md) for the strategy and full story breakdown.
+This directory is **runnable as a public-safe game-style teaser**. It allows running a deterministic offline smoke simulation that demonstrates competitive agent comparison, ledger events, ASCII leaderboard updates, and replay generation. The remaining production roadmap lives in the private enterprise backlog.
 
 ## Public Arena Teaser (Smoke Mode)
 
@@ -18,7 +18,7 @@ This runs a deterministic local simulation between Roma, Levene, and Moss, verif
 
 ## Open-Core Boundary Note
 
-This teaser does not expose private scoring internals, live prompt strategies, premium datasets, genetic/evolution optimizer mechanics, or hosted simulator control plane operations. Those capabilities reside exclusively in the premium enterprise layers.
+This teaser does not expose private scoring internals, live prompt strategies, premium datasets, optimizer mechanics, or hosted simulator control plane operations. Those capabilities reside exclusively in the premium enterprise layers.
 
 
 ## What goes where
@@ -54,14 +54,14 @@ This teaser does not expose private scoring internals, live prompt strategies, p
 ## 5-minute walking tour
 
 Full step-by-step + "what you'll see" milestones + troubleshooting:
-[`docs/public/SALES-ARENA-QUICKSTART.md`](../../docs/public/SALES-ARENA-QUICKSTART.md).
+[`examples/sales-arena/README.md`](../../examples/sales-arena/README.md).
 
 ```bash
 # 1. Build the Arena.
-dotnet build samples/sales-arena/
+dotnet build examples/sales-arena/
 
 # 2. Seed a contest workspace from the synthetic 200-lead pack.
-dna-arena init --leads samples/sales-arena/lead-packs/synthetic-200.json
+dna-arena init --leads examples/sales-arena/lead-packs/synthetic-200.json
 
 # 3. Run a one-hour speed contest (about a minute of wall clock at
 #    --time-compression 60).
@@ -81,19 +81,19 @@ dna-arena replay summary --contest tuesday-steak-knives
 
 Everything runs in **demo mode** by default — synthetic leads,
 in-memory ledger, no real outbound. To swap in real customer data,
-read [`docs/public/SALES-ARENA-REAL-DATA.md`](../../docs/public/SALES-ARENA-REAL-DATA.md)
+read [`examples/sales-arena/README.md`](../../examples/sales-arena/README.md)
 first; that guide is loud about preconditions for a reason.
 
 For authoring custom personas, see
-[`docs/public/SALES-ARENA-FORK-YOUR-PERSONA.md`](../../docs/public/SALES-ARENA-FORK-YOUR-PERSONA.md)
+[`examples/sales-arena/README.md`](../../examples/sales-arena/README.md)
 (30-minute tutorial) or
-[`docs/public/SALES-ARENA-WORKSHOP.md`](../../docs/public/SALES-ARENA-WORKSHOP.md)
+[`examples/sales-arena/README.md`](../../examples/sales-arena/README.md)
 (60-minute workshop). Open-core boundary + what Premium adds:
-[`docs/public/SALES-ARENA-PREMIUM-ROUTES.md`](../../docs/public/SALES-ARENA-PREMIUM-ROUTES.md).
+[`examples/sales-arena/README.md`](../../examples/sales-arena/README.md).
 
 ## Build status
 
-The public teaser is fully implemented. The 45 production SDLC stories that fill out the remaining live/simulator features live in Mission Control:
+The public teaser is fully implemented. The production backlog that fills out the remaining live/simulator features stays private:
 
 - **Epic SA-01** Agent foundation (8 stories) — CRM, Calendar, Comms, supporting cast
 - **Epic SA-02** Orchestrator + ledger + leaderboard + theatre (7 stories)
@@ -103,13 +103,11 @@ The public teaser is fully implemented. The 45 production SDLC stories that fill
 - **Epic SA-06** Demo polish + docs + launch (8 stories)
 - **Epic SA-07** Arena Scenarios: bring-your-own-salesman (7 stories)
 
-Stories are AI-ready (score 100) and autonomous-lane friendly. Pick them up via the `select_next_story` flow.
+Public consumers can treat this package as the runnable baseline; enterprise roadmap items are handled through the private delivery process.
 
 ## The plan
 
-Full strategy + theatre + persona designs + build sequencing live at:
-
-[`docs/public/SALES-ARENA-FLAGSHIP-PLAN.md`](../../docs/public/SALES-ARENA-FLAGSHIP-PLAN.md)
+Use this README as the public entry point for strategy, theatre, persona design, and build sequencing.
 
 ---
 
