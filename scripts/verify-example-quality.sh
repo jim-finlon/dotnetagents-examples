@@ -165,7 +165,7 @@ done
 if [[ "${#filtered_scan_targets[@]}" -eq 0 ]]; then
   echo "public content scan ok (scanner implementation excluded)"
 elif rg -n -i \
-  --glob '!scripts/verify-example-quality.sh' \
+  --glob '!**/scripts/verify-example-quality.sh' \
   -e 'good\s*rx|goodrx' \
   -e 'mission_control|SdlcAgent|review cadre|AEQ|autonomous lane|closeout policy|process incident bundle|cadre verdict' \
   -e 'LearningLab|aeq_run_benchmark|experiment_evolution|variant promotion|genetic algorithm|experiment lab|private laboratory|private lab|hosted simulator controls|internal evaluation scoring|private optimizer mechanics' \
