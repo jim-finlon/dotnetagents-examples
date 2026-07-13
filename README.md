@@ -44,7 +44,17 @@ game-style teaser. See the roadmap for story ids and delivery order.
 
 ## Documentation
 
-The `/docs` tree explains how to use and adapt the examples:
+The `/docs` tree is the public technical docs source for
+`docs.dotnetagents.com`. Announcement copy for www lives under `site/www/`.
+
+Start here:
+
+- [Getting Started](docs/getting-started.md)
+- [Architecture Overview](docs/architecture-overview.md)
+- [API / Package Index](docs/api-index.md)
+- [Release Announcement](site/www/release-announcement.md)
+
+Example guides:
 
 - [Example Systems Showcase Roadmap](docs/roadmap/example-systems-showcase.md)
 - [Example Catalog](docs/example-catalog.md)
